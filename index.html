@@ -1,0 +1,1378 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Shiqi Yang — Multimodal Generation & Domain Adaptation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description"
+        content="Personal homepage of Shiqi Yang — multimodal generation, audio-visual generation, domain adaptation, and transfer learning." />
+    <style>
+        :root {
+            --bg: #0b1020;
+            --bg-alt: #12182a;
+            --card: #151b30;
+            --accent: #66e0ff;
+            --accent-soft: rgba(102, 224, 255, 0.12);
+            --text: #f5f7ff;
+            --muted: #a9b0d3;
+            --border: #262f4a;
+            --shadow-soft: 0 18px 45px rgba(0, 0, 0, 0.45);
+            --radius-lg: 18px;
+            --radius-xl: 24px;
+            --radius-pill: 999px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+                "Segoe UI", sans-serif;
+            background: radial-gradient(circle at top, #1b2340 0, #050814 55%, #02030a 100%);
+            color: var(--text);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .page {
+            max-width: 1120px;
+            margin: 0 auto;
+            padding: 24px 16px 64px;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 20;
+            backdrop-filter: blur(14px);
+            background: linear-gradient(to bottom,
+                    rgba(5, 8, 20, 0.9),
+                    rgba(5, 8, 20, 0.4),
+                    transparent);
+            border-bottom: 1px solid rgba(102, 224, 255, 0.1);
+            margin-bottom: 24px;
+        }
+
+        .nav-inner {
+            max-width: 1120px;
+            margin: 0 auto;
+            padding: 10px 16px 8px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-badge {
+            width: 32px;
+            height: 32px;
+            border-radius: 14px;
+            background: radial-gradient(circle at 30% 0, #b2f1ff 0, #3cb1ff 38%, #2434ff 100%);
+            box-shadow: 0 0 22px rgba(102, 224, 255, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 16px;
+            color: #020308;
+        }
+
+        .logo-text-main {
+            font-weight: 600;
+            letter-spacing: 0.03em;
+            font-size: 15px;
+        }
+
+        .logo-text-sub {
+            font-size: 11px;
+            color: var(--muted);
+        }
+
+        nav ul {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            list-style: none;
+            font-size: 13px;
+        }
+
+        nav a {
+            padding: 6px 10px;
+            border-radius: 999px;
+            border: 1px solid transparent;
+            color: var(--muted);
+            text-decoration: none;
+            transition: all 0.17s ease-out;
+        }
+
+        nav a:hover {
+            border-color: rgba(102, 224, 255, 0.7);
+            color: var(--accent);
+            background: rgba(10, 23, 46, 0.9);
+        }
+
+        main {
+            display: grid;
+            grid-template-columns: 1.1fr 0.85fr;
+            gap: 24px;
+        }
+
+        @media (max-width: 880px) {
+            main {
+                grid-template-columns: 1fr;
+            }
+
+            header {
+                position: static;
+            }
+        }
+
+        /* Hero / Left column */
+        .hero-card {
+            background: radial-gradient(circle at top left, #273469 0, #121628 42%, #070916 100%);
+            border-radius: 32px;
+            padding: 26px 24px 22px;
+            border: 1px solid rgba(102, 224, 255, 0.18);
+            box-shadow: var(--shadow-soft);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 18px;
+            align-items: center;
+        }
+
+        @media (max-width: 720px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+                align-items: flex-start;
+            }
+        }
+
+        .avatar {
+            width: 108px;
+            height: 108px;
+            border-radius: 36px;
+            background: radial-gradient(circle at 30% 0, #fdfdfd 0, #c2e7ff 32%, #627cff 100%);
+            border: 3px solid rgba(255, 255, 255, 0.25);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 18px 40px rgba(0, 0, 0, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 32px;
+            color: #050816;
+        }
+
+        .avatar::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 25% 0,
+                    rgba(255, 255, 255, 0.5) 0,
+                    transparent 55%);
+            pointer-events: none;
+        }
+
+        .hero-name {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .hero-name h1 {
+            font-size: 27px;
+            letter-spacing: 0.03em;
+        }
+
+        .hero-name .name-alt {
+            font-size: 14px;
+            color: var(--muted);
+        }
+
+        .hero-title {
+            margin-top: 6px;
+            font-size: 14px;
+            color: var(--muted);
+        }
+
+        .hero-tags {
+            margin-top: 8px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            font-size: 11px;
+        }
+
+        .hero-tag {
+            border-radius: var(--radius-pill);
+            border: 1px solid rgba(102, 224, 255, 0.5);
+            padding: 3px 9px;
+            background: rgba(10, 22, 44, 0.95);
+            color: var(--accent);
+        }
+
+        .contact-row {
+            margin-top: 14px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            font-size: 13px;
+            color: var(--muted);
+        }
+
+        .contact-pill {
+            padding: 5px 10px;
+            border-radius: 999px;
+            border: 1px solid rgba(169, 176, 211, 0.3);
+            background: rgba(6, 11, 26, 0.85);
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .contact-pill span.label {
+            opacity: 0.7;
+        }
+
+        .hero-actions {
+            margin-top: 14px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            font-size: 13px;
+        }
+
+        .btn-primary,
+        .btn-soft {
+            padding: 7px 14px;
+            border-radius: var(--radius-pill);
+            border: 1px solid transparent;
+            font-size: 13px;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            transition: all 0.17s ease-out;
+            white-space: nowrap;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #3bc6ff, #7cf5ff);
+            color: #020308;
+            font-weight: 600;
+            box-shadow: 0 14px 30px rgba(50, 200, 255, 0.5);
+        }
+
+        .btn-primary:hover {
+            box-shadow: 0 18px 40px rgba(50, 200, 255, 0.75);
+            transform: translateY(-1px);
+        }
+
+        .btn-soft {
+            background: rgba(13, 21, 40, 0.9);
+            border-color: rgba(102, 224, 255, 0.4);
+            color: var(--accent);
+        }
+
+        .btn-soft:hover {
+            background: rgba(18, 28, 52, 0.95);
+        }
+
+        .about-body {
+            margin-top: 18px;
+            font-size: 14px;
+            color: var(--muted);
+        }
+
+        .about-body p+p {
+            margin-top: 8px;
+        }
+
+        .about-list {
+            margin-top: 10px;
+            padding-left: 16px;
+            font-size: 14px;
+            color: var(--muted);
+        }
+
+        .about-list li+li {
+            margin-top: 4px;
+        }
+
+        .hero-glow {
+            position: absolute;
+            inset: -40%;
+            background:
+                radial-gradient(circle at 12% 0, rgba(153, 255, 255, 0.15) 0, transparent 55%),
+                radial-gradient(circle at 80% 0, rgba(151, 132, 255, 0.12) 0, transparent 60%),
+                radial-gradient(circle at 50% 100%, rgba(255, 158, 94, 0.1) 0, transparent 60%);
+            opacity: 0.4;
+            pointer-events: none;
+            mix-blend-mode: screen;
+            z-index: -1;
+        }
+
+        /* Right column (News / Experience / etc.) */
+        .side-column {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+
+        .card {
+            background: rgba(10, 14, 30, 0.98);
+            border-radius: var(--radius-lg);
+            border: 1px solid rgba(34, 45, 85, 0.9);
+            padding: 14px 15px 12px;
+            box-shadow: 0 14px 32px rgba(0, 0, 0, 0.55);
+        }
+
+        .card h2 {
+            font-size: 15px;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            color: var(--muted);
+            margin-bottom: 6px;
+        }
+
+        .news-list,
+        .exp-list,
+        .talks-list,
+        .service-list,
+        .edu-list {
+            list-style: none;
+            font-size: 13px;
+            color: var(--muted);
+        }
+
+        .news-list li+li,
+        .exp-list li+li,
+        .talks-list li+li,
+        .service-list li+li,
+        .edu-list li+li {
+            margin-top: 6px;
+        }
+
+        .news-date {
+            font-weight: 600;
+            color: var(--accent);
+            margin-right: 6px;
+            white-space: nowrap;
+        }
+
+        .exp-date {
+            font-weight: 500;
+            color: var(--accent);
+        }
+
+        .pill-subtitle {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--muted);
+            margin-bottom: 4px;
+        }
+
+        /* Publications section */
+        .section {
+            margin-top: 28px;
+            padding: 18px 18px 16px;
+            border-radius: var(--radius-xl);
+            background: radial-gradient(circle at top left, #161c38 0, #080b18 55%, #05060f 100%);
+            border: 1px solid rgba(102, 224, 255, 0.18);
+            box-shadow: var(--shadow-soft);
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 12px;
+            margin-bottom: 10px;
+        }
+
+        .section-title {
+            font-size: 18px;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            color: #f5f7ff;
+        }
+
+        .section-subtitle {
+            font-size: 12px;
+            color: var(--muted);
+        }
+
+        .pub-group {
+            margin-top: 10px;
+        }
+
+        .pub-group h3 {
+            font-size: 15px;
+            margin-bottom: 4px;
+            color: #e2e6ff;
+        }
+
+        .pub-list {
+            list-style: none;
+            font-size: 13px;
+            color: var(--muted);
+            border-left: 1px solid rgba(61, 72, 120, 0.8);
+            padding-left: 10px;
+            margin-left: 3px;
+        }
+
+        .pub-item {
+            margin-bottom: 10px;
+            padding-left: 4px;
+        }
+
+        .pub-title {
+            color: #f5f7ff;
+            font-weight: 500;
+        }
+
+        .pub-authors {
+            display: block;
+            margin-top: 2px;
+        }
+
+        .pub-venue {
+            display: block;
+            margin-top: 2px;
+            color: var(--muted);
+        }
+
+        .pub-links {
+            display: block;
+            margin-top: 2px;
+            font-size: 12px;
+            color: var(--accent);
+            opacity: 0.9;
+        }
+
+        .pub-links span {
+            margin-right: 8px;
+        }
+
+        /* Footer / Contact */
+        footer {
+            margin-top: 26px;
+            padding-top: 12px;
+            border-top: 1px solid rgba(40, 49, 92, 0.9);
+            font-size: 12px;
+            color: var(--muted);
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            text-decoration: none;
+            color: var(--muted);
+        }
+
+        .footer-links a:hover {
+            color: var(--accent);
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="nav-inner">
+            <div class="logo">
+                <div class="logo-badge">SY</div>
+                <div>
+                    <div class="logo-text-main">Shiqi&nbsp;Yang</div>
+                    <div class="logo-text-sub">Multimodal Generation & Domain Adaptation</div>
+                </div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#news">News</a></li>
+                    <li><a href="#publications">Publications</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#talks">Talks & Awards</a></li>
+                    <li><a href="#service">Service</a></li>
+                    <li><a href="#education">Education</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="page">
+        <main>
+            <!-- Left column: hero / about / publications -->
+            <div>
+                <section id="about" class="hero-card">
+                    <div class="hero-glow"></div>
+                    <div class="hero-grid">
+                        <div class="avatar" aria-hidden="true">
+                            SY
+                        </div>
+                        <div>
+                            <div class="hero-name">
+                                <h1>Shiqi Yang</h1>
+                                <div class="name-alt">杨 诗琪 &nbsp; · &nbsp; Ph.D.</div>
+                            </div>
+                            <div class="hero-title">
+                                Team leader / Researcher, SB Intuitions (SoftBank), Tokyo, Japan<br />
+                                Visiting Researcher, Nankai University, China
+                            </div>
+                            <div class="hero-tags">
+                                <span class="hero-tag">#Multi-Modal&nbsp;Learning</span>
+                                <span class="hero-tag">#Transfer&nbsp;Learning</span>
+                            </div>
+                            <div class="contact-row">
+                                <div class="contact-pill">
+                                    <span class="label">Email</span>
+                                    <a href="mailto:shiqi.yang147.jp@gmail.com">shiqi.yang147.jp@gmail.com</a>
+                                </div>
+                                <div class="contact-pill">
+                                    <span class="label">Location</span>
+                                    <span>Tokyo, Japan</span>
+                                </div>
+                            </div>
+                            <div class="hero-actions">
+                                <a class="btn-primary"
+                                    href="https://drive.google.com/file/d/1nO-_tlweCqqPlWzWxrjZ9HepS4VUnguo/view?usp=sharing"
+                                    target="_blank" rel="noopener noreferrer">
+                                    View CV (updated Nov. 2025)
+                                </a>
+                                <a class="btn-soft" href="https://open.talentio.com/r/1/c/sb_intuitions/pages/87142"
+                                    target="_blank" rel="noopener noreferrer">
+                                    Hiring researchers & engineers (video generation)
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="about-body">
+                        <p>
+                            From 2024.12, I am a researcher and team leader of the Creative Vision team at
+                            <a href="https://www.sbintuitions.co.jp" target="_blank" rel="noopener noreferrer">
+                                SB Intuitions
+                            </a>
+                            in Tokyo, and I am also affiliated with SoftBank Corp.
+                            From 2023.10 to 2024.11, I worked as an audio-visual research scientist in
+                            Sony Group Corporation, Tokyo.
+                            Before that, I was a Ph.D. student in the
+                            <a href="https://lamp.cvc.uab.es" target="_blank" rel="noopener noreferrer">
+                                Learning and Machine Perception (LAMP) team
+                            </a>
+                            (2019.10&nbsp;–&nbsp;2023.7), advised by
+                            <a href="https://scholar.google.com/citations?user=jHus3s8AAAAJ" target="_blank"
+                                rel="noopener noreferrer">
+                                Joost van de Weijer
+                            </a>
+                            at the
+                            <a href="https://www.cvc.uab.es" target="_blank" rel="noopener noreferrer">
+                                Computer Vision Center
+                            </a>, Autonomous University of Barcelona, Spain.
+                        </p>
+
+                        <p class="pill-subtitle">Current research interests</p>
+                        <ul class="about-list">
+                            <li>
+                                Currently, I am interested in multimodal generation, unified multimodal models
+                                and world models. Within SB Intuitions, I am leading industrial projects
+                                (pretraining and also post training) in visual (image and video) generation and
+                                manipulation.
+                            </li>
+                            <li>
+                                I was working on multi-modal (especially audio-visual) generation when I was in Sony.
+                            </li>
+                            <li>
+                                During my Ph.D., I focused on how to efficiently adapt pretrained models to real-world
+                                environments under domain and category shift in an unsupervised manner, where the
+                                related research topics cover zero-shot learning, source-free / test-time /
+                                continual / open-set domain adaptation.
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Publications -->
+                <section id="publications" class="section">
+                    <div class="section-header">
+                        <div>
+                            <div class="section-title">Full Publications</div>
+                            <div class="section-subtitle">
+                                Journal articles, preprints, and international conference papers.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Journal -->
+                    <div class="pub-group">
+                        <h3>Journal</h3>
+                        <ul class="pub-list">
+                            <li class="pub-item">
+                                <span class="pub-title">
+                                    GLOV: Guided Large Language Models as Implicit Optimizers for Vision Language Models
+                                </span>
+                                <span class="pub-authors">
+                                    M. Jehanzeb Mirza, Mengjie Zhao, Zhuoyuan Mao, Sivan Doveh, Wei Lin,
+                                    Paul Gavrikov, Michael Dorkenwald, <strong>Shiqi Yang</strong>,
+                                    Saurav Jha, Hiromi Wakaki, Yuki Mitsufuji, Horst Possegger,
+                                    Rogerio Feris, Leonid Karlinsky, James Glass
+                                </span>
+                                <span class="pub-venue">
+                                    Transactions on Machine Learning Research (TMLR), 2025.
+                                </span>
+                                <span class="pub-links">
+                                    <span>[arXiv]</span>
+                                </span>
+                            </li>
+
+                            <li class="pub-item">
+                                <span class="pub-title">
+                                    Trust your Good Friends: Source-free Domain Adaptation by Reciprocal Neighborhood
+                                    Clustering
+                                </span>
+                                <span class="pub-authors">
+                                    <strong>Shiqi Yang</strong>, Yaxing Wang, Joost van de Weijer,
+                                    Luis Herranz, Shangling Jui, Jian Yang
+                                </span>
+                                <span class="pub-venue">
+                                    IEEE Transactions on Pattern Analysis and Machine Intelligence (TPAMI), 2023.
+                                </span>
+                                <span class="pub-links">
+                                    <span>[paper]</span>
+                                    <span>[arXiv]</span>
+                                </span>
+                            </li>
+
+                            <li class="pub-item">
+                                <span class="pub-title">
+                                    Casting a BAIT for Offline and Online Source-free Domain Adaptation
+                                </span>
+                                <span class="pub-authors">
+                                    <strong>Shiqi Yang</strong>, Yaxing Wang, Luis Herranz,
+                                    Shangling Jui, Joost van de Weijer
+                                </span>
+                                <span class="pub-venue">
+                                    Computer Vision and Image Understanding (CVIU), 2023.
+                                </span>
+                                <span class="pub-links">
+                                    <span>[paper]</span>
+                                    <span>[arXiv]</span>
+                                    <span>[code]</span>
+                                </span>
+                            </li>
+
+                            <li class="pub-item">
+                                <span class="pub-title">
+                                    On Implicit Attribute Localization for Generalized Zero-Shot Learning
+                                </span>
+                                <span class="pub-authors">
+                                    <strong>Shiqi Yang</strong>, Kai Wang, Luis Herranz, Joost van de Weijer
+                                </span>
+                                <span class="pub-venue">
+                                    IEEE Signal Processing Letters, 2021.
+                                </span>
+                                <span class="pub-links">
+                                    <span>[paper]</span>
+                                    <span>[arXiv]</span>
+                                </span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Preprint -->
+                    <div class="pub-group">
+                        <h3>Preprint</h3>
+                        <ul class="pub-list">
+                            <li class="pub-item">
+                                <span class="pub-title">
+                                    EchoDistill: Bidirectional Concept Distillation for One-Step Diffusion
+                                    Personalization
+                                </span>
+                                <span class="pub-authors">
+                                    Yixiong Yang, Tao Wu, Senmao Li, <strong>Shiqi Yang</strong>,
+                                    Yaxing Wang, Joost van de Weijer, Kai Wang
+                                </span>
+                                <span class="pub-venue">
+                                    preprint, 2025.
+                                </span>
+                                <span class="pub-links">
+                                    <span>[arXiv]</span>
+                                </span>
+                            </li>
+
+                            <li class="pub-item">
+                                <span class="pub-title">
+                                    OpenMU: Your Swiss Army Knife for Music Understanding
+                                </span>
+                                <span class="pub-authors">
+                                    Mengjie Zhao, Zhi Zhong, Zhuoyuan Mao, <strong>Shiqi Yang</strong>,
+                                    Wei-Hsiang Liao, Shusuke Takahashi, Hiromi Wakaki, Yuki Mitsufuji
+                                </span>
+                                <span class="pub-venue">
+                                    preprint, 2024.
+                                </span>
+                                <span class="pub-links">
+                                    <span>[arXiv]</span>
+                                    <span>[code]</span>
+                                </span>
+                            </li>
+
+                            <li class="pub-item">
+                                <span class="pub-title">
+                                    Visual Echoes: A Simple Unified Transformer for Audio-Visual Generation
+                                </span>
+                                <span class="pub-authors">
+                                    <strong>Shiqi Yang</strong>, Zhi Zhong, Mengjie Zhao,
+                                    Shusuke Takahashi, Masato Ishii, Takashi Shibuya, Yuki Mitsufuji
+                                </span>
+                                <span class="pub-venue">
+                                    preprint, 2024.
+                                </span>
+                                <span class="pub-links">
+                                    <span>[arXiv]</span>
+                                    <span>[demo]</span>
+                                </span>
+                            </li>
+
+                            <li class="pub-item">
+                                <span class="pub-title">
+                                    MaTe3D: Mask-guided Text-based 3D-aware Portrait Editing
+                                </span>
+                                <span class="pub-authors">
+                                    Kangneng Zhou, Daiheng Gao, Xuan Wang, Jie Zhang, Peng Zhang,
+                                    Xusen Sun, Longhao Zhang, <strong>Shiqi Yang</strong>, Bang Zhang,
+                                    Liefeng Bo, Yaxing Wang
+                                </span>
+                                <span class="pub-venue">
+                                    preprint, 2023.
+                                </span>
+                                <span class="pub-links">
+                                    <span>[arXiv]</span>
+                                </span>
+                            </li>
+
+                            <li class="pub-item">
+                                <span class="pub-title">
+                                    A Critical Look at the Current Usage of Foundation Model for Dense Recognition Task
+                                </span>
+                                <span class="pub-authors">
+                                    <strong>Shiqi Yang</strong>, Atsushi Hashimoto, Yoshitaka Ushiku
+                                </span>
+                                <span class="pub-venue">
+                                    preprint, 2023.
+                                </span>
+                                <span class="pub-links">
+                                    <span>[arXiv]</span>
+                                </span>
+                            </li>
+
+                            <li class="pub-item">
+                                <span class="pub-title">
+                                    OneRing: A Simple Method for Source-free Open-partial Domain Adaptation
+                                </span>
+                                <span class="pub-authors">
+                                    <strong>Shiqi Yang</strong>, Yaxing Wang, Kai Wang,
+                                    Shangling Jui, Joost van de Weijer
+                                </span>
+                                <span class="pub-venue">
+                                    preprint, 2022.
+                                </span>
+                                <span class="pub-links">
+                                    <span>[project]</span>
+                                    <span>[arXiv]</span>
+                                    <span>[code]</span>
+                                </span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- International Conference -->
+                    <div class="pub-group">
+                        <h3>International Conference</h3>
+                        <ul class="pub-list">
+                            <li class="pub-item">
+                                <span class="pub-title">
+                                    Free-Lunch Color-Texture Disentanglement for Stylized Image Generation
+                                </span>
+                                <span class="pub-authors">
+                                    Jiang Qin, Senmao Li, Alexandra Gomez-Villa, <strong>Shiqi Yang</strong>,
+                                    Yaxing Wang, Kai Wang, Joost van de Weijer
+                                </span>
+                                <span class="pub-venue">
+                                    Advances in Neural Information Processing Systems (NeurIPS), 2025.
+                                </span>
+                                <span class="pub-links">
+                                    <span>[arXiv]</span>
+                                </span>
+                            </li>
+
+                            <li class="pub-item">
+                                <span class="pub-title">
+                                    From Cradle to Cane: A Two-Pass Framework for High-Fidelity Lifespan Face Aging
+                                </span>
+                                <span class="pub-authors">
+                                    Tao Liu, Dafeng Zhang, Gengchen Li, Shizhuo Liu, Yongqi Song,
+                                    Senmao Li, <strong>Shiqi Yang</strong>, Boqian Li, Kai Wang, Yaxing Wang
+                                </span>
+                                <span class="pub-venue">
+                                    NeurIPS, 2025.
+                                </span>
+                                <span class="pub-links">
+                                    <span>[arXiv]</span>
+                                </span>
+                            </li>
+
+                            <li class="pub-item">
+                                <span class="pub-title">
+                                    One-way ticket: Time-Independent Unified Encoder for Distilling Text-to-Image
+                                    Diffusion Models
+                                </span>
+                                <span class="pub-authors">
+                                    Senmao Li, Lei Wang, Kai Wang, Tao Liu, Jiehang Xie,
+                                    Joost van de Weijer, Fahad Shahbaz Khan, <strong>Shiqi Yang</strong>,
+                                    Yaxing Wang, Jian Yang
+                                </span>
+                                <span class="pub-venue">
+                                    IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), 2025.
+                                </span>
+                                <span class="pub-links">
+                                    <span>[arXiv]</span>
+                                </span>
+                            </li>
+
+                            <li class="pub-item">
+                                <span class="pub-title">
+                                    Mining Your Own Secrets: Diffusion Classifier Scores for Continual Personalization
+                                    of
+                                    Text-to-Image Diffusion Models
+                                </span>
+                                <span class="pub-authors">
+                                    Saurav Jha, <strong>Shiqi Yang*</strong>, Masato Ishii, Mengjie Zhao,
+                                    Christian Simon, Muhammad Jehanzeb Mirza, Dong Gong, Lina Yao,
+                                    Shusuke Takahashi, Yuki Mitsufuji
+                                </span>
+                                <span class="pub-venue">
+                                    International Conference on Learning Representations (ICLR), 2025.
+                                </span>
+                                <span class="pub-links">
+                                    <span>[arXiv]</span>
+                                    <span>[openreview]</span>
+                                    <span>[project]</span>
+                                </span>
+                            </li>
+
+                            <li class="pub-item">
+                                <span class="pub-title">
+                                    One-Prompt-One-Story: Free-Lunch Consistent Text-to-Image Generation Using a Single
+                                    Prompt
+                                </span>
+                                <span class="pub-authors">
+                                    Tao Liu, Kai Wang, Senmao Li, Joost van de Weijer, Fahad Shahbaz Khan,
+                                    <strong>Shiqi Yang</strong>, Yaxing Wang, Jian Yang, Ming-Ming Cheng
+                                </span>
+                                <span class="pub-venue">
+                                    ICLR, 2025. (Spotlight)
+                                </span>
+                                <span class="pub-links">
+                                    <span>[arXiv]</span>
+                                    <span>[openreview]</span>
+                                    <span>[project]</span>
+                                </span>
+                            </li>
+
+                            <li class="pub-item">
+                                <span class="pub-title">
+                                    InternLCM: Low-Quality Images as Intermediate States of Latent Consistency Models
+                                    for Effective Blind Face Restoration
+                                </span>
+                                <span class="pub-authors">
+                                    Senmao Li, Kai Wang, Joost van de Weijer, Fahad Shahbaz Khan,
+                                    Chun-Le Guo, <strong>Shiqi Yang</strong>, Yaxing Wang, Jian Yang,
+                                    Ming-Ming Cheng
+                                </span>
+                                <span class="pub-venue">
+                                    ICLR, 2025.
+                                </span>
+                                <span class="pub-links">
+                                    <span>[arXiv]</span>
+                                    <span>[openreview]</span>
+                                    <span>[project]</span>
+                                </span>
+                            </li>
+
+                            <li class="pub-item">
+                                <span class="pub-title">
+                                    Faster Diffusion: Rethinking the Role of UNet Encoder in Diffusion Models
+                                </span>
+                                <span class="pub-authors">
+                                    Senmao Li, Taihang Hu, Fahad Shahbaz Khan, Linxuan Li,
+                                    <strong>Shiqi Yang</strong>, Yaxing Wang, Ming-Ming Cheng, Jian Yang
+                                </span>
+                                <span class="pub-venue">
+                                    Advances in Neural Information Processing Systems (NeurIPS), 2024.
+                                </span>
+                                <span class="pub-links">
+                                    <span>[project]</span>
+                                    <span>[arXiv]</span>
+                                    <span>[code]</span>
+                                </span>
+                            </li>
+
+                            <li class="pub-item">
+                                <span class="pub-title">
+                                    SpecMaskGIT: Masked Generative Modeling of Audio Spectrograms for Efficient
+                                    Audio Synthesis and Beyond
+                                </span>
+                                <span class="pub-authors">
+                                    Marco Comunità, Zhi Zhong, Akira Takahashi, <strong>Shiqi Yang</strong>,
+                                    Mengjie Zhao, Koichi Saito, Yukara Ikemiya, Takashi Shibuya,
+                                    Shusuke Takahashi, Yuki Mitsufuji
+                                </span>
+                                <span class="pub-venue">
+                                    International Society for Music Information Retrieval (ISMIR), 2024.
+                                </span>
+                                <span class="pub-links">
+                                    <span>[arXiv]</span>
+                                </span>
+                            </li>
+
+                            <li class="pub-item">
+                                <span class="pub-title">
+                                    Dynamic Prompt Learning: Addressing Cross-Attention Leakage for Text-Based Image
+                                    Editing
+                                </span>
+                                <span class="pub-authors">
+                                    Kai Wang, Fei Yang, <strong>Shiqi Yang</strong>, Muhammad Atif Butt,
+                                    Joost van de Weijer
+                                </span>
+                                <span class="pub-venue">
+                                    Advances in Neural Information Processing Systems (NeurIPS), 2023.
+                                </span>
+                                <span class="pub-links">
+                                    <span>[paper]</span>
+                                    <span>[arXiv]</span>
+                                    <span>[code]</span>
+                                </span>
+                            </li>
+
+                            <li class="pub-item">
+                                <span class="pub-title">
+                                    Positive Pair Distillation Considered Harmful:
+                                    Continual Meta Metric Learning for Lifelong Object Re-Identification
+                                </span>
+                                <span class="pub-authors">
+                                    Kai Wang, Chenshen Wu, Andrew D. Bagdanov, Xialei Liu,
+                                    <strong>Shiqi Yang</strong>, Shangling Jui, Joost van de Weijer
+                                </span>
+                                <span class="pub-venue">
+                                    British Machine Vision Conference (BMVC), 2022.
+                                </span>
+                                <span class="pub-links">
+                                    <span>[arXiv]</span>
+                                    <span>[code]</span>
+                                </span>
+                            </li>
+
+                            <li class="pub-item">
+                                <span class="pub-title">
+                                    Attracting and Dispersing: A Simple Approach for Source-free Domain Adaptation
+                                </span>
+                                <span class="pub-authors">
+                                    <strong>Shiqi Yang</strong>, Yaxing Wang, Kai Wang,
+                                    Shangling Jui, Joost van de Weijer
+                                </span>
+                                <span class="pub-venue">
+                                    NeurIPS, 2022. (Spotlight)
+                                </span>
+                                <span class="pub-links">
+                                    <span>[project]</span>
+                                    <span>[paper]</span>
+                                    <span>[arXiv]</span>
+                                    <span>[code]</span>
+                                </span>
+                            </li>
+
+                            <li class="pub-item">
+                                <span class="pub-title">
+                                    Exploiting the Intrinsic Neighborhood Structure for Source-free Domain Adaptation
+                                </span>
+                                <span class="pub-authors">
+                                    <strong>Shiqi Yang</strong>, Yaxing Wang, Joost van de Weijer,
+                                    Luis Herranz, Shangling Jui
+                                </span>
+                                <span class="pub-venue">
+                                    Advances in Neural Information Processing Systems (NeurIPS), 2021.
+                                </span>
+                                <span class="pub-links">
+                                    <span>[project]</span>
+                                    <span>[paper]</span>
+                                    <span>[arXiv]</span>
+                                    <span>[code]</span>
+                                </span>
+                            </li>
+
+                            <li class="pub-item">
+                                <span class="pub-title">
+                                    Generalized Source-free Domain Adaptation
+                                </span>
+                                <span class="pub-authors">
+                                    <strong>Shiqi Yang</strong>, Yaxing Wang, Joost van de Weijer,
+                                    Luis Herranz, Shangling Jui
+                                </span>
+                                <span class="pub-venue">
+                                    International Conference on Computer Vision (ICCV), 2021.
+                                </span>
+                                <span class="pub-links">
+                                    <span>[project]</span>
+                                    <span>[paper]</span>
+                                    <span>[arXiv]</span>
+                                    <span>[code]</span>
+                                    <span>[video]</span>
+                                </span>
+                            </li>
+
+                            <li class="pub-item">
+                                <span class="pub-title">
+                                    Parallel Convolutional Networks for Image Recognition via a Discriminator
+                                </span>
+                                <span class="pub-authors">
+                                    <strong>Shiqi Yang</strong>, Gang Peng
+                                </span>
+                                <span class="pub-venue">
+                                    Asian Conference on Computer Vision (ACCV), 2018.
+                                </span>
+                                <span class="pub-links">
+                                    <span>[paper]</span>
+                                    <span>[arXiv]</span>
+                                </span>
+                            </li>
+
+                            <li class="pub-item">
+                                <span class="pub-title">
+                                    Attention to Refine Through Multi Scales for Semantic Segmentation
+                                </span>
+                                <span class="pub-authors">
+                                    <strong>Shiqi Yang</strong>, Gang Peng
+                                </span>
+                                <span class="pub-venue">
+                                    Pacific-Rim Conference on Multimedia (PCM), 2018.
+                                </span>
+                                <span class="pub-links">
+                                    <span>[paper]</span>
+                                    <span>[arXiv]</span>
+                                </span>
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Right column: news, experience, talks, service, education -->
+            <div class="side-column">
+                <section id="news" class="card">
+                    <h2>News</h2>
+                    <ul class="news-list">
+                        <li>
+                            <span class="news-date">[2025.9]</span>
+                            2 papers are accepted by NeurIPS 2025.
+                        </li>
+                        <li>
+                            <span class="news-date">[2025.5]</span>
+                            We will host the
+                            <a href="https://avgen123.github.io" target="_blank" rel="noopener noreferrer">
+                                2nd workshop on Audio-Visual Generation and Learning (AVGenL)
+                            </a>
+                            in ICCV 2025. We will have 1 industrial session this year:
+                            <a href="https://deepmind.google/technologies/veo/" target="_blank"
+                                rel="noopener noreferrer">
+                                Veo 3
+                            </a>
+                            from Google DeepMind. Stay tuned for more details.
+                        </li>
+                        <li>
+                            <span class="news-date">[2025.2]</span>
+                            "<a href="https://arxiv.org" target="_blank" rel="noopener noreferrer">
+                                One-way ticket
+                            </a>" is accepted by CVPR 2025.
+                        </li>
+                        <li>
+                            <span class="news-date">[2025.1]</span>
+                            "<a href="https://srvcodes.github.io" target="_blank" rel="noopener noreferrer">
+                                Mine Your Own Secrets
+                            </a>", "<a href="https://sen-mao.github.io" target="_blank" rel="noopener noreferrer">
+                                InternLCM
+                            </a>" and
+                            "<a href="https://byliutao.github.io" target="_blank" rel="noopener noreferrer">
+                                One-Prompt-One-Story
+                            </a>" (spotlight) are accepted by ICLR 2025.
+                        </li>
+                        <li>
+                            <span class="news-date">[2024.10]</span>
+                            Have visiting talks in
+                            <a href="https://www.micc.unifi.it" target="_blank" rel="noopener noreferrer">MICC Lab</a>
+                            (Prof. Andrew Bagdanov) in University of Florence and
+                            <a href="https://mhug.disi.unitn.it" target="_blank" rel="noopener noreferrer">MHUG Lab</a>
+                            (Prof. Nicu Sebe) in University of Trento.
+                        </li>
+                        <li>
+                            <span class="news-date">[2024.9]</span>
+                            Our paper
+                            "<a href="https://arxiv.org" target="_blank" rel="noopener noreferrer">
+                                Faster Diffusion: Rethinking the Role of UNet Encoder in Diffusion Models
+                            </a>"
+                            is accepted by NeurIPS 2024.
+                        </li>
+                        <li>
+                            <span class="news-date">[2024.4]</span>
+                            We are organizing an ECCV 2024 workshop
+                            "<a href="https://avgen123.github.io" target="_blank" rel="noopener noreferrer">
+                                AVGenL: Audio-Visual Generation and Learning
+                            </a>". Please check the site for CfP and speakers.
+                        </li>
+                        <li>
+                            <span class="news-date">[2023.12]</span>
+                            My doctoral thesis received
+                            "<a href="https://cerca.cat" target="_blank" rel="noopener noreferrer">
+                                Pioneer Awards 2023 - CERCA
+                            </a>".
+                        </li>
+                        <li>
+                            <span class="news-date">[2023.9]</span>
+                            Our paper
+                            "<a href="https://arxiv.org" target="_blank" rel="noopener noreferrer">
+                                Dynamic Prompt Learning: Addressing Cross-Attention Leakage for Text-Based Image Editing
+                            </a>"
+                            is accepted by NeurIPS 2023.
+                        </li>
+                        <li>
+                            <span class="news-date">[2023.8]</span>
+                            Extended version of
+                            "<a href="https://proceedings.neurips.cc" target="_blank" rel="noopener noreferrer">
+                                NRC
+                            </a>"
+                            is accepted by IEEE TPAMI.
+                        </li>
+                        <li>
+                            <span class="news-date">[2023.6]</span>
+                            "<a href="https://arxiv.org" target="_blank" rel="noopener noreferrer">
+                                Casting a BAIT for Offline and Online Source-free Domain Adaptation
+                            </a>"
+                            is finally accepted by CVIU.
+                        </li>
+                        <li>
+                            <span class="news-date">[2023.1]</span>
+                            Have a visiting talk in Prof.
+                            <a href="https://brbiclab.epfl.ch" target="_blank" rel="noopener noreferrer">
+                                Maria Brbic
+                            </a>'s group in EPFL.
+                        </li>
+                        <li>
+                            <span class="news-date">[2022.11]</span>
+                            I present our work on model adaptation under domain and category shift on
+                            <a href="https://trustmlresearch.github.io" target="_blank" rel="noopener noreferrer">
+                                TrustML Young Scientist Seminars
+                            </a>
+                            (hosted by
+                            <a href="https://aip.riken.jp" target="_blank" rel="noopener noreferrer">RIKEN AIP</a>) on
+                            Dec. 7.
+                        </li>
+                        <li>
+                            <span class="news-date">[2022.9]</span>
+                            "<a href="https://arxiv.org" target="_blank" rel="noopener noreferrer">
+                                Attracting and Dispersing: A Simple Approach for Source-free Domain Adaptation
+                            </a>"
+                            is accepted by NeurIPS 2022 as Spotlight, and our paper
+                            "<a href="https://arxiv.org" target="_blank" rel="noopener noreferrer">
+                                Positive Pair Distillation Considered Harmful: Continual Meta Metric Learning for
+                                Lifelong Object Re-Identification
+                            </a>"
+                            is accepted by BMVC 2022.
+                        </li>
+                        <li>
+                            <span class="news-date">[2021.9]</span>
+                            "<a href="https://arxiv.org" target="_blank" rel="noopener noreferrer">
+                                Exploiting the Intrinsic Neighborhood Structure for Source-free Domain Adaptation
+                            </a>"
+                            is accepted by NeurIPS 2021.
+                        </li>
+                        <li>
+                            <span class="news-date">[2021.7]</span>
+                            "<a href="https://arxiv.org" target="_blank" rel="noopener noreferrer">
+                                Generalized Source-free Domain Adaptation
+                            </a>"
+                            is accepted by ICCV 2021.
+                        </li>
+                    </ul>
+                </section>
+
+                <section id="experience" class="card">
+                    <h2>Experience</h2>
+                    <ul class="exp-list">
+                        <li>
+                            <span class="exp-date">Dec. 2024&nbsp;–&nbsp;present</span><br />
+                            Research Scientist / Team Leader,
+                            SB Intuitions, SoftBank, Tokyo, Japan.
+                        </li>
+                        <li>
+                            <span class="exp-date">Oct. 2023&nbsp;–&nbsp;Nov. 2024</span><br />
+                            Research Scientist, Sony Group Corporation, Tokyo, Japan.
+                        </li>
+                        <li>
+                            <span class="exp-date">Jan. 2023&nbsp;–&nbsp;Jun. 2023</span><br />
+                            Research Intern,
+                            <a href="https://www.omron.com" target="_blank" rel="noopener noreferrer">
+                                OMRON SINIC X
+                            </a>, Tokyo, Japan.
+                        </li>
+                        <li>
+                            <span class="exp-date">Oct. 2018&nbsp;–&nbsp;Mar. 2019</span><br />
+                            Guest Research Associate, Kyoto University, Japan.
+                        </li>
+                    </ul>
+                </section>
+
+                <section id="talks" class="card">
+                    <h2>Invited Talks, Awards & Activities</h2>
+                    <ul class="talks-list">
+                        <li>
+                            Visiting talks in
+                            <a href="https://www.micc.unifi.it" target="_blank" rel="noopener noreferrer">MICC Lab</a>
+                            (Prof. Andrew Bagdanov) in University of Florence and
+                            <a href="https://mhug.disi.unitn.it" target="_blank" rel="noopener noreferrer">MHUG Lab</a>
+                            (Prof. Nicu Sebe) in University of Trento, Italy, 2024.10.
+                        </li>
+                        <li>
+                            <a href="https://cerca.cat" target="_blank" rel="noopener noreferrer">
+                                Pioneer Awards 2023
+                            </a>, CERCA Research Center of Catalonia, Spain, 2023.12.
+                        </li>
+                        <li>
+                            Visiting talk in Prof.
+                            <a href="https://brbiclab.epfl.ch" target="_blank" rel="noopener noreferrer">
+                                Maria Brbic
+                            </a>'s group in EPFL, Switzerland, 2023.1.
+                        </li>
+                        <li>
+                            Invited talk on
+                            <a href="https://trustmlresearch.github.io" target="_blank" rel="noopener noreferrer">
+                                TrustML Young Scientist Seminars
+                            </a>, RIKEN AIP, Japan, 2022.12.
+                        </li>
+                        <li>
+                            Participation in
+                            <a href="https://iplab.dmi.unict.it" target="_blank" rel="noopener noreferrer">
+                                ICVSS Summer School
+                            </a>, Sicily, Italy, 2022.7.
+                        </li>
+                        <li>
+                            Invited talk on AI Time Seminar on NeurIPS 2021 (Virtual), China, 2022.2.
+                        </li>
+                    </ul>
+                </section>
+
+                <section id="service" class="card">
+                    <h2>Academic Service</h2>
+                    <ul class="service-list">
+                        <li>
+                            Guest Editor:
+                            IJCV Special Issue
+                            "<a href="https://avgen123.github.io" target="_blank" rel="noopener noreferrer">
+                                Audio-Visual Generation
+                            </a>".
+                        </li>
+                        <li>
+                            Organizer:
+                            ECCV 2024 / ICCV 2025
+                            "<a href="https://avgen123.github.io" target="_blank" rel="noopener noreferrer">
+                                Audio-Visual Generation and Learning workshop
+                            </a>".
+                        </li>
+                        <li>
+                            Conference Reviewer:
+                            ICLR; ICCV; NeurIPS; ECCV; ICML; CVPR; WACV.
+                        </li>
+                        <li>
+                            Journal Reviewer:
+                            IEEE TKDE; TPAMI; TAI; IJCV.
+                        </li>
+                    </ul>
+                </section>
+
+                <section id="education" class="card">
+                    <h2>Education</h2>
+                    <ul class="edu-list">
+                        <li>
+                            <span class="exp-date">Oct. 2019&nbsp;–&nbsp;Jul. 2023</span><br />
+                            Ph.D. in Computer Science,
+                            <a href="https://www.cvc.uab.es" target="_blank" rel="noopener noreferrer">
+                                Computer Vision Center
+                            </a>, Autonomous University of Barcelona, Spain.
+                        </li>
+                        <li>
+                            <span class="exp-date">Sep. 2016&nbsp;–&nbsp;Jun. 2019</span><br />
+                            Master in Control Science and Technology,
+                            Huazhong University of Science and Technology, China.
+                        </li>
+                        <li>
+                            <span class="exp-date">Sep. 2012&nbsp;–&nbsp;Jun. 2016</span><br />
+                            Bachelor in Automation,
+                            Wuhan University of Science and Technology, China.
+                        </li>
+                    </ul>
+                </section>
+
+                <section id="contact" class="card">
+                    <h2>Contact</h2>
+                    <p class="news-list">
+                        Contact: <a href="mailto:shiqi.yang147.jp@gmail.com">shiqi.yang147.jp@gmail.com</a>
+                    </p>
+                </section>
+            </div>
+        </main>
+
+        <footer>
+            <div>© 2025 Shiqi Yang</div>
+            <div class="footer-links">
+                <a href="#about">Top</a>
+            </div>
+        </footer>
+    </div>
+</body>
+
+</html>
