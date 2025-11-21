@@ -146,7 +146,7 @@
             }
         }
 
-        /* Hero / Left column */
+        /* Hero / Avatar */
         .hero-card {
             background: radial-gradient(circle at top left, #273469 0, #121628 42%, #070916 100%);
             border-radius: 32px;
@@ -172,15 +172,14 @@
         }
 
         .avatar {
-  /* 基本尺寸：在不同屏幕上自动缩放 */
-  width: clamp(80px, 16vw, 120px);
-  aspect-ratio: 1 / 1;      /* 确保是正方形，再用圆角变成圆 */
-  border-radius: 999px;     /* 圆形头像 */
-  object-fit: cover;        /* 自动裁剪保证不变形 */
-  border: 3px solid rgba(255, 255, 255, 0.25);
-  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.7);
-  display: block;
-}
+            width: clamp(80px, 16vw, 120px);
+            aspect-ratio: 1 / 1;
+            border-radius: 999px;
+            object-fit: cover;
+            border: 3px solid rgba(255, 255, 255, 0.25);
+            box-shadow: 0 18px 40px rgba(0, 0, 0, 0.7);
+            display: block;
+        }
 
         .avatar::after {
             content: "";
@@ -332,7 +331,7 @@
             z-index: -1;
         }
 
-        /* Right column (News / Experience / etc.) */
+        /* Right column / side cards */
         .side-column {
             display: flex;
             flex-direction: column;
@@ -532,13 +531,13 @@
 
     <div class="page">
         <main>
-            <!-- Left column: hero / about / publications -->
+            <!-- 左侧：About + News/Experience 等 -->
             <div>
                 <section id="about" class="hero-card">
                     <div class="hero-glow"></div>
                     <div class="hero-grid">
-                        <div class="avatar" aria-hidden="true">
-                             <img class="avatar" src="/shiqi.jpg" alt="Shiqi Yang" />
+                        <div aria-hidden="true">
+                            <img class="avatar" src="/shiqi.jpg" alt="Shiqi Yang" />
                         </div>
                         <div>
                             <div class="hero-name">
@@ -605,7 +604,7 @@
                                 Learning and Machine Perception (LAMP) team
                             </a>
                             (2019.10&nbsp;–&nbsp;2023.7), advised by
-                            <a href="hhttps://scholar.google.com/citations?user=Gsw2iUEAAAAJ" target="_blank"
+                            <a href="https://scholar.google.com/citations?user=Gsw2iUEAAAAJ" target="_blank"
                                 rel="noopener noreferrer">
                                 Joost van de Weijer
                             </a>
@@ -636,7 +635,289 @@
                     </div>
                 </section>
 
-                <!-- Publications -->
+                <!-- 左侧的 News / Experience / Talks / Service / Education / Contact -->
+                <div class="side-column">
+                    <section id="news" class="card">
+                        <h2>News</h2>
+                        <ul class="news-list">
+                            <li>
+                                <span class="news-date">[2025.11]</span>
+                                Serve as area chair of ICML 2026.
+                            </li>
+                            <li>
+                                <span class="news-date">[2025.9]</span>
+                                2 papers are accepted by NeurIPS 2025.
+                            </li>
+                            <li>
+                                <span class="news-date">[2025.5]</span>
+                                We will host the
+                                <a href="https://avgen123.github.io" target="_blank" rel="noopener noreferrer">
+                                    2nd workshop on Audio-Visual Generation and Learning (AVGenL)
+                                </a>
+                                in ICCV 2025. We will have 1 industrial session this year:
+                                <a href="https://deepmind.google/technologies/veo/" target="_blank"
+                                    rel="noopener noreferrer">
+                                    Veo 3
+                                </a>
+                                from Google DeepMind. Stay tuned for more details.
+                            </li>
+                            <li>
+                                <span class="news-date">[2025.2]</span>
+                                <a href="https://openaccess.thecvf.com/content/CVPR2025/html/Li_One-Way_Ticket_Time-Independent_Unified_Encoder_for_Distilling_Text-to-Image_Diffusion_Models_CVPR_2025_paper.html"
+                                    target="_blank" rel="noopener noreferrer">
+                                    "One-way ticket"
+                                </a> is accepted by CVPR 2025.
+                            </li>
+                            <li>
+                                <span class="news-date">[2025.1]</span>
+                                <a href="https://srvcodes.github.io/continual_personalization/" target="_blank"
+                                    rel="noopener noreferrer">
+                                    "Mine Your Own Secrets"
+                                </a>, <a href="https://arxiv.org/abs/2502.02215" target="_blank"
+                                    rel="noopener noreferrer">
+                                    "InternLCM"
+                                </a> and
+                                "<a href="https://byliutao.github.io/1Prompt1Story.github.io/" target="_blank"
+                                    rel="noopener noreferrer">
+                                    One-Prompt-One-Story
+                                </a>" (spotlight) are accepted by ICLR 2025.
+                            </li>
+                            <li>
+                                <span class="news-date">[2024.10]</span>
+                                Have visiting talks in
+                                <a href="https://www.micc.unifi.it" target="_blank"
+                                    rel="noopener noreferrer">MICC Lab</a>
+                                (Prof. Andrew Bagdanov) in University of Florence and
+                                <a href="https://mhug.disi.unitn.it" target="_blank"
+                                    rel="noopener noreferrer">MHUG Lab</a>
+                                (Prof. Nicu Sebe) in University of Trento.
+                            </li>
+                            <li>
+                                <span class="news-date">[2024.9]</span>
+                                Our paper
+                                <a href="https://arxiv.org/abs/2312.09608" target="_blank" rel="noopener noreferrer">
+                                    "Faster Diffusion: Rethinking the Role of UNet Encoder in Diffusion Models"
+                                </a>
+                                is accepted by NeurIPS 2024.
+                            </li>
+                            <li>
+                                <span class="news-date">[2024.4]</span>
+                                We are organizing an ECCV 2024 workshop
+                                <a href="https://avgen123.github.io" target="_blank" rel="noopener noreferrer">
+                                    "AVGenL: Audio-Visual Generation and Learning"
+                                </a>. Please check the site for CfP and speakers.
+                            </li>
+                            <li>
+                                <span class="news-date">[2023.12]</span>
+                                My doctoral thesis received
+                                <a href="https://cerca.cat" target="_blank" rel="noopener noreferrer">
+                                    "Pioneer Awards 2023 - CERCA"
+                                </a>.
+                            </li>
+                            <li>
+                                <span class="news-date">[2023.9]</span>
+                                Our paper
+                                <a href="https://arxiv.org/abs/2309.15664" target="_blank" rel="noopener noreferrer">
+                                    "Dynamic Prompt Learning: Addressing Cross-Attention Leakage for Text-Based Image Editing"
+                                </a>
+                                is accepted by NeurIPS 2023.
+                            </li>
+                            <li>
+                                <span class="news-date">[2023.8]</span>
+                                Extended version of
+                                <a href="https://proceedings.neurips.cc/paper/2021/hash/f5deaeeae1538fb6c45901d524ee2f98-Abstract.html?ref=https://githubhelp.com"
+                                    target="_blank" rel="noopener noreferrer">
+                                    "NRC"
+                                </a>
+                                is accepted by IEEE TPAMI.
+                            </li>
+                            <li>
+                                <span class="news-date">[2023.6]</span>
+                                <a href="https://arxiv.org/abs/2010.12427" target="_blank" rel="noopener noreferrer">
+                                    "Casting a BAIT for Offline and Online Source-free Domain Adaptation"
+                                </a>
+                                is finally accepted by CVIU.
+                            </li>
+                            <li>
+                                <span class="news-date">[2023.1]</span>
+                                Have a visiting talk in Prof.
+                                <a href="https://brbiclab.epfl.ch" target="_blank" rel="noopener noreferrer">
+                                    Maria Brbic
+                                </a>'s group in EPFL.
+                            </li>
+                            <li>
+                                <span class="news-date">[2022.11]</span>
+                                I present our work on model adaptation under domain and category shift on
+                                <a href="https://trustmlresearch.github.io" target="_blank" rel="noopener noreferrer">
+                                    TrustML Young Scientist Seminars
+                                </a>
+                                (hosted by
+                                <a href="https://aip.riken.jp" target="_blank" rel="noopener noreferrer">RIKEN AIP</a>)
+                                on
+                                Dec. 7.
+                            </li>
+                            <li>
+                                <span class="news-date">[2022.9]</span>
+                                <a href="https://arxiv.org/abs/2205.04183" target="_blank" rel="noopener noreferrer">
+                                    "Attracting and Dispersing: A Simple Approach for Source-free Domain Adaptation"
+                                </a>
+                                is accepted by NeurIPS 2022 as Spotlight, and our paper
+                                <a href="https://arxiv.org/abs/2210.01600" target="_blank" rel="noopener noreferrer">
+                                    "Positive Pair Distillation Considered Harmful: Continual Meta Metric Learning for
+                                    Lifelong Object Re-Identification"
+                                </a>
+                                is accepted by BMVC 2022.
+                            </li>
+                            <li>
+                                <span class="news-date">[2021.9]</span>
+                                <a href="https://arxiv.org/abs/2110.04202" target="_blank" rel="noopener noreferrer">
+                                    "Exploiting the Intrinsic Neighborhood Structure for Source-free Domain Adaptation"
+                                </a>
+                                is accepted by NeurIPS 2021.
+                            </li>
+                            <li>
+                                <span class="news-date">[2021.7]</span>
+                                <a href="https://arxiv.org/abs/2108.01614" target="_blank" rel="noopener noreferrer">
+                                    "Generalized Source-free Domain Adaptation"
+                                </a>
+                                is accepted by ICCV 2021.
+                            </li>
+                        </ul>
+                    </section>
+
+                    <section id="experience" class="card">
+                        <h2>Experience</h2>
+                        <ul class="exp-list">
+                            <li>
+                                <span class="exp-date">Dec. 2024&nbsp;–&nbsp;present</span><br />
+                                Research Scientist / Team Leader,
+                                SB Intuitions, SoftBank, Tokyo, Japan.
+                            </li>
+                            <li>
+                                <span class="exp-date">Oct. 2023&nbsp;–&nbsp;Nov. 2024</span><br />
+                                Research Scientist, Sony Group Corporation, Tokyo, Japan.
+                            </li>
+                            <li>
+                                <span class="exp-date">Jan. 2023&nbsp;–&nbsp;Jun. 2023</span><br />
+                                Research Intern,
+                                <a href="https://www.omron.com" target="_blank" rel="noopener noreferrer">
+                                    OMRON SINIC X
+                                </a>, Tokyo, Japan.
+                            </li>
+                            <li>
+                                <span class="exp-date">Oct. 2018&nbsp;–&nbsp;Mar. 2019</span><br />
+                                Guest Research Associate, Kyoto University, Japan.
+                            </li>
+                        </ul>
+                    </section>
+
+                    <section id="talks" class="card">
+                        <h2>Invited Talks, Awards & Activities</h2>
+                        <ul class="talks-list">
+                            <li>
+                                Visiting talks in
+                                <a href="https://www.micc.unifi.it" target="_blank" rel="noopener noreferrer">MICC
+                                    Lab</a>
+                                (Prof. Andrew Bagdanov) in University of Florence and
+                                <a href="https://mhug.disi.unitn.it" target="_blank" rel="noopener noreferrer">MHUG
+                                    Lab</a>
+                                (Prof. Nicu Sebe) in University of Trento, Italy, 2024.10.
+                            </li>
+                            <li>
+                                <a href="https://cerca.cat" target="_blank" rel="noopener noreferrer">
+                                    Pioneer Awards 2023
+                                </a>, CERCA Research Center of Catalonia, Spain, 2023.12.
+                            </li>
+                            <li>
+                                Visiting talk in Prof.
+                                <a href="https://brbiclab.epfl.ch" target="_blank" rel="noopener noreferrer">
+                                    Maria Brbic
+                                </a>'s group in EPFL, Switzerland, 2023.1.
+                            </li>
+                            <li>
+                                Invited talk on
+                                <a href="https://trustmlresearch.github.io" target="_blank" rel="noopener noreferrer">
+                                    TrustML Young Scientist Seminars
+                                </a>, RIKEN AIP, Japan, 2022.12.
+                            </li>
+                            <li>
+                                Participation in
+                                <a href="https://iplab.dmi.unict.it" target="_blank" rel="noopener noreferrer">
+                                    ICVSS Summer School
+                                </a>, Sicily, Italy, 2022.7.
+                            </li>
+                            <li>
+                                Invited talk on AI Time Seminar on NeurIPS 2021 (Virtual), China, 2022.2.
+                            </li>
+                        </ul>
+                    </section>
+
+                    <section id="service" class="card">
+                        <h2>Academic Service</h2>
+                        <ul class="service-list">
+                            <li>
+                                Conference Area Chair:
+                                ICML 2026.
+                            </li>
+                            <li>
+                                Guest Editor:
+                                IJCV Special Issue
+                                "<a href="https://avgen123.github.io" target="_blank" rel="noopener noreferrer">
+                                    Audio-Visual Generation
+                                </a>".
+                            </li>
+                            <li>
+                                Organizer:
+                                ECCV 2024 / ICCV 2025
+                                "<a href="https://avgen123.github.io" target="_blank" rel="noopener noreferrer">
+                                    Audio-Visual Generation and Learning workshop
+                                </a>".
+                            </li>
+                            <li>
+                                Conference Reviewer:
+                                ICLR; ICCV; NeurIPS; ECCV; ICML; CVPR; WACV.
+                            </li>
+                            <li>
+                                Journal Reviewer:
+                                IEEE TKDE; TPAMI; TAI; IJCV.
+                            </li>
+                        </ul>
+                    </section>
+
+                    <section id="education" class="card">
+                        <h2>Education</h2>
+                        <ul class="edu-list">
+                            <li>
+                                <span class="exp-date">Oct. 2019&nbsp;–&nbsp;Jul. 2023</span><br />
+                                Ph.D. in Computer Science,
+                                <a href="https://www.cvc.uab.es" target="_blank" rel="noopener noreferrer">
+                                    Computer Vision Center
+                                </a>, Autonomous University of Barcelona, Spain.
+                            </li>
+                            <li>
+                                <span class="exp-date">Sep. 2016&nbsp;–&nbsp;Jun. 2019</span><br />
+                                Master in Control Science and Technology,
+                                Huazhong University of Science and Technology, China.
+                            </li>
+                            <li>
+                                <span class="exp-date">Sep. 2012&nbsp;–&nbsp;Jun. 2016</span><br />
+                                Bachelor in Automation,
+                                Wuhan University of Science and Technology, China.
+                            </li>
+                        </ul>
+                    </section>
+
+                    <section id="contact" class="card">
+                        <h2>Contact</h2>
+                        <p class="news-list">
+                            Contact: <a href="mailto:shiqi.yang147.jp@gmail.com">shiqi.yang147.jp@gmail.com</a>
+                        </p>
+                    </section>
+                </div>
+            </div>
+
+            <!-- 右侧：只保留 Publications -->
+            <div>
                 <section id="publications" class="section">
                     <div class="section-header">
                         <div>
@@ -663,8 +944,9 @@
                                     Advances in Neural Information Processing Systems (NeurIPS), 2025.
                                 </span>
                                 <span class="pub-links">
-                                    <span><a href="https://arxiv.org/abs/2503.14275" target="_blank" rel="noopener noreferrer">
-                                [arXiv]</a></span>
+                                    <span><a href="https://arxiv.org/abs/2503.14275" target="_blank"
+                                            rel="noopener noreferrer">
+                                            [arXiv]</a></span>
                                 </span>
                             </li>
 
@@ -1109,278 +1391,6 @@
                             </li>
                         </ul>
                     </div>
-
-                    
-                </section>
-            </div>
-
-            <!-- Right column: news, experience, talks, service, education -->
-            <div class="side-column">
-                <section id="news" class="card">
-                    <h2>News</h2>
-                    <ul class="news-list">
-                        <li>
-                            <span class="news-date">[2025.11]</span>
-                            Serve as area chair of ICML 2026.
-                        </li>
-                        <li>
-                            <span class="news-date">[2025.9]</span>
-                            2 papers are accepted by NeurIPS 2025.
-                        </li>
-                        <li>
-                            <span class="news-date">[2025.5]</span>
-                            We will host the
-                            <a href="https://avgen123.github.io" target="_blank" rel="noopener noreferrer">
-                                2nd workshop on Audio-Visual Generation and Learning (AVGenL)
-                            </a>
-                            in ICCV 2025. We will have 1 industrial session this year:
-                            <a href="https://deepmind.google/technologies/veo/" target="_blank"
-                                rel="noopener noreferrer">
-                                Veo 3
-                            </a>
-                            from Google DeepMind. Stay tuned for more details.
-                        </li>
-                        <li>
-                            <span class="news-date">[2025.2]</span>
-                            <a href="https://openaccess.thecvf.com/content/CVPR2025/html/Li_One-Way_Ticket_Time-Independent_Unified_Encoder_for_Distilling_Text-to-Image_Diffusion_Models_CVPR_2025_paper.html" target="_blank" rel="noopener noreferrer">
-                                "One-way ticket"
-                            </a> is accepted by CVPR 2025.
-                        </li>
-                        <li>
-                            <span class="news-date">[2025.1]</span>
-                            <a href="https://srvcodes.github.io/continual_personalization/" target="_blank" rel="noopener noreferrer">
-                                "Mine Your Own Secrets"
-                            </a>, <a href="https://arxiv.org/abs/2502.02215" target="_blank" rel="noopener noreferrer">
-                                "InternLCM"
-                            </a> and
-                            "<a href="https://byliutao.github.io/1Prompt1Story.github.io/" target="_blank" rel="noopener noreferrer">
-                                One-Prompt-One-Story
-                            </a>" (spotlight) are accepted by ICLR 2025.
-                        </li>
-                        <li>
-                            <span class="news-date">[2024.10]</span>
-                            Have visiting talks in
-                            <a href="https://www.micc.unifi.it" target="_blank" rel="noopener noreferrer">MICC Lab</a>
-                            (Prof. Andrew Bagdanov) in University of Florence and
-                            <a href="https://mhug.disi.unitn.it" target="_blank" rel="noopener noreferrer">MHUG Lab</a>
-                            (Prof. Nicu Sebe) in University of Trento.
-                        </li>
-                        <li>
-                            <span class="news-date">[2024.9]</span>
-                            Our paper
-                            <a href="https://arxiv.org/abs/2312.09608" target="_blank" rel="noopener noreferrer">
-                                "Faster Diffusion: Rethinking the Role of UNet Encoder in Diffusion Models"
-                            </a>
-                            is accepted by NeurIPS 2024.
-                        </li>
-                        <li>
-                            <span class="news-date">[2024.4]</span>
-                            We are organizing an ECCV 2024 workshop
-                            <a href="https://avgen123.github.io" target="_blank" rel="noopener noreferrer">
-                                "AVGenL: Audio-Visual Generation and Learning"
-                            </a>. Please check the site for CfP and speakers.
-                        </li>
-                        <li>
-                            <span class="news-date">[2023.12]</span>
-                            My doctoral thesis received
-                            <a href="https://cerca.cat" target="_blank" rel="noopener noreferrer">
-                                "Pioneer Awards 2023 - CERCA"
-                            </a>.
-                        </li>
-                        <li>
-                            <span class="news-date">[2023.9]</span>
-                            Our paper
-                            <a href="https://arxiv.org/abs/2309.15664" target="_blank" rel="noopener noreferrer">
-                                "Dynamic Prompt Learning: Addressing Cross-Attention Leakage for Text-Based Image Editing"
-                            </a>
-                            is accepted by NeurIPS 2023.
-                        </li>
-                        <li>
-                            <span class="news-date">[2023.8]</span>
-                            Extended version of
-                            <a href="https://proceedings.neurips.cc/paper/2021/hash/f5deaeeae1538fb6c45901d524ee2f98-Abstract.html?ref=https://githubhelp.com" target="_blank" rel="noopener noreferrer">
-                                "NRC"
-                            </a>
-                            is accepted by IEEE TPAMI.
-                        </li>
-                        <li>
-                            <span class="news-date">[2023.6]</span>
-                            <a href="https://arxiv.org/abs/2010.12427" target="_blank" rel="noopener noreferrer">
-                                "Casting a BAIT for Offline and Online Source-free Domain Adaptation"
-                            </a>
-                            is finally accepted by CVIU.
-                        </li>
-                        <li>
-                            <span class="news-date">[2023.1]</span>
-                            Have a visiting talk in Prof.
-                            <a href="https://brbiclab.epfl.ch" target="_blank" rel="noopener noreferrer">
-                                Maria Brbic
-                            </a>'s group in EPFL.
-                        </li>
-                        <li>
-                            <span class="news-date">[2022.11]</span>
-                            I present our work on model adaptation under domain and category shift on
-                            <a href="https://trustmlresearch.github.io" target="_blank" rel="noopener noreferrer">
-                                TrustML Young Scientist Seminars
-                            </a>
-                            (hosted by
-                            <a href="https://aip.riken.jp" target="_blank" rel="noopener noreferrer">RIKEN AIP</a>) on
-                            Dec. 7.
-                        </li>
-                        <li>
-                            <span class="news-date">[2022.9]</span>
-                            <a href="https://arxiv.org/abs/2205.04183" target="_blank" rel="noopener noreferrer">
-                                "Attracting and Dispersing: A Simple Approach for Source-free Domain Adaptation"
-                            </a>
-                            is accepted by NeurIPS 2022 as Spotlight, and our paper
-                            <a href="https://arxiv.org/abs/2210.01600" target="_blank" rel="noopener noreferrer">
-                                "Positive Pair Distillation Considered Harmful: Continual Meta Metric Learning for
-                                Lifelong Object Re-Identification"
-                            </a>
-                            is accepted by BMVC 2022.
-                        </li>
-                        <li>
-                            <span class="news-date">[2021.9]</span>
-                            <a href="https://arxiv.org/abs/2110.04202" target="_blank" rel="noopener noreferrer">
-                                "Exploiting the Intrinsic Neighborhood Structure for Source-free Domain Adaptation"
-                            </a>
-                            is accepted by NeurIPS 2021.
-                        </li>
-                        <li>
-                            <span class="news-date">[2021.7]</span>
-                            <a href="https://arxiv.org/abs/2108.01614" target="_blank" rel="noopener noreferrer">
-                                "Generalized Source-free Domain Adaptation"
-                            </a>
-                            is accepted by ICCV 2021.
-                        </li>
-                    </ul>
-                </section>
-
-                <section id="experience" class="card">
-                    <h2>Experience</h2>
-                    <ul class="exp-list">
-                        <li>
-                            <span class="exp-date">Dec. 2024&nbsp;–&nbsp;present</span><br />
-                            Research Scientist / Team Leader,
-                            SB Intuitions, SoftBank, Tokyo, Japan.
-                        </li>
-                        <li>
-                            <span class="exp-date">Oct. 2023&nbsp;–&nbsp;Nov. 2024</span><br />
-                            Research Scientist, Sony Group Corporation, Tokyo, Japan.
-                        </li>
-                        <li>
-                            <span class="exp-date">Jan. 2023&nbsp;–&nbsp;Jun. 2023</span><br />
-                            Research Intern,
-                            <a href="https://www.omron.com" target="_blank" rel="noopener noreferrer">
-                                OMRON SINIC X
-                            </a>, Tokyo, Japan.
-                        </li>
-                        <li>
-                            <span class="exp-date">Oct. 2018&nbsp;–&nbsp;Mar. 2019</span><br />
-                            Guest Research Associate, Kyoto University, Japan.
-                        </li>
-                    </ul>
-                </section>
-
-                <section id="talks" class="card">
-                    <h2>Invited Talks, Awards & Activities</h2>
-                    <ul class="talks-list">
-                        <li>
-                            Visiting talks in
-                            <a href="https://www.micc.unifi.it" target="_blank" rel="noopener noreferrer">MICC Lab</a>
-                            (Prof. Andrew Bagdanov) in University of Florence and
-                            <a href="https://mhug.disi.unitn.it" target="_blank" rel="noopener noreferrer">MHUG Lab</a>
-                            (Prof. Nicu Sebe) in University of Trento, Italy, 2024.10.
-                        </li>
-                        <li>
-                            <a href="https://cerca.cat" target="_blank" rel="noopener noreferrer">
-                                Pioneer Awards 2023
-                            </a>, CERCA Research Center of Catalonia, Spain, 2023.12.
-                        </li>
-                        <li>
-                            Visiting talk in Prof.
-                            <a href="https://brbiclab.epfl.ch" target="_blank" rel="noopener noreferrer">
-                                Maria Brbic
-                            </a>'s group in EPFL, Switzerland, 2023.1.
-                        </li>
-                        <li>
-                            Invited talk on
-                            <a href="https://trustmlresearch.github.io" target="_blank" rel="noopener noreferrer">
-                                TrustML Young Scientist Seminars
-                            </a>, RIKEN AIP, Japan, 2022.12.
-                        </li>
-                        <li>
-                            Participation in
-                            <a href="https://iplab.dmi.unict.it" target="_blank" rel="noopener noreferrer">
-                                ICVSS Summer School
-                            </a>, Sicily, Italy, 2022.7.
-                        </li>
-                        <li>
-                            Invited talk on AI Time Seminar on NeurIPS 2021 (Virtual), China, 2022.2.
-                        </li>
-                    </ul>
-                </section>
-
-                <section id="service" class="card">
-                    <h2>Academic Service</h2>
-                    <ul class="service-list">
-                        <li>
-                            Conference Area Chair:
-                            ICML 2026.
-                        </li>
-                        <li>
-                            Guest Editor:
-                            IJCV Special Issue
-                            "<a href="https://avgen123.github.io" target="_blank" rel="noopener noreferrer">
-                                Audio-Visual Generation
-                            </a>".
-                        </li>
-                        <li>
-                            Organizer:
-                            ECCV 2024 / ICCV 2025
-                            "<a href="https://avgen123.github.io" target="_blank" rel="noopener noreferrer">
-                                Audio-Visual Generation and Learning workshop
-                            </a>".
-                        </li>
-                        <li>
-                            Conference Reviewer:
-                            ICLR; ICCV; NeurIPS; ECCV; ICML; CVPR; WACV.
-                        </li>
-                        <li>
-                            Journal Reviewer:
-                            IEEE TKDE; TPAMI; TAI; IJCV.
-                        </li>
-                    </ul>
-                </section>
-
-                <section id="education" class="card">
-                    <h2>Education</h2>
-                    <ul class="edu-list">
-                        <li>
-                            <span class="exp-date">Oct. 2019&nbsp;–&nbsp;Jul. 2023</span><br />
-                            Ph.D. in Computer Science,
-                            <a href="https://www.cvc.uab.es" target="_blank" rel="noopener noreferrer">
-                                Computer Vision Center
-                            </a>, Autonomous University of Barcelona, Spain.
-                        </li>
-                        <li>
-                            <span class="exp-date">Sep. 2016&nbsp;–&nbsp;Jun. 2019</span><br />
-                            Master in Control Science and Technology,
-                            Huazhong University of Science and Technology, China.
-                        </li>
-                        <li>
-                            <span class="exp-date">Sep. 2012&nbsp;–&nbsp;Jun. 2016</span><br />
-                            Bachelor in Automation,
-                            Wuhan University of Science and Technology, China.
-                        </li>
-                    </ul>
-                </section>
-
-                <section id="contact" class="card">
-                    <h2>Contact</h2>
-                    <p class="news-list">
-                        Contact: <a href="mailto:shiqi.yang147.jp@gmail.com">shiqi.yang147.jp@gmail.com</a>
-                    </p>
                 </section>
             </div>
         </main>
