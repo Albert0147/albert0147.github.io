@@ -425,6 +425,32 @@
             -webkit-backdrop-filter: blur(24px);
             border: 1px solid var(--border);
             box-shadow: var(--shadow-soft);
+            /* 使其成为一个固定高度的滑动窗口 */
+            height: 2280px;
+            /* 这个固定高度约等于当前左侧所有卡片的总高度，你可以微调这个值 */
+            max-height: calc(100vh - 120px);
+            /* 保证在小屏幕上也不会超过一屏，配合吸顶效果极佳 */
+            position: sticky;
+            top: 100px;
+            overflow-y: auto;
+        }
+
+        /* 专门美化一下这个滑动窗口的滚动条 */
+        .section::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .section::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .section::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: var(--radius-pill);
+        }
+
+        .section::-webkit-scrollbar-thumb:hover {
+            background: var(--accent);
         }
 
         .section-header {
