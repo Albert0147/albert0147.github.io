@@ -5,8 +5,7 @@
     <meta charset="UTF-8" />
     <title>Shiqi Yang</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description"
-        content="Personal homepage of Shiqi Yang" />
+    <meta name="description" content="Personal homepage of Shiqi Yang" />
     <style>
         :root {
             --bg: #0b1020;
@@ -21,13 +20,20 @@
             --radius-lg: 18px;
             --radius-xl: 24px;
             --radius-pill: 999px;
-            --base-font: 16px; 
+            --base-font: 18px;
+            --zoom-level: 1.1;
+            /* You can adjust this value to zoom the entire page. For example, 1.05 for 5% zoom, 1.1 for 10% zoom. */
+
         }
 
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
+        }
+
+        html {
+            font-size: var(--base-font);
         }
 
         body {
@@ -37,6 +43,9 @@
             color: var(--text);
             line-height: 1.6;
             -webkit-font-smoothing: antialiased;
+            font-size: 1rem;
+            zoom: 1.05;
+            /* 你可以通过修改这里的数字来放大或缩小整体页面。例如 1.05 就是放大 5%，1.1 就是放大 10% */
         }
 
         a {
@@ -100,7 +109,7 @@
         .logo-text-main {
             font-weight: 600;
             letter-spacing: 0.03em;
-            font-size: 15px;
+            font-size: 18px;
         }
 
         .logo-text-sub {
@@ -147,20 +156,20 @@
             }
         }
 
-        .exp-company{
-      display:flex;
-      align-items:baseline;
-      gap:10px;
-    }
+        .exp-company {
+            display: flex;
+            align-items: baseline;
+            gap: 10px;
+        }
 
-    .exp-marker{
-      width:10px;
-      height:10px;
-      border-radius:50%;
-      background: var(--accent, #63d7ff);
-      flex:0 0 10px;
-      transform: translateY(-1px);
-    }
+        .exp-marker {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--accent, #63d7ff);
+            flex: 0 0 10px;
+            transform: translateY(-1px);
+        }
 
         /* Hero / Avatar */
         .hero-card {
@@ -583,18 +592,16 @@
                                     CV (updated Mar. 2026)
                                 </a>
                                 <a class="btn-primary"
-                                    href="https://scholar.google.com/citations?user=p27Iqt4AAAAJ&hl=en"
-                                    target="_blank" rel="noopener noreferrer">
+                                    href="https://scholar.google.com/citations?user=p27Iqt4AAAAJ&hl=en" target="_blank"
+                                    rel="noopener noreferrer">
                                     Scholar
                                 </a>
-                                <a class="btn-primary"
-                                    href="https://www.linkedin.com/in/aquila147/"
-                                    target="_blank" rel="noopener noreferrer">
+                                <a class="btn-primary" href="https://www.linkedin.com/in/aquila147/" target="_blank"
+                                    rel="noopener noreferrer">
                                     Linkedin
                                 </a>
-                                <a class="btn-primary"
-                                    href="https://x.com/shiqi_yang_147"
-                                    target="_blank" rel="noopener noreferrer">
+                                <a class="btn-primary" href="https://x.com/shiqi_yang_147" target="_blank"
+                                    rel="noopener noreferrer">
                                     X
                                 </a>
                                 <!--
@@ -613,7 +620,8 @@
 
                     <div class="about-body">
                         <p>
-                            From 2024.12, I am a researcher and team leader (as well as a research manager) of the Creative Vision team at
+                            From 2024.12, I am a researcher and team leader (as well as a research manager) of the
+                            Creative Vision team at
                             <a href="https://www.sbintuitions.co.jp/en" target="_blank" rel="noopener noreferrer">
                                 SB Intuitions
                             </a>
@@ -634,10 +642,10 @@
                                 Computer Vision Center
                             </a>, Autonomous University of Barcelona, Spain.
 
-                            <br>Currently, I am leading industrial projects in visual generation, manipulation. 
-                                I have broad and hands-on experience in image generation and manipulation,
-                                covering both pre-training and post-training stages, as well as audio-visual generation,
-                                transfer learning, and continual learning.
+                            <br>Currently, I am leading industrial projects in visual generation, manipulation.
+                            I have broad and hands-on experience in image generation and manipulation,
+                            covering both pre-training and post-training stages, as well as audio-visual generation,
+                            transfer learning, and continual learning.
 
                         </p>
 
@@ -694,11 +702,11 @@
                             <li>
                                 <span class="news-date">[2024.10]</span>
                                 Have visiting talks in
-                                <a href="https://www.micc.unifi.it" target="_blank"
-                                    rel="noopener noreferrer">MICC Lab</a>
+                                <a href="https://www.micc.unifi.it" target="_blank" rel="noopener noreferrer">MICC
+                                    Lab</a>
                                 (Prof. Andrew Bagdanov) in University of Florence and
-                                <a href="https://mhug.disi.unitn.it" target="_blank"
-                                    rel="noopener noreferrer">MHUG Lab</a>
+                                <a href="https://mhug.disi.unitn.it" target="_blank" rel="noopener noreferrer">MHUG
+                                    Lab</a>
                                 (Prof. Nicu Sebe) in University of Trento.
                             </li>
                             <li>
@@ -719,7 +727,8 @@
                             <li>
                                 <span class="news-date">[2023.12]</span>
                                 My doctoral thesis received
-                                <a href="https://comunitats.cerca.cat/m/cerca-pioner/towards-source-free-domain-adaptation-of-neural-networks-in-an-open-world/657344bf-2551-4989-ace1-ca36a6ab7d26" target="_blank" rel="noopener noreferrer">
+                                <a href="https://comunitats.cerca.cat/m/cerca-pioner/towards-source-free-domain-adaptation-of-neural-networks-in-an-open-world/657344bf-2551-4989-ace1-ca36a6ab7d26"
+                                    target="_blank" rel="noopener noreferrer">
                                     "Pioneer Awards 2023 - CERCA"
                                 </a>.
                             </li>
@@ -727,7 +736,8 @@
                                 <span class="news-date">[2023.9]</span>
                                 Our paper
                                 <a href="https://arxiv.org/abs/2309.15664" target="_blank" rel="noopener noreferrer">
-                                    "Dynamic Prompt Learning: Addressing Cross-Attention Leakage for Text-Based Image Editing"
+                                    "Dynamic Prompt Learning: Addressing Cross-Attention Leakage for Text-Based Image
+                                    Editing"
                                 </a>
                                 is accepted by NeurIPS 2023.
                             </li>
@@ -795,76 +805,76 @@
                     </section>
 
                     <section id="experience" class="card">
-  <h2>Experience</h2>
+                        <h2>Experience</h2>
 
-  <ul class="exp-list">
-    <!-- SB Intuitions (split into two roles) -->
-    <li class="exp-item">
-      <div class="exp-company">
-        <span class="exp-marker" aria-hidden="true"></span>
-        SB Intuitions, SoftBank, Tokyo, Japan
-      </div>
+                        <ul class="exp-list">
+                            <!-- SB Intuitions (split into two roles) -->
+                            <li class="exp-item">
+                                <div class="exp-company">
+                                    <span class="exp-marker" aria-hidden="true"></span>
+                                    SB Intuitions, SoftBank, Tokyo, Japan
+                                </div>
 
-      <div class="exp-roles">
-        <div class="exp-role">
-          <span class="exp-date">Apr. 2025&nbsp;–&nbsp;Now</span>
-          <span class="exp-title">Chief Research Scientist and Research Manager</span>
-        </div>
-        <div class="exp-role">
-          <span class="exp-date">Dec. 2024&nbsp;–&nbsp;Mar. 2025</span>
-          <span class="exp-title">Lead Research Scientist</span>
-        </div>
-      </div>
-    </li>
+                                <div class="exp-roles">
+                                    <div class="exp-role">
+                                        <span class="exp-date">Apr. 2025&nbsp;–&nbsp;Now</span>
+                                        <span class="exp-title">Chief Research Scientist and Research Manager</span>
+                                    </div>
+                                    <div class="exp-role">
+                                        <span class="exp-date">Dec. 2024&nbsp;–&nbsp;Mar. 2025</span>
+                                        <span class="exp-title">Lead Research Scientist</span>
+                                    </div>
+                                </div>
+                            </li>
 
-    <!-- Sony -->
-    <li class="exp-item">
-      <div class="exp-company">
-        <span class="exp-marker" aria-hidden="true"></span>
-        Sony Group Corporation, Tokyo, Japan
-      </div>
+                            <!-- Sony -->
+                            <li class="exp-item">
+                                <div class="exp-company">
+                                    <span class="exp-marker" aria-hidden="true"></span>
+                                    Sony Group Corporation, Tokyo, Japan
+                                </div>
 
-      <div class="exp-roles">
-        <div class="exp-role">
-          <span class="exp-date">Oct. 2023&nbsp;–&nbsp;Nov. 2024</span>
-          <span class="exp-title">Research Scientist</span>
-        </div>
-      </div>
-    </li>
+                                <div class="exp-roles">
+                                    <div class="exp-role">
+                                        <span class="exp-date">Oct. 2023&nbsp;–&nbsp;Nov. 2024</span>
+                                        <span class="exp-title">Research Scientist</span>
+                                    </div>
+                                </div>
+                            </li>
 
-    <!-- OMRON SINIC X (keep original link) -->
-    <li class="exp-item">
-      <div class="exp-company">
-        <span class="exp-marker" aria-hidden="true"></span>
-        <a href="https://www.omron.com" target="_blank" rel="noopener noreferrer">
-          OMRON SINIC X
-        </a>, Tokyo, Japan
-      </div>
+                            <!-- OMRON SINIC X (keep original link) -->
+                            <li class="exp-item">
+                                <div class="exp-company">
+                                    <span class="exp-marker" aria-hidden="true"></span>
+                                    <a href="https://www.omron.com" target="_blank" rel="noopener noreferrer">
+                                        OMRON SINIC X
+                                    </a>, Tokyo, Japan
+                                </div>
 
-      <div class="exp-roles">
-        <div class="exp-role">
-          <span class="exp-date">Jan. 2023&nbsp;–&nbsp;Jun. 2023</span>
-          <span class="exp-title">Research Intern</span>
-        </div>
-      </div>
-    </li>
+                                <div class="exp-roles">
+                                    <div class="exp-role">
+                                        <span class="exp-date">Jan. 2023&nbsp;–&nbsp;Jun. 2023</span>
+                                        <span class="exp-title">Research Intern</span>
+                                    </div>
+                                </div>
+                            </li>
 
-    <!-- Kyoto University -->
-    <li class="exp-item">
-      <div class="exp-company">
-        <span class="exp-marker" aria-hidden="true"></span>
-        Kyoto University, Japan
-      </div>
+                            <!-- Kyoto University -->
+                            <li class="exp-item">
+                                <div class="exp-company">
+                                    <span class="exp-marker" aria-hidden="true"></span>
+                                    Kyoto University, Japan
+                                </div>
 
-      <div class="exp-roles">
-        <div class="exp-role">
-          <span class="exp-date">Oct. 2018&nbsp;–&nbsp;Mar. 2019</span>
-          <span class="exp-title">Guest Research Associate</span>
-        </div>
-      </div>
-    </li>
-  </ul>
-</section>
+                                <div class="exp-roles">
+                                    <div class="exp-role">
+                                        <span class="exp-date">Oct. 2018&nbsp;–&nbsp;Mar. 2019</span>
+                                        <span class="exp-title">Guest Research Associate</span>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </section>
 
 
 
@@ -1348,7 +1358,8 @@
                         <ul class="pub-list">
                             <li class="pub-item">
                                 <span class="pub-title">
-                                    Probing the effectiveness of World Models for Spatial Reasoning through Test-time Scaling
+                                    Probing the effectiveness of World Models for Spatial Reasoning through Test-time
+                                    Scaling
                                 </span>
                                 <span class="pub-authors">
                                     Saurav Jha, M Jehanzeb Mirza, Wei Lin, <strong>Shiqi Yang</strong>, Sarath Chandar
@@ -1358,9 +1369,10 @@
                                 </span>
                                 <span class="pub-links">
                                     <span>
-                                        <a href="https://arxiv.org/abs/2512.05809" target="_blank" rel="noopener noreferrer">
-                                    [arxiv]
-                                </a>
+                                        <a href="https://arxiv.org/abs/2512.05809" target="_blank"
+                                            rel="noopener noreferrer">
+                                            [arxiv]
+                                        </a>
                                     </span>
                                 </span>
                             </li>
