@@ -7,6 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="Personal homepage of Shiqi Yang" />
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
+
         :root {
             --bg: #1e293b;
             --bg-alt: transparent;
@@ -35,7 +37,7 @@
         }
 
         body {
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+            font-family: 'Outfit', system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
                 "Segoe UI", sans-serif;
             background-color: #1e293b;
             background-image:
@@ -183,6 +185,13 @@
             box-shadow: var(--shadow-soft);
             position: relative;
             overflow: hidden;
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease, border-color 0.4s ease;
+        }
+
+        .hero-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 24px 50px rgba(0, 0, 0, 0.5);
+            border-color: rgba(255, 255, 255, 0.25);
         }
 
         .hero-grid {
@@ -207,6 +216,13 @@
             border: 3px solid rgba(255, 255, 255, 0.25);
             box-shadow: 0 18px 40px rgba(0, 0, 0, 0.7);
             display: block;
+            transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+        }
+
+        .avatar:hover {
+            transform: scale(1.05) rotate(3deg);
+            box-shadow: 0 22px 50px rgba(56, 189, 248, 0.4);
+            border-color: rgba(255, 255, 255, 0.5);
         }
 
         .avatar::after {
@@ -228,6 +244,11 @@
         .hero-name h1 {
             font-size: 27px;
             letter-spacing: 0.03em;
+            font-weight: 700;
+            background: linear-gradient(135deg, #ffffff 30%, #a5b4fc 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .hero-name .name-alt {
@@ -275,6 +296,13 @@
             align-items: center;
             gap: 6px;
             backdrop-filter: blur(8px);
+            transition: all 0.3s ease;
+        }
+
+        .contact-pill:hover {
+            background: rgba(255, 255, 255, 0.12);
+            border-color: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
         }
 
         .contact-pill span.label {
@@ -367,6 +395,13 @@
             border: 1px solid var(--border);
             padding: 24px 24px 22px;
             box-shadow: var(--shadow-soft);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+            border-color: rgba(255, 255, 255, 0.2);
         }
 
         .card h2 {
@@ -433,6 +468,12 @@
             position: sticky;
             top: 100px;
             overflow-y: auto;
+            transition: box-shadow 0.3s ease, border-color 0.3s ease;
+        }
+
+        .section:hover {
+            border-color: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
         }
 
         /* 专门美化一下这个滑动窗口的滚动条 */
