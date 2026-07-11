@@ -862,13 +862,18 @@
         }
 
         #about { order: 1; grid-column: 1 / -1; }
-        #leadership { order: 2; grid-column: 1 / -1; }
+        #hiring { order: 2; grid-column: 1 / -1; }
         #news { order: 3; grid-column: 1 / -1; }
         #projects,
         #experience,
         #talks,
         #service,
-        #education { order: 4; grid-column: span 6; }
+        #education { order: 4; }
+        #projects,
+        #experience,
+        #talks,
+        #service { grid-column: span 6; }
+        #education { grid-column: 1 / -1; }
         #publications { order: 5; grid-column: 1 / -1; }
         #contact { order: 6; grid-column: 1 / -1; }
 
@@ -1077,6 +1082,22 @@
             margin-top: 13px;
         }
 
+        #education .edu-list {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 16px;
+            margin-top: 16px;
+        }
+
+        #education .edu-list li,
+        #education .edu-list li + li {
+            margin-top: 0;
+            padding: 16px;
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            background: var(--card-raised);
+        }
+
         .section-header {
             margin-bottom: 22px;
         }
@@ -1205,6 +1226,10 @@
             #service,
             #education {
                 grid-column: 1 / -1;
+            }
+
+            #education .edu-list {
+                grid-template-columns: 1fr;
             }
 
         }
@@ -1383,7 +1408,7 @@
                                     rel="noopener noreferrer">
                                     Scholar
                                 </a>
-                                <a class="btn-soft" href="#leadership">
+                                <a class="btn-soft" href="#hiring">
                                     Open positions
                                 </a>
                                 <a class="btn-soft" href="https://www.linkedin.com/in/aquila147/" target="_blank"
@@ -1405,7 +1430,7 @@
                                 SB Intuitions, a SoftBank R&amp;D company
                             </a>, bringing together the Creative Vision Team and Conversational Speech Team. Before
                             joining SB Intuitions, I was an audio-visual research scientist at Sony Group Corporation.
-                            I received my Ph.D. from the
+                            I received my Ph.D. (2023) from the
                             <a href="https://lamp.cvc.uab.es" target="_blank" rel="noopener noreferrer">
                                 Learning and Machine Perception (LAMP) team
                             </a> at the Computer Vision Center, Autonomous University of Barcelona, advised by
@@ -1430,7 +1455,7 @@
 
                 <!-- 左侧的 News / Projects / Experience / Talks / Service / Education / Contact -->
                 <div class="side-column">
-                    <section id="leadership">
+                    <section id="hiring">
                         <div class="hiring-panel">
                             <div class="hiring-copy">
                                 <span class="section-kicker">Hiring</span>
@@ -1813,11 +1838,9 @@
                         <h2>Education</h2>
                         <ul class="edu-list">
                             <li>
-                                <span class="exp-date">Oct. 2019&nbsp;–&nbsp;Jul. 2023</span><br />
-                                Ph.D. in Computer Science,
-                                <a href="https://www.cvc.uab.es" target="_blank" rel="noopener noreferrer">
-                                    Computer Vision Center
-                                </a>, Autonomous University of Barcelona, Spain.
+                                <span class="exp-date">Sep. 2012&nbsp;–&nbsp;Jun. 2016</span><br />
+                                Bachelor in Automation,
+                                Wuhan University of Science and Technology, China.
                             </li>
                             <li>
                                 <span class="exp-date">Sep. 2016&nbsp;–&nbsp;Jun. 2019</span><br />
@@ -1825,9 +1848,11 @@
                                 Huazhong University of Science and Technology, China.
                             </li>
                             <li>
-                                <span class="exp-date">Sep. 2012&nbsp;–&nbsp;Jun. 2016</span><br />
-                                Bachelor in Automation,
-                                Wuhan University of Science and Technology, China.
+                                <span class="exp-date">Oct. 2019&nbsp;–&nbsp;Jul. 2023</span><br />
+                                Ph.D. in Computer Science,
+                                <a href="https://www.cvc.uab.es" target="_blank" rel="noopener noreferrer">
+                                    Computer Vision Center
+                                </a>, Autonomous University of Barcelona, Spain.
                             </li>
                         </ul>
                     </section>
