@@ -444,6 +444,7 @@
         }
 
         .news-list,
+        .project-list,
         .exp-list,
         .talks-list,
         .service-list,
@@ -454,11 +455,112 @@
         }
 
         .news-list li+li,
+        .project-list li+li,
         .exp-list li+li,
         .talks-list li+li,
         .service-list li+li,
         .edu-list li+li {
             margin-top: 6px;
+        }
+
+        .project-list {
+            display: grid;
+            gap: 14px;
+            margin-top: 14px;
+            padding-left: 18px;
+            border-left: 1px solid rgba(56, 189, 248, 0.28);
+        }
+
+        .project-list li+li {
+            margin-top: 0;
+        }
+
+        .project-item {
+            position: relative;
+            padding: 14px 16px 13px;
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            background: linear-gradient(135deg, rgba(56, 189, 248, 0.07), rgba(255, 255, 255, 0.025));
+            transition: border-color 0.2s ease, background 0.2s ease;
+        }
+
+        .project-item::before {
+            content: "";
+            position: absolute;
+            left: -24px;
+            top: 20px;
+            width: 9px;
+            height: 9px;
+            border: 2px solid var(--bg);
+            border-radius: 50%;
+            background: var(--accent);
+            box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.15);
+        }
+
+        .project-item:hover {
+            border-color: rgba(56, 189, 248, 0.35);
+            background: linear-gradient(135deg, rgba(56, 189, 248, 0.11), rgba(255, 255, 255, 0.04));
+        }
+
+        .project-heading {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 12px;
+            margin-bottom: 4px;
+        }
+
+        .project-title {
+            color: var(--text);
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .project-meta {
+            color: var(--accent);
+            font-size: 11px;
+            white-space: nowrap;
+            padding: 2px 8px;
+            border: 1px solid rgba(56, 189, 248, 0.2);
+            border-radius: var(--radius-pill);
+            background: var(--accent-soft);
+        }
+
+        .project-description {
+            line-height: 1.5;
+        }
+
+        .project-focus {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+            margin-top: 8px;
+        }
+
+        .project-focus span {
+            padding: 2px 7px;
+            border-radius: var(--radius-pill);
+            background: rgba(255, 255, 255, 0.06);
+            color: var(--muted);
+            font-size: 10px;
+            letter-spacing: 0.02em;
+        }
+
+        .project-intro {
+            color: var(--muted);
+            font-size: 12px;
+            line-height: 1.5;
+        }
+
+        @media (max-width: 520px) {
+            .project-heading {
+                flex-direction: column;
+                gap: 1px;
+            }
+
+            .project-meta {
+                white-space: normal;
+            }
         }
 
         .news-date {
@@ -651,6 +753,7 @@
                     <li><a href="#about">About</a></li>
                     <li><a href="#news">News</a></li>
                     <li><a href="#publications">Publications</a></li>
+                    <li><a href="#projects">Projects</a></li>
                     <li><a href="#experience">Experience</a></li>
                     <li><a href="#talks">Talks & Awards</a></li>
                     <li><a href="#service">Service</a></li>
@@ -780,7 +883,7 @@
                     </div>
                 </section>
 
-                <!-- 左侧的 News / Experience / Talks / Service / Education / Contact -->
+                <!-- 左侧的 News / Projects / Experience / Talks / Service / Education / Contact -->
                 <div class="side-column">
                     <section id="news" class="card">
                         <h2>News</h2>
@@ -944,9 +1047,43 @@
                         </ul>
                     </section>
 
+                    <section id="projects" class="card">
+                        <h2>Selected Project Experience</h2>
+                        <p class="project-intro">
+                            Selected industrial R&amp;D projects.
+                        </p>
+                        <ul class="project-list">
+                            <li class="project-item">
+                                <div class="project-heading">
+                                    <span class="project-title">Interactive Multimodal Generation</span>
+                                    <span class="project-meta">2026–Present</span>
+                                </div>
+                                <p class="project-description">
+                                    Streaming interactive generation.
+                                </p>
+                            </li>
+                            <li class="project-item">
+                                <div class="project-heading">
+                                    <span class="project-title">Image Generation and Editing Pretraining</span>
+                                    <span class="project-meta">2025–2026</span>
+                                </div>
+                                <p class="project-description">
+                                    Image generation and editing across large-scale pre-training and post-training.
+                                </p>
+                            </li>
+                            <li class="project-item">
+                                <div class="project-heading">
+                                    <span class="project-title">Audio-Visual Generation</span>
+                                    <span class="project-meta">2024–2025</span>
+                                </div>
+                                <p class="project-description">
+                                    Audio-video generation for better temporal synchronization.
+                                </p>
+                            </li>
+                        </ul>
+                    </section>
                     <section id="experience" class="card">
                         <h2>Experience</h2>
-
                         <ul class="exp-list">
                             <!-- SB Intuitions (split into two roles) -->
                             <li class="exp-item">
