@@ -485,7 +485,6 @@
 
         .section-lead,
         .section-subtitle {
-            max-width: 65ch;
             color: var(--muted);
             font-size: 0.9375rem;
             line-height: 1.55;
@@ -508,10 +507,6 @@
             box-shadow: var(--shadow-soft), inset 0 1px 0 rgba(255, 255, 255, 0.05);
         }
 
-        .hiring-copy {
-            max-width: 680px;
-        }
-
         .hiring-copy h2 {
             margin-bottom: 8px;
             color: var(--text);
@@ -520,7 +515,6 @@
         }
 
         .hiring-panel p {
-            max-width: 68ch;
             color: var(--muted);
             font-size: 0.875rem;
         }
@@ -550,7 +544,6 @@
         }
 
         .news-list li {
-            max-width: 82ch;
             padding: 11px 0 11px 96px;
             text-indent: -96px;
             border-bottom: 1px solid var(--border);
@@ -667,51 +660,23 @@
             background: var(--card-raised);
         }
 
-        /* Projects & tech blog: horizontal scroll strip (newest first) */
+        /* Projects & tech blog: grid, collapsed to the first cards (newest first) */
         .project-grid {
             display: grid;
-            grid-auto-flow: column;
-            grid-auto-columns: min(320px, 78vw);
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
             gap: 14px;
             margin-top: 18px;
-            padding: 4px 2px 12px;
-            overflow-x: auto;
-            scroll-snap-type: x proximity;
-            -webkit-overflow-scrolling: touch;
-            scrollbar-width: thin;
-            scrollbar-color: rgba(197, 208, 223, 0.35) transparent;
-            --edge-fade-left: 36px;
-            --edge-fade-right: 36px;
-            -webkit-mask-image: linear-gradient(to right, transparent, #000 var(--edge-fade-left), #000 calc(100% - var(--edge-fade-right)), transparent);
-            mask-image: linear-gradient(to right, transparent, #000 var(--edge-fade-left), #000 calc(100% - var(--edge-fade-right)), transparent);
         }
 
-        .project-grid.at-start {
-            --edge-fade-left: 0px;
-        }
-
-        .project-grid.at-end {
-            --edge-fade-right: 0px;
-        }
-
-        .project-grid::-webkit-scrollbar {
-            height: 8px;
-        }
-
-        .project-grid::-webkit-scrollbar-thumb {
-            background: rgba(197, 208, 223, 0.28);
-            border-radius: 999px;
-        }
-
-        .project-grid::-webkit-scrollbar-track {
-            background: transparent;
+        /* keep the 6 here in sync with VISIBLE_CARDS in the script below */
+        .project-grid.is-collapsed .project-card:nth-child(n+7) {
+            display: none;
         }
 
         .project-card {
             display: flex;
             flex-direction: column;
             gap: 8px;
-            scroll-snap-align: start;
             padding: 18px;
             border: 1px solid var(--border);
             border-radius: 14px;
@@ -1187,9 +1152,10 @@
 
             .project-grid {
                 display: block;
-                overflow: visible;
-                -webkit-mask-image: none;
-                mask-image: none;
+            }
+
+            .project-grid.is-collapsed .project-card {
+                display: flex !important;
             }
 
             .project-card {
@@ -2344,17 +2310,28 @@
                 }
             } catch (e) { /* non-critical enhancement */ }
 
-            // Projects strip: edge-fade affordance for horizontal scroll
+            // Projects: collapse long card grids behind a "Show more" toggle
+            // (keep VISIBLE_CARDS in sync with the .is-collapsed nth-child rule)
             try {
-                const strip = document.querySelector('.project-grid');
-                if (strip) {
-                    const updateStrip = () => {
-                        strip.classList.toggle('at-start', strip.scrollLeft <= 4);
-                        strip.classList.toggle('at-end', strip.scrollLeft + strip.clientWidth >= strip.scrollWidth - 4);
-                    };
-                    strip.addEventListener('scroll', updateStrip, { passive: true });
-                    window.addEventListener('resize', updateStrip);
-                    updateStrip();
+                const projectGrid = document.querySelector('.project-grid');
+                const VISIBLE_CARDS = 6;
+                if (projectGrid && projectGrid.children.length > VISIBLE_CARDS) {
+                    if (!projectGrid.id) projectGrid.id = 'project-items';
+                    projectGrid.classList.add('is-collapsed');
+                    const toggle = document.createElement('button');
+                    toggle.className = 'archive-toggle';
+                    toggle.type = 'button';
+                    toggle.setAttribute('aria-expanded', 'false');
+                    toggle.setAttribute('aria-controls', projectGrid.id);
+                    toggle.textContent = `Show ${projectGrid.children.length - VISIBLE_CARDS} more posts`;
+                    toggle.addEventListener('click', () => {
+                        const isCollapsed = projectGrid.classList.toggle('is-collapsed');
+                        toggle.setAttribute('aria-expanded', String(!isCollapsed));
+                        toggle.textContent = isCollapsed
+                            ? `Show ${projectGrid.children.length - VISIBLE_CARDS} more posts`
+                            : 'Show fewer posts';
+                    });
+                    projectGrid.insertAdjacentElement('afterend', toggle);
                 }
             } catch (e) { /* non-critical enhancement */ }
 
