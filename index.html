@@ -667,18 +667,51 @@
             background: var(--card-raised);
         }
 
-        /* Projects & tech blog */
+        /* Projects & tech blog: horizontal scroll strip (newest first) */
         .project-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            grid-auto-flow: column;
+            grid-auto-columns: min(320px, 78vw);
             gap: 14px;
             margin-top: 18px;
+            padding: 4px 2px 12px;
+            overflow-x: auto;
+            scroll-snap-type: x proximity;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: thin;
+            scrollbar-color: rgba(197, 208, 223, 0.35) transparent;
+            --edge-fade-left: 36px;
+            --edge-fade-right: 36px;
+            -webkit-mask-image: linear-gradient(to right, transparent, #000 var(--edge-fade-left), #000 calc(100% - var(--edge-fade-right)), transparent);
+            mask-image: linear-gradient(to right, transparent, #000 var(--edge-fade-left), #000 calc(100% - var(--edge-fade-right)), transparent);
+        }
+
+        .project-grid.at-start {
+            --edge-fade-left: 0px;
+        }
+
+        .project-grid.at-end {
+            --edge-fade-right: 0px;
+        }
+
+        .project-grid::-webkit-scrollbar {
+            height: 8px;
+        }
+
+        .project-grid::-webkit-scrollbar-thumb {
+            background: rgba(197, 208, 223, 0.28);
+            border-radius: 999px;
+        }
+
+        .project-grid::-webkit-scrollbar-track {
+            background: transparent;
         }
 
         .project-card {
             display: flex;
             flex-direction: column;
             gap: 8px;
+            scroll-snap-align: start;
             padding: 18px;
             border: 1px solid var(--border);
             border-radius: 14px;
@@ -2297,6 +2330,20 @@
                             : 'Hide older updates';
                     });
                     newsList.insertAdjacentElement('afterend', toggle);
+                }
+            } catch (e) { /* non-critical enhancement */ }
+
+            // Projects strip: edge-fade affordance for horizontal scroll
+            try {
+                const strip = document.querySelector('.project-grid');
+                if (strip) {
+                    const updateStrip = () => {
+                        strip.classList.toggle('at-start', strip.scrollLeft <= 4);
+                        strip.classList.toggle('at-end', strip.scrollLeft + strip.clientWidth >= strip.scrollWidth - 4);
+                    };
+                    strip.addEventListener('scroll', updateStrip, { passive: true });
+                    window.addEventListener('resize', updateStrip);
+                    updateStrip();
                 }
             } catch (e) { /* non-critical enhancement */ }
 
