@@ -8,14 +8,14 @@
     <meta name="color-scheme" content="dark" />
     <meta name="theme-color" content="#172234" />
     <meta name="description"
-        content="Shiqi Yang is Director of the Multimodal AI Department and Principal Research Scientist at SB Intuitions, working on multimodal generation and video world models." />
+        content="Shiqi Yang is a Principal Research Scientist and Director at SB Intuitions, leading hands-on research in multimodal generation, video world models, and world action models." />
     <link rel="canonical" href="https://albert0147.github.io/" />
     <link rel="icon" href="./favicon-32.png" type="image/png" sizes="32x32" />
     <link rel="apple-touch-icon" href="./apple-touch-icon.png" />
     <meta property="og:type" content="profile" />
     <meta property="og:title" content="Shiqi Yang — Multimodal AI Researcher &amp; Director" />
     <meta property="og:description"
-        content="Director of the Multimodal AI Department and Principal Research Scientist at SB Intuitions, working on multimodal generation and video world models." />
+        content="Principal Research Scientist and Director at SB Intuitions, leading hands-on research in multimodal generation, video world models, and world action models." />
     <meta property="og:image" content="https://albert0147.github.io/avatar-square.jpg" />
     <meta property="og:url" content="https://albert0147.github.io/" />
     <meta property="og:site_name" content="Shiqi Yang" />
@@ -250,7 +250,7 @@
             grid-column: 1 / -1;
         }
 
-        #hiring {
+        #projects {
             order: 2;
             grid-column: 1 / -1;
         }
@@ -260,21 +260,25 @@
             grid-column: 1 / -1;
         }
 
-        #projects {
+        #experience {
             order: 4;
             grid-column: 1 / -1;
         }
 
-        #experience,
+        #publications {
+            order: 5;
+            grid-column: 1 / -1;
+        }
+
         #talks,
         #service,
         #education {
-            order: 5;
+            order: 6;
             grid-column: span 6;
         }
 
-        #publications {
-            order: 6;
+        #hiring {
+            order: 7;
             grid-column: 1 / -1;
         }
 
@@ -718,6 +722,10 @@
             opacity: 0.65;
         }
 
+        .project-desc {
+            color: var(--muted);
+        }
+
         .project-meta {
             margin-top: auto;
             padding-top: 4px;
@@ -1065,7 +1073,8 @@
             }
 
             main {
-                display: block;
+                display: flex;
+                flex-direction: column;
             }
 
             main section {
@@ -1190,7 +1199,7 @@
             "alternateName": "杨诗琪",
             "url": "https://albert0147.github.io/",
             "image": "https://albert0147.github.io/avatar-square.jpg",
-            "jobTitle": ["Director of Multimodal AI Department", "Principal Research Scientist"],
+            "jobTitle": ["Principal Research Scientist", "Director of Multimodal AI Department"],
             "worksFor": {
                 "@type": "Organization",
                 "name": "SB Intuitions Corp.",
@@ -1227,9 +1236,10 @@
                 <ul>
                     <li><a href="#about">About</a></li>
                     <li><a href="#projects">Projects</a></li>
+                    <li><a href="#news">News</a></li>
                     <li><a href="#experience">Experience</a></li>
-                    <li><a href="#service">Service</a></li>
                     <li><a href="#publications">Publications</a></li>
+                    <li><a href="#service">Service</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
@@ -1250,7 +1260,7 @@
                             <div class="name-alt"><span lang="zh-Hans">杨 诗琪</span> &nbsp; · &nbsp; Ph.D.</div>
                         </div>
                         <div class="hero-title">
-                            Director, Principal Research Scientist <br />
+                            Principal Research Scientist · Director <br />
                             Multimodal AI Department · <span class="nowrap">SB Intuitions Corp., Tokyo</span>
                         </div>
                         <div class="contact-row">
@@ -1269,7 +1279,7 @@
                                 target="_blank" rel="noopener noreferrer">CV (updated Aug. 2026)</a>
                             <a class="btn-soft" href="https://scholar.google.com/citations?user=p27Iqt4AAAAJ&amp;hl=en"
                                 target="_blank" rel="noopener noreferrer">Scholar</a>
-                            <a class="btn-soft" href="#hiring">Open positions</a>
+                            <a class="btn-soft" href="#projects">Selected work</a>
                             <a class="btn-soft" href="https://www.linkedin.com/in/aquila147/" target="_blank"
                                 rel="noopener noreferrer">LinkedIn</a>
                             <a class="btn-soft" href="https://x.com/shiqi_yang_147" target="_blank"
@@ -1280,11 +1290,19 @@
 
                 <div class="about-body">
                     <p>
-                        I lead the application-oriented Multimodal AI Department at
+                        I am a hands-on research leader working on image generation and manipulation, interactive
+                        audio-visual generation, video world models, and world action models. I remain directly involved
+                        in model architecture, training, experimentation, and technical implementation while leading
+                        research projects and teams.
+                    </p>
+                    <p>
+                        At
                         <a href="https://www.sbintuitions.co.jp/en" target="_blank" rel="noopener noreferrer">SB
-                            Intuitions, a SoftBank R&amp;D company</a>, bringing together the Creative Vision Team and
-                        Conversational Speech Team,
-                        leading teams of researchers and engineers across two sub-teams, covering vision and speech.
+                            Intuitions, a SoftBank R&amp;D company</a>, I lead the application-oriented Multimodal AI
+                        Department, bringing together the Creative Vision Team and Conversational Speech Team and
+                        leading researchers and engineers across vision and speech.
+                    </p>
+                    <p>
                         Before
                         joining SB Intuitions, I was an audio-visual research scientist at Sony Group Corporation.
                         I received my Ph.D. (2023) from the
@@ -1296,12 +1314,12 @@
                         chair for ICML, ICLR and NeurIPS, guest editor for
                         an IJCV special issue, and organizer of the workshop series
                         <a href="https://efficientvg.github.io/" target="_blank" rel="noopener noreferrer">EVG</a> and
-                        <a href="https://avgen123.github.io" target="_blank" rel="noopener noreferrer">AVGenL</a>.
-                        My work spans image generation and manipulation (including pre-training and post-training),
-                        audio-visual generation (including streaming/interactive generation), video world model and world action model, transfer learning, and continual learning.
+                        <a href="https://avgen123.github.io" target="_blank" rel="noopener noreferrer">AVGenL</a>. My
+                        earlier research also includes transfer learning and continual learning.
                     </p>
                     <p class="hero-positioning">
-                        <strong>Project focus:</strong> Interactive multimodal generation · Video world models/world action model
+                        <strong>Project focus:</strong> Interactive multimodal generation · Video world models · World
+                        action models
                     </p>
 
                 </div>
@@ -1310,8 +1328,8 @@
             <section id="hiring">
                 <div class="hiring-panel">
                     <div class="hiring-copy">
-                        <span class="section-kicker">Hiring</span>
-                        <h2>Join our team</h2>
+                        <span class="section-kicker">SB Intuitions</span>
+                        <h2>Hiring at SB Intuitions</h2>
                         <p>
                             We work on streaming audio-video generation,
                             video world models (for robotics), and speech-related topics such as speech-to-speech
@@ -1323,7 +1341,7 @@
                         </p>
                     </div>
                     <div class="hiring-actions">
-                        <a class="btn-soft" href="mailto:shiqi.yang147.jp@gmail.com">Contact us</a>
+                        <a class="btn-soft" href="mailto:shiqi.yang147.jp@gmail.com">Express interest</a>
                         <!-- Positions currently closed; uncomment when hiring reopens.
                         <a class="btn-soft" href="https://open.talentio.com/r/1/c/sbintuitions/pages/115475"
                             target="_blank" rel="noopener noreferrer">Vision researcher</a>
@@ -1476,11 +1494,11 @@
             </section>
 
             <section id="projects" class="card">
-                <span class="section-kicker">Projects</span>
-                <h2>Projects &amp; Tech Blog</h2>
+                <span class="section-kicker">Selected Work</span>
+                <h2>Selected Projects &amp; Tech Blog</h2>
                 <p class="section-lead">
-                    Hands-on projects from my teams at SB Intuitions: tech blogs, demos, and
-                    behind-the-scenes engineering notes.
+                    Selected hands-on work in generative modeling, spanning model development, training, real-time
+                    systems, and behind-the-scenes engineering insights.
                 </p>
                 <div class="project-grid">
                     <!-- When a post goes live, add to its card:
@@ -1490,16 +1508,20 @@
                     <a class="project-card">
                         <span class="project-tag">Tech Blog</span>
                         <span class="project-title">Image Generation Pretrain and Posttrain</span>
+                        <span class="project-desc">Single DiT based image generation and editing model pre-training and post-training.</span>
                         <span class="project-meta">SB Intuitions Tech Blog &middot; Coming soon</span>
                     </a>
                     <a class="project-card">
                         <span class="project-tag">Tech Blog</span>
                         <span class="project-title">Interactive Realtime Talking Character</span>
+                        <span class="project-desc">Text- and speech-interactive real-time autoregressive video
+                            generation.</span>
                         <span class="project-meta">SB Intuitions Tech Blog &middot; Coming soon</span>
                     </a>
                     <a class="project-card">
                         <span class="project-tag">Tech Blog</span>
-                        <span class="project-title">Few Step World Action Model</span>
+                        <span class="project-title">Few-step World Action Model</span>
+                        <span class="project-desc">An investigation of consistency distillation for Fast-WAM.</span>
                         <span class="project-meta">SB Intuitions Tech Blog &middot; Coming soon</span>
                     </a>
                 </div>
