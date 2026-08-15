@@ -8,14 +8,14 @@
     <meta name="color-scheme" content="dark" />
     <meta name="theme-color" content="#172234" />
     <meta name="description"
-        content="Shiqi Yang is a Principal Research Scientist and Director at SB Intuitions, leading hands-on research in multimodal generation, video world models, and world action models." />
+        content="Shiqi Yang is Director of the Multimodal AI Department and Principal Research Scientist at SB Intuitions, leading hands-on research in multimodal generation, video world models, and world action models." />
     <link rel="canonical" href="https://albert0147.github.io/" />
     <link rel="icon" href="./favicon-32.png" type="image/png" sizes="32x32" />
     <link rel="apple-touch-icon" href="./apple-touch-icon.png" />
     <meta property="og:type" content="profile" />
     <meta property="og:title" content="Shiqi Yang — Multimodal AI Researcher &amp; Director" />
     <meta property="og:description"
-        content="Principal Research Scientist and Director at SB Intuitions, leading hands-on research in multimodal generation, video world models, and world action models." />
+        content="Director of the Multimodal AI Department and Principal Research Scientist at SB Intuitions, leading hands-on research in multimodal generation, video world models, and world action models." />
     <meta property="og:image" content="https://albert0147.github.io/avatar-square.jpg" />
     <meta property="og:url" content="https://albert0147.github.io/" />
     <meta property="og:site_name" content="Shiqi Yang" />
@@ -245,41 +245,18 @@
             min-width: 0;
         }
 
-        #about {
-            order: 1;
-            grid-column: 1 / -1;
-        }
-
-        #projects {
-            order: 2;
-            grid-column: 1 / -1;
-        }
-
-        #news {
-            order: 3;
-            grid-column: 1 / -1;
-        }
-
-        #experience {
-            order: 4;
-            grid-column: 1 / -1;
-        }
-
+        #about,
+        #projects,
+        #news,
+        #experience,
         #publications {
-            order: 5;
             grid-column: 1 / -1;
         }
 
         #talks,
         #service,
         #education {
-            order: 6;
             grid-column: span 6;
-        }
-
-        #hiring {
-            order: 7;
-            grid-column: 1 / -1;
         }
 
         /* Hero */
@@ -349,38 +326,49 @@
             line-height: 1.5;
         }
 
-        .hero-positioning {
-            max-width: 70ch;
-            margin-top: 16px;
-            padding: 10px 14px;
-            border-left: 3px solid var(--accent);
-            border-radius: 0 12px 12px 0;
-            background: var(--accent-soft);
-            color: var(--text);
+        .hero-summary {
+            max-width: 68ch;
+            margin-top: 14px;
+            color: var(--muted);
             font-size: 1rem;
+            line-height: 1.55;
         }
 
-        .contact-row {
-            margin-top: 18px;
+        .hero-focus {
+            max-width: 72ch;
+            margin-top: 12px;
+            color: var(--text);
+            font-size: 0.875rem;
+            line-height: 1.5;
+        }
+
+        .hero-focus strong {
+            color: var(--accent);
+        }
+
+        .hero-meta {
+            margin-top: 14px;
             display: flex;
             flex-wrap: wrap;
-            gap: 10px;
+            align-items: center;
+            gap: 6px 10px;
             font-size: 0.875rem;
             color: var(--muted);
         }
 
-        .contact-pill {
-            padding: 5px 12px;
-            border-radius: var(--radius-pill);
-            border: 1px solid var(--border);
-            background: rgba(255, 255, 255, 0.05);
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
+        .hero-meta a {
+            color: var(--muted);
+            text-decoration: underline;
+            text-decoration-color: rgba(197, 208, 223, 0.35);
         }
 
-        .contact-pill span.label {
-            opacity: 0.7;
+        .hero-meta a:hover {
+            color: var(--accent);
+            text-decoration-color: var(--accent);
+        }
+
+        .meta-separator {
+            opacity: 0.45;
         }
 
         .hero-actions {
@@ -432,8 +420,7 @@
             text-decoration: none;
         }
 
-        .hero-actions a[target="_blank"]::after,
-        .hiring-actions a[target="_blank"]::after {
+        .hero-actions a[target="_blank"]::after {
             content: " \2197" / "";
             font-size: 0.85em;
             opacity: 0.65;
@@ -468,6 +455,36 @@
             box-shadow: var(--shadow-hover), inset 0 1px 0 rgba(255, 255, 255, 0.05);
         }
 
+        #projects {
+            padding: clamp(26px, 4vw, 40px);
+            background:
+                linear-gradient(135deg, rgba(67, 56, 202, 0.2), rgba(36, 50, 71, 0.92) 48%, rgba(22, 101, 130, 0.18));
+            border-color: rgba(139, 156, 255, 0.3);
+            box-shadow: 0 22px 52px rgba(5, 10, 20, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+        }
+
+        #projects h2 {
+            font-size: clamp(22px, 3vw, 30px);
+        }
+
+        #news,
+        #experience {
+            background: rgba(36, 50, 71, 0.88);
+        }
+
+        #talks,
+        #service,
+        #education {
+            background: rgba(36, 50, 71, 0.62);
+            box-shadow: 0 8px 22px rgba(4, 10, 22, 0.16), inset 0 1px 0 rgba(255, 255, 255, 0.04);
+        }
+
+        #talks:hover,
+        #service:hover,
+        #education:hover {
+            box-shadow: 0 10px 26px rgba(4, 10, 22, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.04);
+        }
+
         .card h2,
         .section-title {
             margin-bottom: 10px;
@@ -496,39 +513,6 @@
 
         .section-header {
             margin-bottom: 22px;
-        }
-
-        /* Hiring panel */
-        .hiring-panel {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 22px;
-            padding: 20px;
-            border: 1px solid rgba(103, 211, 255, 0.24);
-            border-radius: 15px;
-            background: linear-gradient(135deg, rgba(103, 211, 255, 0.14), rgba(139, 156, 255, 0.04) 55%, rgba(139, 156, 255, 0.16));
-            box-shadow: var(--shadow-soft), inset 0 1px 0 rgba(255, 255, 255, 0.05);
-        }
-
-        .hiring-copy h2 {
-            margin-bottom: 8px;
-            color: var(--text);
-            font-size: clamp(19px, 2.4vw, 24px);
-            line-height: 1.25;
-        }
-
-        .hiring-panel p {
-            color: var(--muted);
-            font-size: 0.875rem;
-        }
-
-        .hiring-actions {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            font-size: 0.875rem;
-            flex-shrink: 0;
         }
 
         /* Lists */
@@ -648,6 +632,19 @@
             color: var(--muted);
         }
 
+        .exp-role.is-current .exp-title {
+            color: var(--text);
+            font-weight: 600;
+        }
+
+        .role-note {
+            display: block;
+            margin-top: 2px;
+            color: var(--muted);
+            font-size: 0.8125rem;
+            font-weight: 400;
+        }
+
         /* Education */
         #education .edu-list {
             display: grid;
@@ -664,30 +661,56 @@
             background: var(--card-raised);
         }
 
-        /* Projects & tech blog: grid, collapsed to the first cards (newest first) */
+        /* Projects & tech blog: a vertically scrollable two-row window */
         .project-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            grid-auto-rows: 180px;
             gap: 14px;
+            max-height: 374px;
             margin-top: 18px;
+            padding-right: 10px;
+            overflow-y: auto;
+            overscroll-behavior: contain;
+            scroll-snap-type: y proximity;
+            scrollbar-gutter: stable;
+            scrollbar-width: thin;
+            scrollbar-color: rgba(103, 211, 255, 0.5) rgba(255, 255, 255, 0.04);
         }
 
-        /* keep the 6 here in sync with VISIBLE_CARDS in the script below */
-        .project-grid.is-collapsed .project-card:nth-child(n+7) {
-            display: none;
+        .project-grid::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .project-grid::-webkit-scrollbar-track {
+            border-radius: var(--radius-pill);
+            background: rgba(255, 255, 255, 0.04);
+        }
+
+        .project-grid::-webkit-scrollbar-thumb {
+            border-radius: var(--radius-pill);
+            background: rgba(103, 211, 255, 0.5);
+        }
+
+        .project-grid:focus-visible {
+            outline: 3px solid rgba(103, 211, 255, 0.7);
+            outline-offset: 4px;
         }
 
         .project-card {
             display: flex;
             flex-direction: column;
             gap: 8px;
-            padding: 18px;
-            border: 1px solid var(--border);
+            height: 180px;
+            padding: 20px;
+            border: 1px solid rgba(226, 232, 240, 0.14);
+            border-top-color: rgba(103, 211, 255, 0.55);
             border-radius: 14px;
-            background: var(--card-raised);
+            background: rgba(41, 57, 79, 0.9);
             color: var(--muted);
             font-size: 0.875rem;
             line-height: 1.5;
+            scroll-snap-align: start;
             transition: border-color 0.17s ease-out, transform 0.17s ease-out, box-shadow 0.17s ease-out;
         }
 
@@ -712,7 +735,7 @@
         .project-title {
             color: var(--text);
             font-weight: 600;
-            font-size: 1rem;
+            font-size: 1.0625rem;
             line-height: 1.4;
         }
 
@@ -779,6 +802,22 @@
             padding-bottom: 8px;
             color: var(--muted);
             font-size: 0.875rem;
+        }
+
+        .publication-view-toggle {
+            margin: 0 0 4px;
+        }
+
+        .publication-latest {
+            margin-top: 14px;
+            padding: 18px;
+            border: 1px solid rgba(103, 211, 255, 0.2);
+            border-radius: 14px;
+            background: rgba(41, 57, 79, 0.62);
+        }
+
+        .publication-latest .pub-item:first-child {
+            border-top-color: rgba(103, 211, 255, 0.35);
         }
 
         .pub-group {
@@ -900,6 +939,19 @@
             max-width: 60ch;
         }
 
+        .future-note {
+            max-width: 62ch;
+            margin-top: 14px;
+            padding-top: 14px;
+            border-top: 1px solid var(--border);
+            color: var(--muted);
+            font-size: 0.875rem;
+        }
+
+        .future-note strong {
+            color: var(--text);
+        }
+
         .footer-connect h2 {
             margin-bottom: 8px;
             color: var(--text);
@@ -987,23 +1039,12 @@
                 width: 100px;
             }
 
-            .contact-pill {
-                max-width: 100%;
-                overflow-wrap: anywhere;
+            .hero-meta {
+                align-items: flex-start;
             }
 
-            .hiring-panel {
-                align-items: stretch;
-                flex-direction: column;
-            }
-
-            .hiring-actions {
-                width: 100%;
-            }
-
-            .hiring-actions .btn-soft {
-                width: 100%;
-                white-space: normal;
+            .project-grid {
+                grid-template-columns: minmax(0, 1fr);
             }
 
             .news-list li {
@@ -1062,7 +1103,6 @@
             .skip-link,
             .publication-toolbar,
             .archive-toggle,
-            .hiring-actions,
             .hero-actions,
             .footer-links {
                 display: none !important;
@@ -1083,8 +1123,7 @@
 
             .card,
             .section,
-            .hero-card,
-            .hiring-panel {
+            .hero-card {
                 background: none;
                 box-shadow: none;
                 border: 0;
@@ -1100,9 +1139,7 @@
             .exp-company,
             .exp-date,
             .news-date,
-            .pub-title,
-            .hiring-copy h2,
-            .hero-positioning {
+            .pub-title {
                 color: #111111;
             }
 
@@ -1117,9 +1154,10 @@
             .pub-venue,
             .section-lead,
             .section-subtitle,
-            .hiring-panel p,
             .exp-title,
-            .contact-row,
+            .hero-summary,
+            .hero-focus,
+            .hero-meta,
             footer,
             .name-alt {
                 color: #444444;
@@ -1148,6 +1186,14 @@
                 columns: 1;
             }
 
+            #publication-latest {
+                display: none !important;
+            }
+
+            #publication-archive {
+                display: block !important;
+            }
+
             .pub-item {
                 break-inside: avoid;
             }
@@ -1161,13 +1207,13 @@
 
             .project-grid {
                 display: block;
-            }
-
-            .project-grid.is-collapsed .project-card {
-                display: flex !important;
+                max-height: none;
+                overflow: visible;
+                padding-right: 0;
             }
 
             .project-card {
+                height: auto;
                 break-inside: avoid;
             }
 
@@ -1199,7 +1245,7 @@
             "alternateName": "杨诗琪",
             "url": "https://albert0147.github.io/",
             "image": "https://albert0147.github.io/avatar-square.jpg",
-            "jobTitle": ["Principal Research Scientist", "Director of Multimodal AI Department"],
+            "jobTitle": ["Director, Multimodal AI Department", "Principal Research Scientist"],
             "worksFor": {
                 "@type": "Organization",
                 "name": "SB Intuitions Corp.",
@@ -1260,47 +1306,44 @@
                             <div class="name-alt"><span lang="zh-Hans">杨 诗琪</span> &nbsp; · &nbsp; Ph.D.</div>
                         </div>
                         <div class="hero-title">
-                            Principal Research Scientist · Director <br />
-                            Multimodal AI Department · <span class="nowrap">SB Intuitions Corp., Tokyo</span>
+                            Director, Multimodal AI Department<br />
+                            Principal Research Scientist, <span class="nowrap">SB Intuitions</span>
                         </div>
-                        <div class="contact-row">
-                            <div class="contact-pill">
-                                <span class="label">Email</span>
-                                <a href="mailto:shiqi.yang147.jp@gmail.com">shiqi.yang147.jp@gmail.com</a>
-                            </div>
-                            <div class="contact-pill">
-                                <span class="label">Location</span>
-                                <span>Tokyo, Japan</span>
-                            </div>
+                        <p class="hero-summary">
+                            I lead multimodal AI research across vision and speech while remaining hands-on in model
+                            architecture, training, experimentation, and technical implementation.
+                        </p>
+                        <p class="hero-focus">
+                            <strong>Project focus:</strong> Interactive multimodal generation &middot; Video world models
+                            &middot; World action models
+                        </p>
+                        <div class="hero-meta" aria-label="Location and profile links">
+                            <span>Tokyo, Japan</span>
+                            <span class="meta-separator" aria-hidden="true">&middot;</span>
+                            <a href="mailto:shiqi.yang147.jp@gmail.com">Email</a>
+                            <span class="meta-separator" aria-hidden="true">&middot;</span>
+                            <a href="https://www.linkedin.com/in/aquila147/" target="_blank"
+                                rel="noopener noreferrer">LinkedIn</a>
+                            <span class="meta-separator" aria-hidden="true">&middot;</span>
+                            <a href="https://x.com/shiqi_yang_147" target="_blank" rel="noopener noreferrer">X</a>
                         </div>
                         <div class="hero-actions">
-                            <a class="btn-primary"
+                            <a class="btn-primary" href="https://scholar.google.com/citations?user=p27Iqt4AAAAJ&amp;hl=en"
+                                target="_blank" rel="noopener noreferrer">Google Scholar</a>
+                            <a class="btn-soft"
                                 href="https://drive.google.com/file/d/1nO-_tlweCqqPlWzWxrjZ9HepS4VUnguo/view?usp=sharing"
-                                target="_blank" rel="noopener noreferrer">CV (updated Aug. 2026)</a>
-                            <a class="btn-soft" href="https://scholar.google.com/citations?user=p27Iqt4AAAAJ&amp;hl=en"
-                                target="_blank" rel="noopener noreferrer">Scholar</a>
-                            <a class="btn-soft" href="#projects">Selected work</a>
-                            <a class="btn-soft" href="https://www.linkedin.com/in/aquila147/" target="_blank"
-                                rel="noopener noreferrer">LinkedIn</a>
-                            <a class="btn-soft" href="https://x.com/shiqi_yang_147" target="_blank"
-                                rel="noopener noreferrer">X</a>
+                                target="_blank" rel="noopener noreferrer">Download CV</a>
                         </div>
                     </div>
                 </div>
 
                 <div class="about-body">
                     <p>
-                        I am a hands-on research leader working on image generation and manipulation, interactive
-                        audio-visual generation, video world models, and world action models. I remain directly involved
-                        in model architecture, training, experimentation, and technical implementation while leading
-                        research projects and teams.
-                    </p>
-                    <p>
                         At
                         <a href="https://www.sbintuitions.co.jp/en" target="_blank" rel="noopener noreferrer">SB
-                            Intuitions, a SoftBank R&amp;D company</a>, I lead the application-oriented Multimodal AI
-                        Department, bringing together the Creative Vision Team and Conversational Speech Team and
-                        leading researchers and engineers across vision and speech.
+                            Intuitions</a>, a SoftBank R&amp;D company, I lead the Multimodal AI Department, translating
+                        multimodal research into practical applications across vision and speech. The department brings
+                        together the Creative Vision Team and Conversational Speech Team.
                     </p>
                     <p>
                         Before
@@ -1311,46 +1354,48 @@
                         Barcelona, advised by
                         <a href="https://scholar.google.com/citations?user=Gsw2iUEAAAAJ" target="_blank"
                             rel="noopener noreferrer">Joost van de Weijer</a>. I also serve the community as an area
-                        chair for ICML, ICLR and NeurIPS, guest editor for
+                        chair for ICML/NeurIPS/ICLR, guest editor for
                         an IJCV special issue, and organizer of the workshop series
                         <a href="https://efficientvg.github.io/" target="_blank" rel="noopener noreferrer">EVG</a> and
                         <a href="https://avgen123.github.io" target="_blank" rel="noopener noreferrer">AVGenL</a>. My
                         earlier research also includes transfer learning and continual learning.
                     </p>
-                    <p class="hero-positioning">
-                        <strong>Project focus:</strong> Interactive multimodal generation · Video world models · World
-                        action models
-                    </p>
-
                 </div>
             </section>
 
-            <section id="hiring">
-                <div class="hiring-panel">
-                    <div class="hiring-copy">
-                        <span class="section-kicker">SB Intuitions</span>
-                        <h2>Hiring at SB Intuitions</h2>
-                        <p>
-                            We work on streaming audio-video generation,
-                            video world models (for robotics), and speech-related topics such as speech-to-speech
-                            translation and streaming generation.
-                        </p>
-                        <p>
-                            <strong>There are currently no open positions.</strong> Feel free to reach out by email if you'd
-                            like to express interest in future openings.
-                        </p>
-                    </div>
-                    <div class="hiring-actions">
-                        <a class="btn-soft" href="mailto:shiqi.yang147.jp@gmail.com">Express interest</a>
-                        <!-- Positions currently closed; uncomment when hiring reopens.
-                        <a class="btn-soft" href="https://open.talentio.com/r/1/c/sbintuitions/pages/115475"
-                            target="_blank" rel="noopener noreferrer">Vision researcher</a>
-                        <a class="btn-soft" href="https://open.talentio.com/r/1/c/sbintuitions/pages/122644"
-                            target="_blank" rel="noopener noreferrer">Vision engineer</a>
-                        <a class="btn-soft" href="https://open.talentio.com/r/1/c/sbintuitions/pages/115471"
-                            target="_blank" rel="noopener noreferrer">Speech / audio</a>
-                        -->
-                    </div>
+            <section id="projects" class="card">
+                <span class="section-kicker">Selected Work</span>
+                <h2>Selected Projects &amp; Tech Blog</h2>
+                <p class="section-lead">
+                    Selected hands-on work in generative modeling, spanning model development, training, real-time
+                    systems, and behind-the-scenes engineering insights.
+                </p>
+                <div class="project-grid" tabindex="0" role="region"
+                    aria-label="Selected projects; scroll vertically to view more">
+                    <!-- When a post goes live, add to its card:
+                         href="BLOG_URL" target="_blank" rel="noopener noreferrer"
+                         and optionally a one-line description:
+                         <span class="project-desc">One-line description.</span> -->
+                    <a class="project-card">
+                        <span class="project-tag">Tech Blog</span>
+                        <span class="project-title">Image Generation Pre-training and Post-training</span>
+                        <span class="project-desc">A single DiT-based model for image generation and editing,
+                            covering both pre-training and post-training.</span>
+                        <span class="project-meta">SB Intuitions Tech Blog &middot; Coming soon</span>
+                    </a>
+                    <a class="project-card">
+                        <span class="project-tag">Tech Blog</span>
+                        <span class="project-title">Interactive Real-Time Talking Character</span>
+                        <span class="project-desc">Text- and speech-interactive real-time autoregressive video
+                            generation.</span>
+                        <span class="project-meta">SB Intuitions Tech Blog &middot; Coming soon</span>
+                    </a>
+                    <a class="project-card">
+                        <span class="project-tag">Tech Blog</span>
+                        <span class="project-title">Few-Step World Action Model</span>
+                        <span class="project-desc">An investigation of consistency distillation for Fast-WAM.</span>
+                        <span class="project-meta">SB Intuitions Tech Blog &middot; Coming soon</span>
+                    </a>
                 </div>
             </section>
 
@@ -1493,45 +1538,11 @@
                 </ul>
             </section>
 
-            <section id="projects" class="card">
-                <span class="section-kicker">Selected Work</span>
-                <h2>Selected Projects &amp; Tech Blog</h2>
-                <p class="section-lead">
-                    Selected hands-on work in generative modeling, spanning model development, training, real-time
-                    systems, and behind-the-scenes engineering insights.
-                </p>
-                <div class="project-grid">
-                    <!-- When a post goes live, add to its card:
-                         href="BLOG_URL" target="_blank" rel="noopener noreferrer"
-                         and optionally a one-line description:
-                         <span class="project-desc">One-line description.</span> -->
-                    <a class="project-card">
-                        <span class="project-tag">Tech Blog</span>
-                        <span class="project-title">Image Generation Pretrain and Posttrain</span>
-                        <span class="project-desc">Single DiT based image generation and editing model pre-training and post-training.</span>
-                        <span class="project-meta">SB Intuitions Tech Blog &middot; Coming soon</span>
-                    </a>
-                    <a class="project-card">
-                        <span class="project-tag">Tech Blog</span>
-                        <span class="project-title">Interactive Realtime Talking Character</span>
-                        <span class="project-desc">Text- and speech-interactive real-time autoregressive video
-                            generation.</span>
-                        <span class="project-meta">SB Intuitions Tech Blog &middot; Coming soon</span>
-                    </a>
-                    <a class="project-card">
-                        <span class="project-tag">Tech Blog</span>
-                        <span class="project-title">Few-step World Action Model</span>
-                        <span class="project-desc">An investigation of consistency distillation for Fast-WAM.</span>
-                        <span class="project-meta">SB Intuitions Tech Blog &middot; Coming soon</span>
-                    </a>
-                </div>
-            </section>
-
             <section id="experience" class="card">
                 <span class="section-kicker">Career</span>
                 <h2>Industry Experience</h2>
                 <ul class="exp-list">
-                    <!-- SB Intuitions (split into two roles) -->
+                    <!-- SB Intuitions: current concurrent leadership and research roles, followed by role history -->
                     <li class="exp-item">
                         <div class="exp-company">
                             <span class="exp-marker" aria-hidden="true"></span>
@@ -1539,18 +1550,22 @@
                         </div>
 
                         <div class="exp-roles">
-                            <div class="exp-role">
-                                <span class="exp-date">Jun. 2026&nbsp;–&nbsp;Now</span>
-                                <span class="exp-title">Principal Research Scientist and Research Manager of Creative
-                                    Vision Team</span>
+                            <div class="exp-role is-current">
+                                <span class="exp-date">Apr. 2026&nbsp;–&nbsp;Present</span>
+                                <span class="exp-title">Director, Multimodal AI Department
+                                    <span class="role-note">Management role</span>
+                                </span>
                             </div>
-                            <div class="exp-role">
-                                <span class="exp-date">Apr. 2026&nbsp;–&nbsp;Now</span>
-                                <span class="exp-title">Director of Multimodal AI Department</span>
+                            <div class="exp-role is-current">
+                                <span class="exp-date">Jun. 2026&nbsp;–&nbsp;Present</span>
+                                <span class="exp-title">Principal Research Scientist &amp; Research Manager, Creative
+                                    Vision Team
+                                    <span class="role-note">Concurrent hands-on research and team-management role</span>
+                                </span>
                             </div>
                             <div class="exp-role">
                                 <span class="exp-date">Apr. 2025&nbsp;–&nbsp;May 2026</span>
-                                <span class="exp-title">Chief Research Scientist and Research Manager of Creative Vision
+                                <span class="exp-title">Chief Research Scientist &amp; Research Manager, Creative Vision
                                     Team</span>
                             </div>
                             <div class="exp-role">
@@ -1610,115 +1625,27 @@
 
 
 
-            <section id="talks" class="card">
-                <span class="section-kicker">Recognition</span>
-                <h2>Talks, Awards &amp; Activities</h2>
-                <ul class="talks-list">
-                    <li>
-                        Organizer of the official
-                        <a href="https://luma.com/k4espqrm" target="_blank" rel="noopener noreferrer">Runway Local
-                            Meetup Tokyo</a>, Tokyo, Japan, Jul. 2026.
-                    </li>
-                    <li>
-                        Visiting talks in
-                        <a href="https://www.micc.unifi.it" target="_blank" rel="noopener noreferrer">MICC Lab</a>
-                        (Prof. Andrew Bagdanov) in University of Florence and
-                        <a href="https://mhug.disi.unitn.it" target="_blank" rel="noopener noreferrer">MHUG Lab</a>
-                        (Prof. Nicu Sebe) in University of Trento, Italy, Oct. 2024.
-                    </li>
-                    <li>
-                        <a href="https://cerca.cat" target="_blank" rel="noopener noreferrer">Pioneer Awards 2023</a>,
-                        CERCA Research Center of Catalonia, Spain, Dec. 2023.
-                    </li>
-                    <li>
-                        Visiting talk in Prof.
-                        <a href="https://brbiclab.epfl.ch" target="_blank" rel="noopener noreferrer">Maria Brbic</a>'s
-                        group in EPFL, Switzerland, Jan. 2023.
-                    </li>
-                    <li>
-                        Invited talk on
-                        <a href="https://trustmlresearch.github.io" target="_blank" rel="noopener noreferrer">TrustML
-                            Young Scientist Seminars</a>, RIKEN AIP, Japan, Dec. 2022.
-                    </li>
-                    <li>
-                        Participation in
-                        <a href="https://iplab.dmi.unict.it" target="_blank" rel="noopener noreferrer">ICVSS Summer
-                            School</a>, Sicily, Italy, Jul. 2022.
-                    </li>
-                    <li>
-                        Invited talk on AI Time Seminar on NeurIPS 2021 (Virtual), China, Feb. 2022.
-                    </li>
-                </ul>
-            </section>
-
-            <section id="service" class="card">
-                <span class="section-kicker">Community</span>
-                <h2>Academic Service</h2>
-                <ul class="service-list">
-                    <li>
-                        Conference Area Chair:
-                        NeurIPS, ICML, ICLR
-                    </li>
-                    <li>
-                        Guest Editor:
-                        IJCV Special Issue
-                        "<a href="https://link.springer.com/collections/iehbibaiea" target="_blank"
-                            rel="noopener noreferrer">Audio-Visual Generation</a>".
-                    </li>
-                    <li>
-                        Workshop Organizer:
-                        ECCV 2026
-                        "<a href="https://efficientvg.github.io/" target="_blank" rel="noopener noreferrer">Workshop on
-                            Efficient Visual Generation (EVG)</a>";
-                        ECCV 2024 / ICCV 2025 / ECCV 2026
-                        "<a href="https://avgen123.github.io" target="_blank" rel="noopener noreferrer">Audio-Visual
-                            Generation and Learning (AVGenL) workshop</a>".
-                    </li>
-                    <li>
-                        Conference Reviewer:
-                        ICLR; ICCV; NeurIPS; ECCV; ICML; CVPR; WACV.
-                    </li>
-                    <li>
-                        Journal Reviewer:
-                        IEEE TKDE; TPAMI; TAI; IJCV.
-                    </li>
-                </ul>
-            </section>
-
-            <section id="education" class="card">
-                <span class="section-kicker">Background</span>
-                <h2>Education</h2>
-                <ul class="edu-list">
-                    <li>
-                        <span class="exp-date">Sep. 2012&nbsp;–&nbsp;Jun. 2016</span><br />
-                        Bachelor in Automation,
-                        Wuhan University of Science and Technology, China.
-                    </li>
-                    <li>
-                        <span class="exp-date">Sep. 2016&nbsp;–&nbsp;Jun. 2019</span><br />
-                        Master in Control Science and Technology,
-                        Huazhong University of Science and Technology, China.
-                    </li>
-                    <li>
-                        <span class="exp-date">Oct. 2019&nbsp;–&nbsp;Jul. 2023</span><br />
-                        Ph.D. in Computer Science,
-                        <a href="https://www.cvc.uab.es" target="_blank" rel="noopener noreferrer">Computer Vision
-                            Center</a>, Autonomous University of Barcelona, Spain.
-                    </li>
-                </ul>
-            </section>
-
             <section id="publications" class="section">
                 <div class="section-header">
                     <div>
                         <span class="section-kicker">Research Output</span>
-                        <h2 class="section-title">Full Publications</h2>
+                        <h2 class="section-title">Publications</h2>
                         <div class="section-subtitle">
-                            Browse journal articles, preprints, and international conference papers by year.
+                            The latest work is shown first. Expand the full archive to browse by year and category.
                         </div>
                         <div class="pub-legend">* Project lead</div>
                     </div>
                 </div>
+
+                <button id="publication-view-toggle" class="archive-toggle publication-view-toggle" type="button"
+                    aria-expanded="false" aria-controls="publication-latest publication-archive" hidden></button>
+
+                <div id="publication-latest" class="pub-group publication-latest" hidden>
+                    <h3>Latest Publications</h3>
+                    <ul class="pub-list publication-latest-list"></ul>
+                </div>
+
+                <div id="publication-archive">
 
                 <div class="publication-toolbar" role="group" aria-label="Publication year filter">
                     <div class="filter-field">
@@ -2285,6 +2212,105 @@
                         </li>
                     </ul>
                 </div>
+                </div>
+            </section>
+
+            <section id="talks" class="card">
+                <span class="section-kicker">Recognition</span>
+                <h2>Talks, Awards &amp; Activities</h2>
+                <ul class="talks-list">
+                    <li>
+                        Organizer of the official
+                        <a href="https://luma.com/k4espqrm" target="_blank" rel="noopener noreferrer">Runway Local
+                            Meetup Tokyo</a>, Tokyo, Japan, Jul. 2026.
+                    </li>
+                    <li>
+                        Visiting talks at
+                        <a href="https://www.micc.unifi.it" target="_blank" rel="noopener noreferrer">MICC Lab</a>
+                        (Prof. Andrew Bagdanov), University of Florence, and
+                        <a href="https://mhug.disi.unitn.it" target="_blank" rel="noopener noreferrer">MHUG Lab</a>
+                        (Prof. Nicu Sebe), University of Trento, Italy, Oct. 2024.
+                    </li>
+                    <li>
+                        <a href="https://cerca.cat" target="_blank" rel="noopener noreferrer">Pioneer Awards 2023</a>,
+                        CERCA Research Center of Catalonia, Spain, Dec. 2023.
+                    </li>
+                    <li>
+                        Visiting talk with Prof.
+                        <a href="https://brbiclab.epfl.ch" target="_blank" rel="noopener noreferrer">Maria Brbic</a>'s
+                        group at EPFL, Switzerland, Jan. 2023.
+                    </li>
+                    <li>
+                        Invited talk at the
+                        <a href="https://trustmlresearch.github.io" target="_blank" rel="noopener noreferrer">TrustML
+                            Young Scientist Seminars</a>, RIKEN AIP, Japan, Dec. 2022.
+                    </li>
+                    <li>
+                        Participated in the
+                        <a href="https://iplab.dmi.unict.it" target="_blank" rel="noopener noreferrer">ICVSS Summer
+                            School</a>, Sicily, Italy, Jul. 2022.
+                    </li>
+                    <li>
+                        Invited talk at the AI Time Seminar on NeurIPS 2021 (virtual), China, Feb. 2022.
+                    </li>
+                </ul>
+            </section>
+
+            <section id="service" class="card">
+                <span class="section-kicker">Community</span>
+                <h2>Academic Service</h2>
+                <ul class="service-list">
+                    <li>
+                        Conference Area Chair:
+                        ICML (2026); NeurIPS (2026); ICLR.
+                    </li>
+                    <li>
+                        Guest Editor:
+                        IJCV Special Issue
+                        "<a href="https://link.springer.com/collections/iehbibaiea" target="_blank"
+                            rel="noopener noreferrer">Audio-Visual Generation</a>".
+                    </li>
+                    <li>
+                        Workshop Organizer:
+                        ECCV 2026
+                        "<a href="https://efficientvg.github.io/" target="_blank" rel="noopener noreferrer">Workshop on
+                            Efficient Visual Generation (EVG)</a>";
+                        ECCV 2024 / ICCV 2025 / ECCV 2026
+                        "<a href="https://avgen123.github.io" target="_blank" rel="noopener noreferrer">Audio-Visual
+                            Generation and Learning (AVGenL) Workshop</a>".
+                    </li>
+                    <li>
+                        Conference Reviewer:
+                        ICLR; ICCV; NeurIPS; ECCV; ICML; CVPR; WACV.
+                    </li>
+                    <li>
+                        Journal Reviewer:
+                        IEEE TKDE; TPAMI; TAI; IJCV.
+                    </li>
+                </ul>
+            </section>
+
+            <section id="education" class="card">
+                <span class="section-kicker">Background</span>
+                <h2>Education</h2>
+                <ul class="edu-list">
+                    <li>
+                        <span class="exp-date">Sep. 2012&nbsp;–&nbsp;Jun. 2016</span><br />
+                        Bachelor in Automation,
+                        Wuhan University of Science and Technology, China.
+                    </li>
+                    <li>
+                        <span class="exp-date">Sep. 2016&nbsp;–&nbsp;Jun. 2019</span><br />
+                        Master in Control Science and Technology,
+                        Huazhong University of Science and Technology, China.
+                    </li>
+                    <li>
+                        <span class="exp-date">Oct. 2019&nbsp;–&nbsp;Jul. 2023</span><br />
+                        Ph.D. in Computer Science,
+                        <a href="https://www.cvc.uab.es" target="_blank" rel="noopener noreferrer">Computer Vision
+                            Center</a>, Autonomous University of Barcelona, Spain.
+                    </li>
+                </ul>
             </section>
         </main>
 
@@ -2296,6 +2322,10 @@
                     <p class="section-lead">
                         For research/business discussions, collaborations, email
                         <a href="mailto:shiqi.yang147.jp@gmail.com">shiqi.yang147.jp@gmail.com</a>.
+                    </p>
+                    <p class="future-note">
+                        <strong>Future opportunities:</strong> Interested in future opportunities with our multimodal
+                        AI team? Feel free to <a href="mailto:shiqi.yang147.jp@gmail.com">reach out</a>.
                     </p>
                 </div>
                 <nav class="footer-links" aria-label="Footer">
@@ -2337,37 +2367,13 @@
                 }
             } catch (e) { /* non-critical enhancement */ }
 
-            // Projects: collapse long card grids behind a "Show more" toggle
-            // (keep VISIBLE_CARDS in sync with the .is-collapsed nth-child rule)
-            try {
-                const projectGrid = document.querySelector('.project-grid');
-                const VISIBLE_CARDS = 6;
-                if (projectGrid && projectGrid.children.length > VISIBLE_CARDS) {
-                    if (!projectGrid.id) projectGrid.id = 'project-items';
-                    projectGrid.classList.add('is-collapsed');
-                    const toggle = document.createElement('button');
-                    toggle.className = 'archive-toggle';
-                    toggle.type = 'button';
-                    toggle.setAttribute('aria-expanded', 'false');
-                    toggle.setAttribute('aria-controls', projectGrid.id);
-                    toggle.textContent = `Show ${projectGrid.children.length - VISIBLE_CARDS} more posts`;
-                    toggle.addEventListener('click', () => {
-                        const isCollapsed = projectGrid.classList.toggle('is-collapsed');
-                        toggle.setAttribute('aria-expanded', String(!isCollapsed));
-                        toggle.textContent = isCollapsed
-                            ? `Show ${projectGrid.children.length - VISIBLE_CARDS} more posts`
-                            : 'Show fewer posts';
-                    });
-                    projectGrid.insertAdjacentElement('afterend', toggle);
-                }
-            } catch (e) { /* non-critical enhancement */ }
-
             // Publication year filter (year read from the venue line only)
             try {
                 const yearFilter = document.querySelector('#year-filter');
                 const count = document.querySelector('#publication-count');
-                const items = [...document.querySelectorAll('.pub-item')];
-                if (yearFilter && count && items.length) {
+                const archive = document.querySelector('#publication-archive');
+                const items = archive ? [...archive.querySelectorAll('.pub-item')] : [];
+                if (yearFilter && count && archive && items.length) {
                     const years = new Set();
                     items.forEach((item) => {
                         const venue = item.querySelector('.pub-venue');
@@ -2384,7 +2390,7 @@
                         yearFilter.append(option);
                     });
 
-                    document.querySelectorAll('.pub-list').forEach((list) => {
+                    archive.querySelectorAll('.pub-list').forEach((list) => {
                         [...list.children]
                             .sort((a, b) => Number(b.dataset.year || 0) - Number(a.dataset.year || 0))
                             .forEach((item) => list.append(item));
@@ -2397,7 +2403,7 @@
                             item.hidden = !yearMatch;
                             if (!item.hidden) visible += 1;
                         });
-                        document.querySelectorAll('.pub-group').forEach((group) => {
+                        archive.querySelectorAll('.pub-group').forEach((group) => {
                             group.hidden = !group.querySelector('.pub-item:not([hidden])');
                         });
                         count.textContent = `${visible} publication${visible === 1 ? '' : 's'}`;
@@ -2405,6 +2411,49 @@
 
                     yearFilter.addEventListener('change', applyPublicationFilters);
                     applyPublicationFilters();
+                }
+            } catch (e) { /* non-critical enhancement */ }
+
+            // Publications: default to the six newest items across all categories.
+            try {
+                const archive = document.querySelector('#publication-archive');
+                const latest = document.querySelector('#publication-latest');
+                const latestList = latest ? latest.querySelector('.publication-latest-list') : null;
+                const toggle = document.querySelector('#publication-view-toggle');
+                const items = archive ? [...archive.querySelectorAll('.pub-item')] : [];
+                const LATEST_COUNT = 6;
+
+                if (archive && latest && latestList && toggle && items.length > LATEST_COUNT) {
+                    const newest = items
+                        .map((item, index) => ({
+                            item,
+                            index,
+                            year: Number(item.dataset.year || item.querySelector('.pub-venue')?.textContent.match(/20\d{2}/)?.[0] || 0)
+                        }))
+                        .sort((a, b) => b.year - a.year || a.index - b.index)
+                        .slice(0, LATEST_COUNT);
+
+                    newest.forEach(({ item }) => {
+                        const previewItem = item.cloneNode(true);
+                        previewItem.hidden = false;
+                        latestList.append(previewItem);
+                    });
+
+                    const setExpanded = (expanded) => {
+                        latest.hidden = expanded;
+                        archive.hidden = !expanded;
+                        toggle.setAttribute('aria-expanded', String(expanded));
+                        toggle.textContent = expanded
+                            ? `Show latest ${LATEST_COUNT} publications`
+                            : `Show all ${items.length} publications`;
+                    };
+
+                    toggle.addEventListener('click', () => {
+                        setExpanded(toggle.getAttribute('aria-expanded') !== 'true');
+                    });
+
+                    toggle.hidden = false;
+                    setExpanded(false);
                 }
             } catch (e) { /* non-critical enhancement */ }
 
