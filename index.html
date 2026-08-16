@@ -527,22 +527,48 @@
             color: var(--muted);
         }
 
+        /* Latest news: a vertically scrollable window, newest first */
         .news-list {
+            max-height: 374px;
             margin-top: 16px;
+            padding-right: 10px;
+            overflow-y: auto;
+            overscroll-behavior: contain;
+            scroll-behavior: smooth;
+            scroll-snap-type: y proximity;
+            scrollbar-gutter: stable;
+            scrollbar-width: thin;
+            scrollbar-color: rgba(103, 211, 255, 0.5) rgba(255, 255, 255, 0.04);
+        }
+
+        .news-list::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .news-list::-webkit-scrollbar-track {
+            border-radius: var(--radius-pill);
+            background: rgba(255, 255, 255, 0.04);
+        }
+
+        .news-list::-webkit-scrollbar-thumb {
+            border-radius: var(--radius-pill);
+            background: rgba(103, 211, 255, 0.5);
+        }
+
+        .news-list:focus-visible {
+            outline: 3px solid rgba(103, 211, 255, 0.7);
+            outline-offset: 4px;
         }
 
         .news-list li {
             padding: 11px 0 11px 96px;
             text-indent: -96px;
             border-bottom: 1px solid var(--border);
+            scroll-snap-align: start;
         }
 
         .news-list li:last-child {
             border-bottom: 0;
-        }
-
-        .news-list.is-collapsed li:nth-child(n+6) {
-            display: none;
         }
 
         .news-date {
@@ -1078,6 +1104,10 @@
                 scroll-behavior: auto;
             }
 
+            .news-list {
+                scroll-behavior: auto;
+            }
+
             *,
             *::before,
             *::after {
@@ -1178,8 +1208,10 @@
                 color: #0b57a4;
             }
 
-            .news-list.is-collapsed li {
-                display: block !important;
+            .news-list {
+                max-height: none;
+                overflow: visible;
+                padding-right: 0;
             }
 
             .pub-list {
@@ -1402,7 +1434,8 @@
             <section id="news" class="card">
                 <span class="section-kicker">Updates</span>
                 <h2>Latest News</h2>
-                <ul class="news-list">
+                <ul class="news-list" tabindex="0" role="region"
+                    aria-label="Latest news; scroll vertically to view older updates">
                     <li>
                         <span class="news-date">Jul. 2026</span>
                         We are organizing two workshops at ECCV 2026: the <a
@@ -2344,29 +2377,6 @@
     </div>
     <script>
         (() => {
-            // News archive collapse
-            try {
-                const newsList = document.querySelector('.news-list');
-                if (newsList && newsList.children.length > 5) {
-                    if (!newsList.id) newsList.id = 'news-items';
-                    newsList.classList.add('is-collapsed');
-                    const toggle = document.createElement('button');
-                    toggle.className = 'archive-toggle';
-                    toggle.type = 'button';
-                    toggle.setAttribute('aria-expanded', 'false');
-                    toggle.setAttribute('aria-controls', newsList.id);
-                    toggle.textContent = `Show ${newsList.children.length - 5} older updates`;
-                    toggle.addEventListener('click', () => {
-                        const isCollapsed = newsList.classList.toggle('is-collapsed');
-                        toggle.setAttribute('aria-expanded', String(!isCollapsed));
-                        toggle.textContent = isCollapsed
-                            ? `Show ${newsList.children.length - 5} older updates`
-                            : 'Hide older updates';
-                    });
-                    newsList.insertAdjacentElement('afterend', toggle);
-                }
-            } catch (e) { /* non-critical enhancement */ }
-
             // Publication year filter (year read from the venue line only)
             try {
                 const yearFilter = document.querySelector('#year-filter');
