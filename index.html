@@ -334,16 +334,34 @@
             line-height: 1.55;
         }
 
-        .hero-focus {
-            max-width: 72ch;
-            margin-top: 12px;
-            color: var(--text);
-            font-size: 0.875rem;
-            line-height: 1.5;
+        .project-focus {
+            max-width: 96ch;
+            margin-top: 24px;
+            color: var(--muted);
+            font-size: 1rem;
+            line-height: 1.55;
         }
 
-        .hero-focus strong {
+        .project-focus-label {
+            margin-bottom: 12px;
+            color: var(--text);
+        }
+
+        .project-focus-list {
+            padding-left: 1.5rem;
+        }
+
+        .project-focus-list li+li {
+            margin-top: 8px;
+        }
+
+        .project-focus-list li::marker {
             color: var(--accent);
+        }
+
+        .project-focus-list strong {
+            color: var(--text);
+            font-weight: 700;
         }
 
         .hero-meta {
@@ -1186,7 +1204,7 @@
             .section-subtitle,
             .exp-title,
             .hero-summary,
-            .hero-focus,
+            .project-focus,
             .hero-meta,
             footer,
             .name-alt {
@@ -1345,10 +1363,6 @@
                             I lead multimodal AI research across vision and speech while remaining hands-on in model
                             architecture, training, experimentation, and technical implementation.
                         </p>
-                        <p class="hero-focus">
-                            <strong>Project focus:</strong> Interactive multimodal generation &middot; Video world models
-                            &middot; World action models
-                        </p>
                         <div class="hero-meta" aria-label="Location and profile links">
                             <span>Tokyo, Japan</span>
                             <span class="meta-separator" aria-hidden="true">&middot;</span>
@@ -1392,6 +1406,14 @@
                         <a href="https://avgen123.github.io" target="_blank" rel="noopener noreferrer">AVGenL</a>. My
                         earlier research also includes transfer learning and continual learning.
                     </p>
+                    <div class="project-focus">
+                        <p class="project-focus-label">Project focus:</p>
+                        <ul class="project-focus-list">
+                            <li><strong>Multimodal Generation</strong> real-time and interactive autoregressive audio-video generation. Image generation pretraining and post training, step distillation</li>
+                            <li><strong> Video world models and World action models:</strong> : Spatial consistency, long memory and efficiency.</li>
+                            
+                        </ul>
+                    </div>
                 </div>
             </section>
 
