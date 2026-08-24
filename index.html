@@ -351,8 +351,8 @@
             padding-left: 1.5rem;
         }
 
-        .project-focus-list li+li {
-            margin-top: 8px;
+        .project-focus-list>li+li {
+            margin-top: 12px;
         }
 
         .project-focus-list li::marker {
@@ -362,6 +362,19 @@
         .project-focus-list strong {
             color: var(--text);
             font-weight: 700;
+        }
+
+        .project-focus-sublist {
+            margin-top: 4px;
+            padding-left: 1.25rem;
+        }
+
+        .project-focus-sublist li+li {
+            margin-top: 2px;
+        }
+
+        .project-focus-sublist li::marker {
+            color: var(--accent-2);
         }
 
         .hero-meta {
@@ -1409,9 +1422,20 @@
                     <div class="project-focus">
                         <p class="project-focus-label">Project focus:</p>
                         <ul class="project-focus-list">
-                            <li><strong>Visual and Multimodal Generation</strong> real-time and interactive autoregressive audio-video generation. Image generation pretraining and post training, step distillation</li>
-                            <li><strong> Video world model and World action model</strong> Spatial consistency, long memory and efficiency</li>
-                            
+                            <li>
+                                <strong>Visual and Multimodal Generation</strong>
+                                <ul class="project-focus-sublist">
+                                    <li>Real-time and interactive autoregressive audio-video generation</li>
+                                    <li>Image generation pre-training and post-training</li>
+                                </ul>
+                            </li>
+                            <li>
+                                <strong>Video World Models and World Action Models</strong>
+                                <ul class="project-focus-sublist">
+                                    <li>Spatial consistency and long horizon</li>
+                                    <li>Model Efficiency</li>
+                                </ul>
+                            </li>
                         </ul>
                     </div>
                 </div>
