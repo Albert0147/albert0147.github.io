@@ -377,6 +377,30 @@
             color: var(--accent-2);
         }
 
+        .project-focus-link-list {
+            margin-top: 3px;
+            padding-left: 1.25rem;
+            list-style: none;
+        }
+
+        .project-focus-link-list li {
+            display: flex;
+            align-items: baseline;
+            gap: 0.4em;
+        }
+
+        .project-focus-link-list li::before {
+            content: "\2197";
+            color: var(--accent);
+        }
+
+        .project-focus-link-list .focus-link {
+            color: var(--accent);
+            font-size: 0.875rem;
+            font-weight: 600;
+            text-decoration-color: rgba(103, 211, 255, 0.55);
+        }
+
         .hero-meta {
             margin-top: 14px;
             display: flex;
@@ -1427,15 +1451,39 @@
                             <li>
                                 <strong>Visual and Multimodal Generation</strong>
                                 <ul class="project-focus-sublist">
-                                    <li>Real-time and interactive autoregressive audio-video generation</li>
-                                    <li>Image generation pre-training and post-training</li>
+                                    <li>Real-time and interactive autoregressive audio-video generation
+                                        <ul class="project-focus-link-list">
+                                            <li><a class="focus-link"
+                                                    href="https://www.sbintuitions.co.jp/blog/entry/2026/08/19/100000"
+                                                    target="_blank" rel="noopener noreferrer">Blog: Interactive Real-Time Talking Character</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>Image generation pre-training and post-training
+                                        <ul class="project-focus-link-list">
+                                            <li><a class="focus-link"
+                                                    href="https://www.sbintuitions.co.jp/blog/entry/2026/09/04/123517"
+                                                    target="_blank" rel="noopener noreferrer">Blog: Sarashina Image 2.6B</a></li>
+                                        </ul>
+                                    </li>
                                 </ul>
                             </li>
                             <li>
                                 <strong>Video World Models and World Action Models</strong>
                                 <ul class="project-focus-sublist">
-                                    <li>Spatial consistency and long horizon</li>
-                                    <li>Model Efficiency</li>
+                                    <li>Spatial consistency and long horizon
+                                        <ul class="project-focus-link-list">
+                                            <li><a class="focus-link"
+                                                    href="https://www.sbintuitions.co.jp/blog/entry/2026/09/30/170000"
+                                                    target="_blank" rel="noopener noreferrer">Blog: Revisit Consistency</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>Model Efficiency
+                                        <ul class="project-focus-link-list">
+                                            <li><a class="focus-link"
+                                                    href="https://www.sbintuitions.co.jp/blog/entry/2026/08/18/083500"
+                                                    target="_blank" rel="noopener noreferrer">Blog: Few-Step WAM</a></li>
+                                        </ul>
+                                    </li>
                                 </ul>
                             </li>
                         </ul>
