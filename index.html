@@ -5,8 +5,8 @@
     <meta charset="UTF-8" />
     <title>Shiqi Yang — Multimodal AI Researcher &amp; Director</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="color-scheme" content="dark" />
-    <meta name="theme-color" content="#172234" />
+    <meta name="color-scheme" content="light" />
+    <meta name="theme-color" content="#faf9f6" />
     <meta name="description"
         content="Shiqi Yang is Director of the Multimodal AI Department and Principal Research Scientist at SB Intuitions, leading hands-on research in multimodal generation, video world models, and world action models." />
     <link rel="canonical" href="https://albert0147.github.io/" />
@@ -23,1153 +23,318 @@
     <meta name="twitter:title" content="Shiqi Yang — Multimodal AI Researcher &amp; Director" />
     <meta name="twitter:description" content="Research leadership in multimodal generation and video world models." />
     <meta name="twitter:image" content="https://albert0147.github.io/avatar-square.jpg" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preload" as="style"
-        href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&amp;display=swap" />
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&amp;display=swap" rel="stylesheet"
-        media="print" onload="this.media='all'" />
-    <noscript>
-        <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&amp;display=swap"
-            rel="stylesheet" />
-    </noscript>
     <style>
         :root {
-            color-scheme: dark;
-            --bg: #172234;
-            --card: #243247;
-            --card-raised: #29394f;
-            --accent: #67d3ff;
-            --accent-soft: rgba(103, 211, 255, 0.12);
-            --accent-2: #8b9cff;
-            --accent-2-deep: #4338ca;
-            --grad-accent: linear-gradient(135deg, #5b5bd6, #4338ca);
-            --text: #f8fafc;
-            --muted: #c5d0df;
-            --border: rgba(226, 232, 240, 0.12);
-            --shadow-soft: 0 1px 2px rgba(4, 10, 22, 0.35), 0 12px 30px rgba(4, 10, 22, 0.25);
-            --shadow-hover: 0 1px 2px rgba(4, 10, 22, 0.35), 0 16px 40px rgba(4, 10, 22, 0.32);
-            --radius-lg: 18px;
-            --radius-xl: 26px;
-            --radius-pill: 999px;
+            color-scheme: light;
+            --bg: #faf9f6;
+            --card: #ffffff;
+            --card-raised: #f2f3f1;
+            --accent: #315ead;
+            --accent-soft: #edf2f9;
+            --text: #242424;
+            --muted: #60656c;
+            --border: #dedfdc;
+            --serif: Georgia, 'Times New Roman', serif;
         }
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        html {
-            font-size: 16px;
-            scroll-behavior: smooth;
-            scroll-padding-top: 72px;
-        }
-
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        [hidden] { display: none !important; }
+        html { font-size: 16px; scroll-behavior: smooth; scroll-padding-top: 100px; }
         body {
-            font-family: 'Outfit', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-                "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans SC", sans-serif;
             min-width: 320px;
-            background-color: var(--bg);
-            background-image:
-                radial-gradient(640px circle at 85% -120px, rgba(92, 73, 150, 0.42), transparent),
-                radial-gradient(560px circle at -6% 420px, rgba(22, 101, 130, 0.35), transparent),
-                radial-gradient(720px circle at 108% 48%, rgba(92, 73, 150, 0.16), transparent),
-                radial-gradient(640px circle at -8% 100%, rgba(22, 101, 130, 0.18), transparent);
+            background: var(--bg);
             color: var(--text);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', sans-serif;
             font-size: 1rem;
-            line-height: 1.65;
+            line-height: 1.7;
             -webkit-font-smoothing: antialiased;
         }
-
-        ::selection {
-            background: rgba(103, 211, 255, 0.3);
-            color: #f8fafc;
-        }
-
-        a {
-            color: var(--accent);
-            text-decoration: none;
-            text-underline-offset: 3px;
-        }
-
-        a:hover {
+        ::selection { background: #dbe7f7; color: #183660; }
+        a { color: var(--accent); text-decoration: none; text-underline-offset: 4px; }
+        a:hover { text-decoration: underline; }
+        .about-body a, .news-list a, .talks-list a, .service-list a,
+        .edu-list a, .exp-company a, .section-lead a, .pub-links a {
             text-decoration: underline;
-        }
-
-        .about-body a,
-        .news-list a,
-        .talks-list a,
-        .service-list a,
-        .edu-list a,
-        .exp-company a,
-        .section-lead a {
-            text-decoration: underline;
-            text-decoration-color: rgba(103, 211, 255, 0.45);
+            text-decoration-color: #b4c4de;
             text-decoration-thickness: 1px;
         }
-
-        .about-body a:hover,
-        .news-list a:hover,
-        .talks-list a:hover,
-        .service-list a:hover,
-        .edu-list a:hover,
-        .exp-company a:hover,
-        .section-lead a:hover {
-            text-decoration-color: var(--accent);
-        }
-
-        a:focus-visible,
-        button:focus-visible,
-        select:focus-visible {
-            outline: 3px solid rgba(103, 211, 255, 0.7);
-            outline-offset: 3px;
-        }
-
-        .nowrap {
-            white-space: nowrap;
-        }
-
+        a:hover { text-decoration-color: currentColor; }
+        a:focus-visible, button:focus-visible, select:focus-visible,
+        [tabindex]:focus-visible { outline: 2px solid var(--accent); outline-offset: 5px; }
+        .nowrap { white-space: nowrap; }
         .skip-link {
-            position: fixed;
-            left: 18px;
-            top: 12px;
-            z-index: 100;
-            padding: 9px 14px;
-            border-radius: 10px;
-            background: #ffffff;
-            color: #0f172a;
-            font-weight: 600;
-            transform: translateY(-160%);
-            transition: transform 0.18s ease;
+            position: fixed; left: 18px; top: 12px; z-index: 100;
+            padding: 9px 14px; border-radius: 6px;
+            background: var(--text); color: white; transform: translateY(-160%);
         }
+        .skip-link:focus { transform: translateY(0); }
 
-        .skip-link:focus {
-            transform: translateY(0);
-        }
-
-        /* Header / nav */
+        /* A quiet navigation strip above the editorial page. */
         header {
-            position: sticky;
-            top: 0;
-            z-index: 20;
-            background: rgba(23, 34, 52, 0.78);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
+            position: sticky; top: 0; z-index: 20;
+            background: var(--bg);
             border-bottom: 1px solid var(--border);
         }
-
         .nav-inner {
-            max-width: 1240px;
-            margin: 0 auto;
-            padding: 12px 22px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 16px;
+            max-width: 1160px; margin: 0 auto; padding: 14px 32px;
+            display: flex; align-items: center; justify-content: space-between; gap: 28px;
         }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
+        .logo { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
         .logo-badge {
-            width: 32px;
-            height: 32px;
-            border-radius: 14px;
-            background: linear-gradient(135deg, #5558e0 0%, #4338ca 100%);
-            box-shadow: 0 4px 14px rgba(67, 56, 202, 0.35);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            font-size: 16px;
-            color: #ffffff;
+            width: 30px; height: 30px; display: flex; align-items: center;
+            justify-content: center; border: 1px solid #b8c8df; border-radius: 50%;
+            color: var(--accent); font-family: var(--serif); font-size: 17px;
         }
-
-        .logo-text-main {
-            font-weight: 600;
-            letter-spacing: 0.03em;
-            font-size: 18px;
-        }
-
-        nav ul {
-            display: flex;
-            flex-wrap: nowrap;
-            gap: 3px;
-            list-style: none;
-            font-size: 0.875rem;
-        }
-
+        .logo-text-main { font-weight: 600; font-size: 14px; letter-spacing: 0.01em; }
+        header nav { min-width: 0; overflow-x: auto; scrollbar-width: none; }
+        header nav::-webkit-scrollbar { display: none; }
+        nav ul { display: flex; gap: 4px; list-style: none; white-space: nowrap; }
         nav a {
-            display: block;
-            padding: 7px 10px;
-            border-radius: var(--radius-pill);
-            border: 1px solid transparent;
-            color: var(--muted);
-            text-decoration: none;
-            transition: all 0.17s ease-out;
+            display: block; padding: 8px 10px; font-size: 0.8125rem;
+            color: var(--muted); border-radius: 4px;
+        }
+        nav a:hover, nav a[aria-current='location'] {
+            color: var(--accent); background: var(--accent-soft); text-decoration: none;
         }
 
-        nav a:hover {
-            border-color: rgba(255, 255, 255, 0.2);
-            color: var(--accent);
-            background: rgba(255, 255, 255, 0.05);
-            text-decoration: none;
-        }
-
-        nav a[aria-current="location"] {
-            color: var(--text);
-            background: rgba(103, 211, 255, 0.12);
-            border-color: rgba(103, 211, 255, 0.18);
-        }
-
-        /* Page layout */
-        .page {
-            max-width: 1240px;
-            margin: 0 auto;
-            padding: 34px 22px 54px;
-        }
-
+        .page { max-width: 1100px; margin: 0 auto; padding: 48px 32px 32px; }
         main {
-            display: grid;
-            grid-template-columns: repeat(12, minmax(0, 1fr));
-            align-items: start;
-            column-gap: 24px;
-            row-gap: clamp(28px, 4vw, 40px);
+            display: grid; grid-template-columns: repeat(12, minmax(0, 1fr));
+            gap: 52px 48px; align-items: start;
         }
-
-        main section {
-            min-width: 0;
+        main section { min-width: 0; grid-column: 1 / -1; }
+        #experience { grid-column: span 7; }
+        #education { grid-column: span 5; }
+        #service, #talks { grid-column: span 6; }
+        .card, .section { padding-top: 28px; border-top: 1px solid var(--border); }
+        .card h2, .section-title, .footer-connect h2 {
+            margin-bottom: 14px; font-family: var(--serif); font-weight: 400;
+            font-size: clamp(27px, 3vw, 34px); line-height: 1.2; letter-spacing: -0.025em;
         }
-
-        #about,
-        #projects,
-        #news,
-        #experience,
-        #publications {
-            grid-column: 1 / -1;
-        }
-
-        #talks,
-        #service,
-        #education {
-            grid-column: span 6;
-        }
-
-        /* Hero */
-        .hero-card {
-            padding: clamp(28px, 5vw, 52px);
-            background: rgba(42, 56, 78, 0.58);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border-radius: var(--radius-xl);
-            border: 1px solid var(--border);
-            box-shadow: 0 24px 60px rgba(5, 10, 20, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.05);
-            position: relative;
-            overflow: hidden;
-            transition: border-color 0.3s ease;
-        }
-
-        .hero-card:hover {
-            border-color: rgba(255, 255, 255, 0.2);
-        }
-
-        .hero-grid {
-            display: grid;
-            grid-template-columns: auto minmax(0, 1fr);
-            gap: clamp(22px, 4vw, 42px);
-            align-items: center;
-        }
-
-        .avatar {
-            width: clamp(104px, 14vw, 150px);
-            height: auto;
-            aspect-ratio: 1 / 1;
-            border-radius: var(--radius-pill);
-            object-fit: cover;
-            border: 3px solid rgba(255, 255, 255, 0.25);
-            box-shadow: 0 18px 40px rgba(0, 0, 0, 0.7);
-            display: block;
-        }
-
-        .hero-name {
-            display: flex;
-            flex-direction: column;
-            gap: 2px;
-        }
-
-        .hero-name h1 {
-            width: fit-content;
-            font-size: clamp(34px, 5vw, 54px);
-            line-height: 1.05;
-            letter-spacing: -0.01em;
-            font-weight: 700;
-            background: linear-gradient(135deg, #ffffff 0%, var(--accent-2) 100%);
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .hero-name .name-alt {
-            font-size: 1rem;
-            color: var(--muted);
-            letter-spacing: 0.05em;
-        }
-
-        .hero-title {
-            margin-top: 12px;
-            color: var(--text);
-            font-size: clamp(16px, 2vw, 19px);
-            line-height: 1.5;
-        }
-
-        .hero-summary {
-            max-width: 68ch;
-            margin-top: 14px;
-            color: var(--muted);
-            font-size: 1rem;
-            line-height: 1.55;
-        }
-
-        .project-focus {
-            max-width: 96ch;
-            margin-top: 24px;
-            color: var(--muted);
-            font-size: 1rem;
-            line-height: 1.55;
-        }
-
-        .project-focus-label {
-            margin-bottom: 12px;
-            color: var(--text);
-        }
-
-        .project-focus-list {
-            padding-left: 1.5rem;
-        }
-
-        .project-focus-list>li+li {
-            margin-top: 12px;
-        }
-
-        .project-focus-list li::marker {
-            color: var(--accent);
-        }
-
-        .project-focus-list strong {
-            color: var(--text);
-            font-weight: 700;
-        }
-
-        .project-focus-sublist {
-            margin-top: 4px;
-            padding-left: 1.25rem;
-        }
-
-        .project-focus-sublist li+li {
-            margin-top: 2px;
-        }
-
-        .project-focus-sublist li::marker {
-            color: var(--accent-2);
-        }
-
-        .project-focus-link-list {
-            margin-top: 3px;
-            padding-left: 1.25rem;
-            list-style: none;
-        }
-
-        .project-focus-link-list li {
-            display: flex;
-            align-items: baseline;
-            gap: 0.4em;
-        }
-
-        .project-focus-link-list li::before {
-            content: "\2197";
-            color: var(--accent);
-        }
-
-        .project-focus-link-list .focus-link {
-            color: var(--accent);
-            font-size: 0.875rem;
-            font-weight: 600;
-            text-decoration-color: rgba(103, 211, 255, 0.55);
-        }
-
-        .hero-meta {
-            margin-top: 14px;
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            gap: 6px 10px;
-            font-size: 0.875rem;
-            color: var(--muted);
-        }
-
-        .hero-meta a {
-            color: var(--muted);
-            text-decoration: underline;
-            text-decoration-color: rgba(197, 208, 223, 0.35);
-        }
-
-        .hero-meta a:hover {
-            color: var(--accent);
-            text-decoration-color: var(--accent);
-        }
-
-        .meta-separator {
-            opacity: 0.45;
-        }
-
-        .hero-actions {
-            margin-top: 18px;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            font-size: 0.875rem;
-        }
-
-        .btn-primary,
-        .btn-soft {
-            min-height: 42px;
-            padding: 9px 15px;
-            border-radius: var(--radius-pill);
-            border: 1px solid transparent;
-            font-size: 0.875rem;
-            cursor: pointer;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            text-decoration: none;
-            transition: all 0.17s ease-out;
-            white-space: nowrap;
-        }
-
-        .btn-primary {
-            background: var(--grad-accent);
-            color: #ffffff;
-            font-weight: 600;
-            box-shadow: 0 8px 20px rgba(67, 56, 202, 0.28);
-        }
-
-        .btn-primary:hover {
-            box-shadow: 0 12px 24px rgba(67, 56, 202, 0.38);
-            transform: translateY(-1px);
-            text-decoration: none;
-        }
-
-        .btn-soft {
-            background: rgba(255, 255, 255, 0.05);
-            border-color: rgba(255, 255, 255, 0.25);
-            color: var(--accent);
-        }
-
-        .btn-soft:hover {
-            background: rgba(255, 255, 255, 0.15);
-            text-decoration: none;
-        }
-
-        .hero-actions a[target="_blank"]::after {
-            content: " \2197" / "";
-            font-size: 0.85em;
-            opacity: 0.65;
-        }
-
-        .about-body {
-            margin-top: 28px;
-            padding-top: 24px;
-            border-top: 1px solid var(--border);
-            color: var(--muted);
-            font-size: 1rem;
-        }
-
-        .about-body p+p {
-            margin-top: 10px;
-        }
-
-        /* Cards & sections */
-        .card,
-        .section {
-            padding: clamp(22px, 3vw, 32px);
-            background: var(--card);
-            border-radius: var(--radius-lg);
-            border: 1px solid var(--border);
-            box-shadow: var(--shadow-soft), inset 0 1px 0 rgba(255, 255, 255, 0.05);
-            transition: border-color 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .card:hover,
-        .section:hover {
-            border-color: rgba(103, 211, 255, 0.24);
-            box-shadow: var(--shadow-hover), inset 0 1px 0 rgba(255, 255, 255, 0.05);
-        }
-
-        #projects {
-            padding: clamp(26px, 4vw, 40px);
-            background:
-                linear-gradient(135deg, rgba(67, 56, 202, 0.2), rgba(36, 50, 71, 0.92) 48%, rgba(22, 101, 130, 0.18));
-            border-color: rgba(139, 156, 255, 0.3);
-            box-shadow: 0 22px 52px rgba(5, 10, 20, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.06);
-        }
-
-        #projects h2 {
-            font-size: clamp(22px, 3vw, 30px);
-        }
-
-        #news,
-        #experience {
-            background: rgba(36, 50, 71, 0.88);
-        }
-
-        #talks,
-        #service,
-        #education {
-            background: rgba(36, 50, 71, 0.62);
-            box-shadow: 0 8px 22px rgba(4, 10, 22, 0.16), inset 0 1px 0 rgba(255, 255, 255, 0.04);
-        }
-
-        #talks:hover,
-        #service:hover,
-        #education:hover {
-            box-shadow: 0 10px 26px rgba(4, 10, 22, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.04);
-        }
-
-        .card h2,
-        .section-title {
-            margin-bottom: 10px;
-            color: var(--text);
-            font-size: clamp(19px, 2.4vw, 24px);
-            line-height: 1.25;
-            letter-spacing: 0.02em;
-        }
-
         .section-kicker {
-            display: block;
-            margin-bottom: 5px;
-            color: var(--accent);
-            font-size: 0.75rem;
-            font-weight: 700;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
+            display: block; margin-bottom: 10px; color: var(--accent);
+            font-size: 0.6875rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase;
         }
+        .section-lead, .section-subtitle { max-width: 76ch; color: var(--muted); font-size: 0.9375rem; }
+        .section-header { margin-bottom: 24px; }
 
-        .section-lead,
-        .section-subtitle {
-            color: var(--muted);
-            font-size: 0.9375rem;
-            line-height: 1.55;
+        /* Identity on the left; portrait on the right. */
+        .hero-grid {
+            display: grid; grid-template-columns: minmax(0, 1fr) 180px;
+            gap: 64px; align-items: center;
         }
-
-        .section-header {
-            margin-bottom: 22px;
+        .avatar {
+            display: block; width: 180px; height: auto; aspect-ratio: 1;
+            border-radius: 50%; object-fit: cover; border: 5px solid white;
+            box-shadow: 0 0 0 1px var(--border);
         }
-
-        /* Lists */
-        .news-list,
-        .exp-list,
-        .talks-list,
-        .service-list,
-        .edu-list {
-            list-style: none;
-            font-size: 1rem;
-            line-height: 1.55;
-            color: var(--muted);
+        .hero-name h1 {
+            font-family: var(--serif); font-size: clamp(48px, 6vw, 72px);
+            font-weight: 400; line-height: 1.1; letter-spacing: -0.045em;
         }
-
-        /* Latest news: a vertically scrollable window, newest first */
-        .news-list {
-            max-height: 374px;
-            margin-top: 16px;
-            padding-right: 10px;
-            overflow-y: auto;
-            overscroll-behavior: contain;
-            scroll-behavior: smooth;
-            scroll-snap-type: y proximity;
-            scrollbar-gutter: stable;
-            scrollbar-width: thin;
-            scrollbar-color: rgba(103, 211, 255, 0.5) rgba(255, 255, 255, 0.04);
+        .name-alt { margin-top: 8px; color: var(--muted); font-size: 0.875rem; letter-spacing: 0.08em; }
+        .hero-title { margin-top: 22px; font-size: 0.9375rem; line-height: 1.7; }
+        .hero-summary { margin-top: 18px; max-width: 60ch; color: var(--muted); font-size: 0.9375rem; }
+        .hero-meta {
+            display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px;
+            margin-top: 20px; font-size: 0.8125rem; color: var(--muted);
         }
-
-        .news-list::-webkit-scrollbar {
-            width: 8px;
-        }
-
-        .news-list::-webkit-scrollbar-track {
-            border-radius: var(--radius-pill);
-            background: rgba(255, 255, 255, 0.04);
-        }
-
-        .news-list::-webkit-scrollbar-thumb {
-            border-radius: var(--radius-pill);
-            background: rgba(103, 211, 255, 0.5);
-        }
-
-        .news-list:focus-visible {
-            outline: 3px solid rgba(103, 211, 255, 0.7);
-            outline-offset: 4px;
-        }
-
-        .news-list li {
-            padding: 11px 0 11px 96px;
-            text-indent: -96px;
-            border-bottom: 1px solid var(--border);
-            scroll-snap-align: start;
-        }
-
-        .news-list li:last-child {
-            border-bottom: 0;
-        }
-
-        .news-date {
-            display: inline-block;
-            width: 84px;
-            margin-right: 8px;
-            text-indent: 0;
-            font-weight: 600;
-            color: var(--text);
-            font-variant-numeric: tabular-nums;
-            white-space: nowrap;
-        }
-
-        .archive-toggle {
-            margin-top: 15px;
-            min-height: 44px;
-            padding: 8px 14px;
-            border: 1px solid var(--border);
-            border-radius: 10px;
-            background: rgba(255, 255, 255, 0.04);
-            color: var(--accent);
-            font: inherit;
-            font-size: 0.875rem;
-            cursor: pointer;
+        .hero-meta a { color: var(--accent); }
+        .meta-separator { color: #a1a6ab; }
+        .hero-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
+        .btn-primary, .btn-soft {
+            display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+            min-height: 42px; padding: 9px 16px; border: 1px solid var(--border);
+            border-radius: 5px; font-size: 0.8125rem; font-weight: 500;
             transition: background-color 0.15s ease, border-color 0.15s ease;
         }
-
-        .archive-toggle:hover {
-            background: rgba(103, 211, 255, 0.08);
-            border-color: rgba(103, 211, 255, 0.35);
+        .btn-primary { background: var(--accent); color: white; border-color: var(--accent); }
+        .btn-primary:hover { background: #244d92; border-color: #244d92; text-decoration: none; }
+        .btn-soft { background: transparent; color: var(--accent); }
+        .btn-soft:hover { background: var(--accent-soft); border-color: #b4c4de; text-decoration: none; }
+        .hero-actions a[target='_blank']::after { content: ' \2197' / ''; font-size: 0.9em; }
+        .about-body { max-width: 80ch; margin-top: 36px; font-size: 1rem; line-height: 1.75; }
+        .about-body p + p { margin-top: 18px; }
+        .research-story {
+            display: block; margin-bottom: 18px; font-family: var(--serif);
+            font-size: 21px; line-height: 1.6; letter-spacing: -0.01em;
         }
 
-        .archive-toggle:active {
-            transform: translateY(1px);
-        }
+        /* Keep the existing research hierarchy, with two parallel areas. */
+        .project-focus { margin-top: 40px; padding-top: 28px; border-top: 1px solid var(--border); }
+        .project-focus-label { margin-bottom: 20px; font-size: 0.8125rem; font-weight: 600; color: var(--accent); }
+        .project-focus-list { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; list-style: none; }
+        .project-focus-list > li { border-left: 2px solid #bdcde3; padding-left: 20px; min-width: 0; }
+        .project-focus-list strong { display: block; font-size: 1rem; font-weight: 600; line-height: 1.5; }
+        .project-focus-sublist { margin-top: 14px; list-style: none; color: var(--muted); font-size: 0.875rem; }
+        .project-focus-sublist > li + li { margin-top: 18px; }
+        .project-focus-link-list { list-style: none; margin-top: 5px; }
+        .focus-link { font-size: 0.8125rem; line-height: 1.6; }
 
-        /* Experience */
-        .exp-list {
-            margin-top: 16px;
-        }
-
-        .exp-list li+li,
-        .talks-list li+li,
-        .service-list li+li {
-            margin-top: 13px;
-        }
-
-        .exp-company {
-            display: flex;
-            align-items: baseline;
-            gap: 10px;
-            color: var(--text);
-            font-weight: 600;
-        }
-
-        .exp-marker {
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background: var(--accent);
-            flex: 0 0 10px;
-            transform: translateY(-1px);
-        }
-
-        .exp-roles {
-            display: grid;
-            gap: 5px;
-            margin: 7px 0 0 20px;
-        }
-
-        .exp-role {
-            display: grid;
-            grid-template-columns: minmax(max-content, 172px) minmax(0, 1fr);
-            gap: 9px;
-            align-items: baseline;
-        }
-
-        .exp-date {
-            white-space: nowrap;
-            font-size: 0.875rem;
-            font-weight: 600;
-            color: var(--text);
-            font-variant-numeric: tabular-nums;
-        }
-
-        .exp-title {
-            color: var(--muted);
-        }
-
-        .exp-role.is-current .exp-title {
-            color: var(--text);
-            font-weight: 600;
-        }
-
-        .role-note {
-            display: block;
-            margin-top: 2px;
-            color: var(--muted);
-            font-size: 0.8125rem;
-            font-weight: 400;
-        }
-
-        /* Education */
-        #education .edu-list {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 12px;
-            margin-top: 16px;
-        }
-
-        #education .edu-list li {
-            margin-top: 0;
-            padding: 16px;
-            border: 1px solid var(--border);
-            border-radius: 14px;
-            background: var(--card-raised);
-        }
-
-        /* Projects & tech blog: a vertically scrollable two-row window */
+        /* Compact article cards, with source and date on the tag row. */
         .project-grid {
-            display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            grid-auto-rows: 180px;
-            gap: 14px;
-            max-height: 374px;
-            margin-top: 18px;
-            padding-right: 10px;
-            overflow-y: auto;
-            overscroll-behavior: contain;
-            scroll-snap-type: y proximity;
-            scrollbar-gutter: stable;
-            scrollbar-width: thin;
-            scrollbar-color: rgba(103, 211, 255, 0.5) rgba(255, 255, 255, 0.04);
+            display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 14px; margin-top: 22px;
         }
-
-        .project-grid::-webkit-scrollbar {
-            width: 8px;
-        }
-
-        .project-grid::-webkit-scrollbar-track {
-            border-radius: var(--radius-pill);
-            background: rgba(255, 255, 255, 0.04);
-        }
-
-        .project-grid::-webkit-scrollbar-thumb {
-            border-radius: var(--radius-pill);
-            background: rgba(103, 211, 255, 0.5);
-        }
-
-        .project-grid:focus-visible {
-            outline: 3px solid rgba(103, 211, 255, 0.7);
-            outline-offset: 4px;
-        }
-
         .project-card {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-            height: 180px;
-            padding: 20px;
-            border: 1px solid rgba(226, 232, 240, 0.14);
-            border-top-color: rgba(103, 211, 255, 0.55);
-            border-radius: 14px;
-            background: rgba(41, 57, 79, 0.9);
-            color: var(--muted);
-            font-size: 0.875rem;
-            line-height: 1.5;
-            scroll-snap-align: start;
-            transition: border-color 0.17s ease-out, transform 0.17s ease-out, box-shadow 0.17s ease-out;
+            display: grid; grid-template-columns: max-content minmax(0, 1fr);
+            align-content: start; gap: 8px 12px; min-width: 0;
+            padding: 18px 20px; background: var(--card);
+            border: 1px solid var(--border); border-radius: 6px;
+            color: var(--muted); font-size: 0.875rem; line-height: 1.6;
+            transition: border-color 0.17s ease, box-shadow 0.17s ease;
         }
-
-        .project-card[href]:hover {
-            text-decoration: none;
-            border-color: rgba(103, 211, 255, 0.35);
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-hover);
+        .project-card:hover {
+            text-decoration: none; border-color: #9fb6d5;
+            box-shadow: 0 5px 18px rgba(36, 49, 69, 0.05);
         }
-
         .project-tag {
-            align-self: flex-start;
-            padding: 2px 10px;
-            border-radius: var(--radius-pill);
-            background: var(--accent-soft);
-            color: var(--accent);
-            font-size: 0.75rem;
-            font-weight: 600;
-            letter-spacing: 0.04em;
+            grid-column: 1; grid-row: 1; align-self: start;
+            padding: 2px 7px; border-radius: 3px;
+            background: var(--accent-soft); color: var(--accent);
+            font-size: 0.6875rem; font-weight: 600; letter-spacing: 0.03em;
         }
-
-        .project-title {
-            color: var(--text);
-            font-weight: 600;
-            font-size: 1.0625rem;
-            line-height: 1.4;
-        }
-
-        .project-card[target="_blank"] .project-title::after {
-            content: " \2197" / "";
-            font-size: 0.85em;
-            opacity: 0.65;
-        }
-
-        .project-desc {
-            color: var(--muted);
-        }
-
+        .project-title { grid-column: 1 / -1; color: var(--text); font-size: 1rem; line-height: 1.5; font-weight: 600; }
+        .project-card[target='_blank'] .project-title::after { content: ' \2197' / ''; color: var(--accent); font-size: 0.85em; }
+        .project-desc { grid-column: 1 / -1; color: var(--muted); font-size: 0.8125rem; }
         .project-meta {
-            margin-top: auto;
-            padding-top: 4px;
-            font-size: 0.8125rem;
-            opacity: 0.8;
+            grid-column: 2; grid-row: 1; align-self: center; text-align: right;
+            font-size: 0.6875rem; color: var(--muted);
         }
 
-        /* Publications */
+        .news-list, .exp-list, .talks-list, .service-list, .edu-list {
+            list-style: none; color: var(--muted); font-size: 0.9375rem; line-height: 1.7;
+        }
+        .news-list {
+            max-height: 328px; overflow-y: auto; margin-top: 24px; padding-right: 14px;
+            scrollbar-width: thin; scrollbar-color: #bbc6d3 transparent; scrollbar-gutter: stable;
+        }
+        .news-list::-webkit-scrollbar { width: 5px; }
+        .news-list::-webkit-scrollbar-thumb { background: #bbc6d3; border-radius: 5px; }
+        .news-list li { padding: 13px 0 13px 108px; text-indent: -108px; border-bottom: 1px solid var(--border); }
+        .news-list li:first-child { padding-top: 0; }
+        .news-list li:last-child { border-bottom: 0; }
+        .news-date {
+            display: inline-block; width: 94px; margin-right: 10px; text-indent: 0;
+            font-size: 0.8125rem; color: var(--text); font-variant-numeric: tabular-nums; white-space: nowrap;
+        }
+        .archive-toggle {
+            min-height: 44px; padding: 9px 15px; border: 1px solid #bfccdd;
+            border-radius: 5px; background: transparent; color: var(--accent);
+            font: inherit; font-size: 0.8125rem; cursor: pointer;
+        }
+        .archive-toggle:hover { background: var(--accent-soft); }
+
+        /* Single-column publication records and understated filters. */
+        .publication-scholar { margin-bottom: 10px; }
         .publication-toolbar {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: end;
-            gap: 12px;
-            margin: 8px 0 26px;
-            padding: 16px;
-            border: 1px solid var(--border);
-            border-radius: 14px;
-            background: var(--card-raised);
+            display: flex; flex-wrap: wrap; align-items: end; gap: 16px;
+            margin: 24px 0; padding: 18px 20px; background: var(--card-raised); border-radius: 6px;
         }
-
-        .filter-field {
-            display: grid;
-            gap: 5px;
-        }
-
-        .filter-field label {
-            color: var(--muted);
-            font-size: 0.75rem;
-            font-weight: 600;
-        }
-
+        .filter-field { display: grid; gap: 6px; }
+        .filter-field label { font-size: 0.75rem; font-weight: 600; color: var(--muted); }
         .filter-field select {
-            min-width: 150px;
-            min-height: 40px;
-            padding: 7px 34px 7px 10px;
-            border: 1px solid var(--border);
-            border-radius: 9px;
-            background-color: var(--bg);
-            color: var(--text);
-            font: inherit;
-            font-size: 0.875rem;
-            appearance: none;
-            -webkit-appearance: none;
-            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="8" viewBox="0 0 12 8"><path d="M1 1l5 5 5-5" fill="none" stroke="%23c5d0df" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>');
-            background-repeat: no-repeat;
-            background-position: right 12px center;
+            min-width: 160px; min-height: 42px; padding: 8px 12px;
+            border: 1px solid #c9cdcF; border-radius: 4px; background: white;
+            color: var(--text); font: inherit; font-size: 0.875rem;
         }
-
-        .publication-count {
-            margin-left: auto;
-            padding-bottom: 8px;
-            color: var(--muted);
-            font-size: 0.875rem;
-        }
-
-        .publication-view-toggle {
-            margin: 0 0 4px;
-        }
-
-        .publication-latest {
-            margin-top: 14px;
-            padding: 18px;
-            border: 1px solid rgba(103, 211, 255, 0.2);
-            border-radius: 14px;
-            background: rgba(41, 57, 79, 0.62);
-        }
-
-        .publication-latest .pub-item:first-child {
-            border-top-color: rgba(103, 211, 255, 0.35);
-        }
-
-        .pub-group {
-            margin-top: 28px;
-        }
-
-        .pub-group h3 {
-            margin-bottom: 12px;
-            color: var(--text);
-            font-size: 18px;
-        }
-
-        .pub-list {
-            list-style: none;
-            font-size: 0.875rem;
-            color: var(--muted);
-        }
-
-        .pub-item {
-            padding: 16px 0;
-            border-top: 1px solid var(--border);
-        }
-
-        .pub-item[hidden],
-        .pub-group[hidden] {
-            display: none;
-        }
-
-        @media (min-width: 981px) {
-            .pub-list {
-                columns: 2;
-                column-gap: 44px;
-            }
-
-            .pub-item {
-                break-inside: avoid;
-            }
-        }
-
-        .pub-title {
-            display: block;
-            color: var(--text);
-            font-weight: 600;
-            font-size: 1rem;
-            line-height: 1.45;
-        }
-
-        .pub-authors {
-            display: block;
-            margin-top: 5px;
-            color: var(--muted);
-            font-size: 0.875rem;
-            line-height: 1.5;
-        }
-
+        .publication-count { margin-left: auto; padding-bottom: 8px; font-size: 0.8125rem; color: var(--muted); }
+        .publication-view-toggle { margin-bottom: 8px; }
+        .pub-group { margin-top: 30px; }
+        .pub-group h3 { margin-bottom: 12px; font-size: 0.8125rem; color: var(--muted); font-weight: 600; }
+        .pub-list { list-style: none; columns: 1; }
+        .pub-item { padding: 18px 0; border-top: 1px solid var(--border); }
+        .pub-title { display: block; color: var(--text); font-size: 1.0625rem; line-height: 1.5; font-weight: 600; }
+        .pub-authors { display: block; margin-top: 6px; font-size: 0.875rem; line-height: 1.7; color: var(--muted); }
         .pub-venue {
-            display: block;
-            margin-top: 4px;
-            color: var(--muted);
-            font-size: 0.875rem;
+            display: inline-block; margin-top: 8px; padding: 2px 8px; border-radius: 3px;
+            background: var(--accent-soft); color: #3e5c83; font-size: 0.75rem; line-height: 1.7;
         }
+        .pub-legend { margin-top: 10px; color: var(--muted); font-size: 0.75rem; }
+        .pub-authors abbr { text-decoration: none; cursor: help; }
+        .pub-honor { color: var(--accent); font-weight: 600; }
+        .pub-links { display: block; margin-top: 8px; font-size: 0.8125rem; color: var(--muted); }
+        .pub-links span { margin-right: 10px; }
 
-        .pub-legend {
-            margin-top: 8px;
-            color: var(--muted);
-            font-size: 0.75rem;
-        }
+        /* Supporting background uses a compact two-column layout. */
+        .exp-list, .edu-list, .service-list, .talks-list { margin-top: 24px; }
+        .exp-list > li + li { margin-top: 26px; }
+        .exp-company { display: flex; align-items: baseline; gap: 10px; font-weight: 600; color: var(--text); }
+        .exp-marker { width: 6px; height: 6px; border-radius: 50%; background: #8ba4c6; flex: 0 0 6px; }
+        .exp-roles { display: grid; gap: 14px; margin: 12px 0 0 16px; padding-left: 14px; border-left: 1px solid var(--border); }
+        .exp-role { display: grid; gap: 3px; }
+        .exp-date { font-size: 0.75rem; color: var(--muted); font-variant-numeric: tabular-nums; }
+        .exp-title { font-size: 0.875rem; }
+        .exp-role.is-current .exp-title { color: var(--text); }
+        .role-note { display: block; margin-top: 2px; font-size: 0.75rem; color: var(--muted); }
+        .edu-list li + li { margin-top: 24px; padding-top: 24px; border-top: 1px solid var(--border); }
+        .service-list li + li, .talks-list li + li { margin-top: 16px; }
 
-        .pub-authors abbr {
-            text-decoration: none;
-            cursor: help;
-        }
+        footer { margin-top: 72px; padding-top: 32px; border-top: 1px solid var(--border); color: var(--muted); }
+        .footer-main { display: flex; justify-content: space-between; align-items: flex-start; gap: 32px; }
+        .footer-connect { max-width: 65ch; }
+        .future-note { margin-top: 16px; font-size: 0.8125rem; }
+        .future-note strong { color: var(--text); }
+        .footer-links { display: flex; flex-direction: column; align-items: flex-start; flex-shrink: 0; }
+        .footer-links a { padding: 3px 0; font-size: 0.8125rem; }
+        .footer-bottom { margin-top: 32px; padding-top: 18px; border-top: 1px solid var(--border); font-size: 0.75rem; }
 
-        .pub-honor {
-            color: var(--accent);
-            font-weight: 600;
-        }
-
-        .pub-links {
-            display: block;
-            margin-top: 6px;
-            font-size: 0.875rem;
-            color: var(--muted);
-            opacity: 0.85;
-        }
-
-        .pub-links span {
-            margin-right: 8px;
-        }
-
-        .pub-links a {
-            color: var(--accent);
-            text-decoration: underline;
-            text-decoration-color: rgba(103, 211, 255, 0.4);
-            text-decoration-thickness: 1px;
-        }
-
-        .pub-links a:hover {
-            text-decoration-color: var(--accent);
-        }
-
-        /* Footer */
-        footer {
-            margin-top: 40px;
-            padding-top: 36px;
-            border-top: 1px solid var(--border);
-            color: var(--muted);
-        }
-
-        .footer-main {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            gap: 24px;
-            flex-wrap: wrap;
-        }
-
-        .footer-connect {
-            max-width: 60ch;
-        }
-
-        .future-note {
-            max-width: 62ch;
-            margin-top: 14px;
-            padding-top: 14px;
-            border-top: 1px solid var(--border);
-            color: var(--muted);
-            font-size: 0.875rem;
-        }
-
-        .future-note strong {
-            color: var(--text);
-        }
-
-        .footer-connect h2 {
-            margin-bottom: 8px;
-            color: var(--text);
-            font-size: clamp(19px, 2.4vw, 24px);
-            line-height: 1.25;
-        }
-
-        .footer-links {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-            font-size: 0.875rem;
-        }
-
-        .footer-bottom {
-            margin-top: 28px;
-            padding-top: 16px;
-            border-top: 1px solid var(--border);
-            font-size: 0.875rem;
-        }
-
-        .footer-links a {
-            text-decoration: none;
-            color: var(--muted);
-        }
-
-        .footer-links a:hover {
-            color: var(--accent);
-        }
-
-        /* Responsive */
         @media (max-width: 880px) {
-            nav {
-                max-width: 100%;
-                overflow-x: auto;
-                scrollbar-width: none;
-                -webkit-mask-image: linear-gradient(to right, #000 calc(100% - 36px), transparent);
-                mask-image: linear-gradient(to right, #000 calc(100% - 36px), transparent);
+            .nav-inner { gap: 18px; padding-inline: 24px; }
+            header nav {
+                -webkit-mask-image: linear-gradient(to right, #000 calc(100% - 20px), transparent);
+                mask-image: linear-gradient(to right, #000 calc(100% - 20px), transparent);
             }
-
-            nav.at-end {
-                -webkit-mask-image: none;
-                mask-image: none;
-            }
-
-            nav::-webkit-scrollbar {
-                display: none;
-            }
-
-            #experience,
-            #talks,
-            #service,
-            #education {
-                grid-column: 1 / -1;
-            }
+            header nav.at-end { -webkit-mask-image: none; mask-image: none; }
+            .page { padding: 48px 24px 28px; }
+            main { column-gap: 32px; }
+            .hero-grid { grid-template-columns: minmax(0, 1fr) 140px; gap: 32px; }
+            .avatar { width: 140px; }
+            .hero-title .nowrap { white-space: normal; }
+            #experience, #education { grid-column: span 6; }
         }
-
         @media (max-width: 640px) {
-            .page {
-                padding: 20px 14px 40px;
-            }
-
-            .nav-inner {
-                padding: 9px 14px;
-            }
-
-            .logo-text-main {
-                font-size: 15px;
-            }
-
-            nav a {
-                display: inline-flex;
-                align-items: center;
-                min-height: 44px;
-                padding: 0 10px;
-                font-size: 13px;
-            }
-
-            .hero-grid {
-                grid-template-columns: 1fr;
-                align-items: flex-start;
-            }
-
-            .avatar {
-                width: 100px;
-            }
-
-            .hero-meta {
-                align-items: flex-start;
-            }
-
-            .project-grid {
-                grid-template-columns: minmax(0, 1fr);
-            }
-
-            .news-list li {
-                padding-left: 0;
-                text-indent: 0;
-            }
-
-            .news-date {
-                width: auto;
-                margin-right: 6px;
-            }
-
-            .exp-roles {
-                margin-left: 12px;
-                gap: 12px;
-            }
-
-            .exp-role {
-                grid-template-columns: 1fr;
-                gap: 2px;
-            }
-
-            .publication-count {
-                width: 100%;
-                margin-left: 0;
-            }
+            html { scroll-padding-top: 116px; }
+            .nav-inner { display: block; padding: 10px 20px 4px; }
+            .logo-badge { width: 24px; height: 24px; font-size: 14px; }
+            .logo-text-main { font-size: 13px; }
+            header nav { margin-top: 7px; }
+            nav ul { gap: 0; }
+            nav a { min-height: 40px; padding: 9px 10px; font-size: 0.75rem; }
+            .page { padding: 36px 22px 24px; }
+            main { grid-template-columns: minmax(0, 1fr); gap: 44px; }
+            #experience, #education, #service, #talks { grid-column: 1 / -1; }
+            .hero-grid { grid-template-columns: minmax(0, 1fr) 84px; gap: 18px; align-items: start; }
+            .hero-identity { display: contents; }
+            .hero-name { grid-column: 1; grid-row: 1; }
+            .hero-name h1 { font-size: clamp(38px, 8vw, 48px); }
+            .name-alt { font-size: 0.75rem; letter-spacing: 0.04em; }
+            .portrait { grid-column: 2; grid-row: 1; align-self: center; }
+            .avatar { width: 84px; border-width: 3px; }
+            .hero-title, .hero-summary, .hero-meta, .hero-actions { grid-column: 1 / -1; margin-top: 0; }
+            .hero-title { font-size: 0.875rem; }
+            .hero-summary { font-size: 0.875rem; }
+            .about-body { margin-top: 34px; font-size: 0.9375rem; line-height: 1.8; }
+            .research-story { font-size: 20px; }
+            .project-focus { margin-top: 32px; }
+            .project-focus-list { grid-template-columns: 1fr; gap: 24px; }
+            .project-grid { grid-template-columns: 1fr; gap: 12px; }
+            .project-card { padding: 16px; }
+            .card, .section { padding-top: 24px; }
+            .news-list { max-height: 350px; padding-right: 10px; font-size: 0.875rem; }
+            .news-list li { padding: 14px 0; text-indent: 0; }
+            .news-date { display: block; width: auto; margin: 0 0 4px; font-size: 0.75rem; }
+            .publication-count { margin-left: 0; padding: 0; }
+            .publication-toolbar { gap: 12px 20px; padding: 16px; }
+            .pub-title { font-size: 1rem; }
+            .pub-authors { font-size: 0.8125rem; }
+            .footer-main { flex-direction: column; }
+            .footer-links { flex-direction: row; flex-wrap: wrap; gap: 12px 20px; }
+            footer { margin-top: 48px; }
         }
-
         @media (prefers-reduced-motion: reduce) {
-            html {
-                scroll-behavior: auto;
-            }
-
-            .news-list {
-                scroll-behavior: auto;
-            }
-
-            *,
-            *::before,
-            *::after {
-                animation-duration: 0.01ms !important;
-                animation-iteration-count: 1 !important;
-                transition-duration: 0.01ms !important;
-            }
+            html { scroll-behavior: auto; }
+            *, *::before, *::after { transition: none !important; animation: none !important; }
         }
 
         /* Print */
@@ -1370,8 +535,8 @@
                     <li><a href="#about">About</a></li>
                     <li><a href="#projects">Projects</a></li>
                     <li><a href="#news">News</a></li>
-                    <li><a href="#experience">Experience</a></li>
                     <li><a href="#publications">Publications</a></li>
+                    <li><a href="#experience">Experience</a></li>
                     <li><a href="#service">Service</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
@@ -1383,11 +548,7 @@
         <main id="main-content">
             <section id="about" class="hero-card">
                 <div class="hero-grid">
-                    <div>
-                        <img class="avatar" src="./avatar-300.jpg" alt="Shiqi Yang" width="300" height="300"
-                            decoding="async" />
-                    </div>
-                    <div>
+                    <div class="hero-identity">
                         <div class="hero-name">
                             <h1>Shiqi Yang</h1>
                             <div class="name-alt"><span lang="zh-Hans">杨 诗琪</span> &nbsp; · &nbsp; Ph.D.</div>
@@ -1420,77 +581,92 @@
                                 target="_blank" rel="noopener noreferrer">Download CV</a>
                         </div>
                     </div>
+                    <div class="portrait">
+                        <img class="avatar" src="./avatar-300.jpg" alt="Shiqi Yang" width="300" height="300"
+                            decoding="async" />
+                    </div>
                 </div>
 
                 <div class="about-body">
                     <p>
+                        <span class="research-story">My research has evolved from adapting visual models to new environments, to multimodal
+                        generation, and now toward interactive world models that capture how the world evolves in
+                        response to actions.</span>
                         At
                         <a href="https://www.sbintuitions.co.jp/en" target="_blank" rel="noopener noreferrer">SB
-                            Intuitions</a>, a SoftBank R&amp;D company, I lead the Multimodal AI Department, set the research agenda and lead the development of working prototypes of multimodal generation systems. The department brings
-                        together the Creative Vision Team and Conversational Speech Team.
+                            Intuitions</a>, a SoftBank R&amp;D company, I work on research and prototype development for
+                        multimodal generation systems. I also lead the Multimodal AI Department and set its research
+                        agenda. The department brings together the Creative Vision Team and Conversational Speech Team.
                     </p>
                     <p>
-                        Before
-                        joining SB Intuitions, I was an audio-visual research scientist at Sony Group Corporation.
+                        I joined SB Intuitions in December 2024 and built the Creative Vision Team from scratch.
+                        Since then, my work has focused on image generation pretraining, real-time interactive
+                        autoregressive audio-video generation, and world action models. Previously, I was a research
+                        scientist at Sony Group Corporation working on audio-visual generation.
                         I received my Ph.D. (2023) from the
-                        <a href="https://lamp.cvc.uab.es" target="_blank" rel="noopener noreferrer">Learning and Machine
-                            Perception (LAMP) team</a> at the Computer Vision Center, Autonomous University of
-                        Barcelona, advised by
-                        <a href="https://scholar.google.com/citations?user=Gsw2iUEAAAAJ" target="_blank"
-                            rel="noopener noreferrer">Joost van de Weijer</a>. I also serve the community as an area
-                        chair for ICML/NeurIPS/ICLR, guest editor for
-                        an IJCV special issue, and organizer of the workshop series
-                        <a href="https://efficientvg.github.io/" target="_blank" rel="noopener noreferrer">EVG</a> and
-                        <a href="https://avgen123.github.io" target="_blank" rel="noopener noreferrer">AVGenL</a>. My
-                        earlier research also includes transfer learning and continual learning.
+                        <a href="https://lamp.cvc.uab.es/" target="_blank" rel="noopener noreferrer">Learning and Machine
+                            Perception (LAMP) team</a> at the Computer Vision Center, Autonomous University of Barcelona,
+                        advised by <a href="https://scholar.google.com/citations?user=Gsw2iUEAAAAJ" target="_blank"
+                            rel="noopener noreferrer">Joost van de Weijer</a>. During my Ph.D.,
+                        I focused on visual model adaptation.
                     </p>
-                    <div class="project-focus">
-                        <p class="project-focus-label">Project focus:</p>
-                        <ul class="project-focus-list">
-                            <li>
-                                <strong>Visual and Multimodal Generation</strong>
-                                <ul class="project-focus-sublist">
-                                    <li>Real-time and interactive autoregressive audio-video generation
-                                        <ul class="project-focus-link-list">
-                                            <li><a class="focus-link"
-                                                    href="https://www.sbintuitions.co.jp/blog/entry/2026/08/19/100000"
-                                                    target="_blank" rel="noopener noreferrer">Blog: Interactive
-                                                    Real-Time Talking Character</a></li>
-                                        </ul>
-                                    </li>
-                                    <li>Image generation pre-training and post-training
-                                        <ul class="project-focus-link-list">
-                                            <li><a class="focus-link"
-                                                    href="https://www.sbintuitions.co.jp/blog/entry/2026/09/04/123517"
-                                                    target="_blank" rel="noopener noreferrer">Blog: Sarashina Image 2.6B
-                                                    (in Japanese)</a></li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li>
-                                <strong>Video World Models and World Action Models</strong>
-                                <ul class="project-focus-sublist">
-                                    <li>Spatial consistency and long horizon
-                                        <ul class="project-focus-link-list">
-                                            <li><a class="focus-link"
-                                                    href="https://www.sbintuitions.co.jp/blog/entry/2026/09/30/170000"
-                                                    target="_blank" rel="noopener noreferrer">Blog: Train-free Revisit
-                                                    Consistency Investigtion</a></li>
-                                        </ul>
-                                    </li>
-                                    <li>Model Efficiency
-                                        <ul class="project-focus-link-list">
-                                            <li><a class="focus-link"
-                                                    href="https://www.sbintuitions.co.jp/blog/entry/2026/08/18/083500"
-                                                    target="_blank" rel="noopener noreferrer">Blog: Few-Step WAM</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
+                    <p>
+                        I have served the community as an area chair for ICML, NeurIPS, and ICLR, a guest editor for an
+                        <a href="https://link.springer.com/collections/iehbibaiea" target="_blank"
+                            rel="noopener noreferrer">IJCV special issue</a> on audio-visual generation, and an organizer
+                        of the workshop series
+                        <a href="https://efficientvg.github.io/" target="_blank" rel="noopener noreferrer">Efficient
+                            Visual Generation (EVG)</a> and
+                        <a href="https://avgen123.github.io" target="_blank" rel="noopener noreferrer">Audio-Visual
+                            Generation and Learning (AVGenL)</a>.
+                    </p>
+                </div>
+                <div class="project-focus">
+                    <p class="project-focus-label">Project focus:</p>
+                    <ul class="project-focus-list">
+                        <li>
+                            <strong>Visual and Multimodal Generation</strong>
+                            <ul class="project-focus-sublist">
+                                <li>Real-time and interactive autoregressive audio-video generation
+                                    <ul class="project-focus-link-list">
+                                        <li><a class="focus-link"
+                                                href="https://www.sbintuitions.co.jp/blog/entry/2026/08/19/100000"
+                                                target="_blank" rel="noopener noreferrer">Blog: Interactive
+                                                Real-Time Talking Character</a></li>
+                                    </ul>
+                                </li>
+                                <li>Image generation pre-training and post-training
+                                    <ul class="project-focus-link-list">
+                                        <li><a class="focus-link"
+                                                href="https://www.sbintuitions.co.jp/blog/entry/2026/09/04/123517"
+                                                target="_blank" rel="noopener noreferrer">Blog: Sarashina Image 2.6B
+                                                (in Japanese)</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <strong>Video World Models and World Action Models</strong>
+                            <ul class="project-focus-sublist">
+                                <li>Spatial consistency and long horizon
+                                    <ul class="project-focus-link-list">
+                                        <li><a class="focus-link"
+                                                href="https://www.sbintuitions.co.jp/blog/entry/2026/09/30/170000"
+                                                target="_blank" rel="noopener noreferrer">Blog: Train-free Revisit
+                                                Consistency Investigtion</a></li>
+                                    </ul>
+                                </li>
+                                <li>Model Efficiency
+                                    <ul class="project-focus-link-list">
+                                        <li><a class="focus-link"
+                                                href="https://www.sbintuitions.co.jp/blog/entry/2026/08/18/083500"
+                                                target="_blank" rel="noopener noreferrer">Blog: Few-Step WAM</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
                 </div>
             </section>
 
@@ -1502,8 +678,7 @@
                     real-time
                     systems, and behind-the-scenes engineering insights.
                 </p>
-                <div class="project-grid" tabindex="0" role="region"
-                    aria-label="Selected projects; scroll vertically to view more">
+                <div class="project-grid">
                     <!-- When a post goes live, add to its card:
                          href="BLOG_URL" target="_blank" rel="noopener noreferrer"
                          and optionally a one-line description:
@@ -1682,98 +857,15 @@
                 </ul>
             </section>
 
-            <section id="experience" class="card">
-                <span class="section-kicker">Career</span>
-                <h2>Industry Experience</h2>
-                <ul class="exp-list">
-                    <!-- SB Intuitions: current concurrent leadership and research roles, followed by role history -->
-                    <li class="exp-item">
-                        <div class="exp-company">
-                            <span class="exp-marker" aria-hidden="true"></span>
-                            SB Intuitions, SoftBank, Tokyo, Japan
-                        </div>
-
-                        <div class="exp-roles">
-                            <div class="exp-role is-current">
-                                <span class="exp-date">Apr. 2026&nbsp;–&nbsp;Present</span>
-                                <span class="exp-title">Director, Multimodal AI Department
-                                    <span class="role-note">Management role</span>
-                                </span>
-                            </div>
-                            <div class="exp-role is-current">
-                                <span class="exp-date">Jun. 2026&nbsp;–&nbsp;Present</span>
-                                <span class="exp-title">Principal Research Scientist &amp; Research Manager, Creative
-                                    Vision Team
-                                    <span class="role-note">Concurrent hands-on research and team-management role</span>
-                                </span>
-                            </div>
-                            <div class="exp-role">
-                                <span class="exp-date">Apr. 2025&nbsp;–&nbsp;May 2026</span>
-                                <span class="exp-title">Chief Research Scientist &amp; Research Manager, Creative Vision
-                                    Team</span>
-                            </div>
-                            <div class="exp-role">
-                                <span class="exp-date">Dec. 2024&nbsp;–&nbsp;Mar. 2025</span>
-                                <span class="exp-title">Lead Research Scientist</span>
-                            </div>
-                        </div>
-                    </li>
-
-                    <!-- Sony -->
-                    <li class="exp-item">
-                        <div class="exp-company">
-                            <span class="exp-marker" aria-hidden="true"></span>
-                            Sony Group Corporation, Tokyo, Japan
-                        </div>
-
-                        <div class="exp-roles">
-                            <div class="exp-role">
-                                <span class="exp-date">Oct. 2023&nbsp;–&nbsp;Nov. 2024</span>
-                                <span class="exp-title">Research Scientist</span>
-                            </div>
-                        </div>
-                    </li>
-
-                    <!-- OMRON SINIC X (keep original link) -->
-                    <li class="exp-item">
-                        <div class="exp-company">
-                            <span class="exp-marker" aria-hidden="true"></span>
-                            <a href="https://www.omron.com" target="_blank" rel="noopener noreferrer">OMRON SINIC X</a>,
-                            Tokyo, Japan
-                        </div>
-
-                        <div class="exp-roles">
-                            <div class="exp-role">
-                                <span class="exp-date">Jan. 2023&nbsp;–&nbsp;Jun. 2023</span>
-                                <span class="exp-title">Research Intern</span>
-                            </div>
-                        </div>
-                    </li>
-
-                    <!-- Kyoto University -->
-                    <li class="exp-item">
-                        <div class="exp-company">
-                            <span class="exp-marker" aria-hidden="true"></span>
-                            Kyoto University, Japan
-                        </div>
-
-                        <div class="exp-roles">
-                            <div class="exp-role">
-                                <span class="exp-date">Oct. 2018&nbsp;–&nbsp;Mar. 2019</span>
-                                <span class="exp-title">Guest Research Associate</span>
-                            </div>
-                        </div>
-                    </li>
-                </ul>
-            </section>
-
-
-
             <section id="publications" class="section">
                 <div class="section-header">
                     <div>
                         <span class="section-kicker">Research Output</span>
                         <h2 class="section-title">Publications</h2>
+                        <p class="section-lead publication-scholar">
+                            <a href="https://scholar.google.com/citations?user=p27Iqt4AAAAJ&amp;hl=en" target="_blank"
+                                rel="noopener noreferrer">Full publication list on Google Scholar</a>
+                        </p>
                         <div class="section-subtitle">
                             The latest work is shown first. Expand the full archive to browse by year and category.
                         </div>
@@ -2359,43 +1451,110 @@
                 </div>
             </section>
 
-            <section id="talks" class="card">
-                <span class="section-kicker">Recognition</span>
-                <h2>Talks, Awards &amp; Activities</h2>
-                <ul class="talks-list">
+            <section id="experience" class="card">
+                <span class="section-kicker">Career</span>
+                <h2>Industry Experience</h2>
+                <ul class="exp-list">
+                    <!-- SB Intuitions: current concurrent leadership and research roles, followed by role history -->
+                    <li class="exp-item">
+                        <div class="exp-company">
+                            <span class="exp-marker" aria-hidden="true"></span>
+                            SB Intuitions, SoftBank, Tokyo, Japan
+                        </div>
+
+                        <div class="exp-roles">
+                            <div class="exp-role is-current">
+                                <span class="exp-date">Apr. 2026&nbsp;–&nbsp;Present</span>
+                                <span class="exp-title">Director, Multimodal AI Department
+                                    <span class="role-note">Management role</span>
+                                </span>
+                            </div>
+                            <div class="exp-role is-current">
+                                <span class="exp-date">Jun. 2026&nbsp;–&nbsp;Present</span>
+                                <span class="exp-title">Principal Research Scientist &amp; Research Manager, Creative
+                                    Vision Team
+                                    <span class="role-note">Concurrent hands-on research and team-management role</span>
+                                </span>
+                            </div>
+                            <div class="exp-role">
+                                <span class="exp-date">Apr. 2025&nbsp;–&nbsp;May 2026</span>
+                                <span class="exp-title">Chief Research Scientist &amp; Research Manager, Creative Vision
+                                    Team</span>
+                            </div>
+                            <div class="exp-role">
+                                <span class="exp-date">Dec. 2024&nbsp;–&nbsp;Mar. 2025</span>
+                                <span class="exp-title">Lead Research Scientist</span>
+                            </div>
+                        </div>
+                    </li>
+
+                    <!-- Sony -->
+                    <li class="exp-item">
+                        <div class="exp-company">
+                            <span class="exp-marker" aria-hidden="true"></span>
+                            Sony Group Corporation, Tokyo, Japan
+                        </div>
+
+                        <div class="exp-roles">
+                            <div class="exp-role">
+                                <span class="exp-date">Oct. 2023&nbsp;–&nbsp;Nov. 2024</span>
+                                <span class="exp-title">Research Scientist</span>
+                            </div>
+                        </div>
+                    </li>
+
+                    <!-- OMRON SINIC X (keep original link) -->
+                    <li class="exp-item">
+                        <div class="exp-company">
+                            <span class="exp-marker" aria-hidden="true"></span>
+                            <a href="https://www.omron.com" target="_blank" rel="noopener noreferrer">OMRON SINIC X</a>,
+                            Tokyo, Japan
+                        </div>
+
+                        <div class="exp-roles">
+                            <div class="exp-role">
+                                <span class="exp-date">Jan. 2023&nbsp;–&nbsp;Jun. 2023</span>
+                                <span class="exp-title">Research Intern</span>
+                            </div>
+                        </div>
+                    </li>
+
+                    <!-- Kyoto University -->
+                    <li class="exp-item">
+                        <div class="exp-company">
+                            <span class="exp-marker" aria-hidden="true"></span>
+                            Kyoto University, Japan
+                        </div>
+
+                        <div class="exp-roles">
+                            <div class="exp-role">
+                                <span class="exp-date">Oct. 2018&nbsp;–&nbsp;Mar. 2019</span>
+                                <span class="exp-title">Guest Research Associate</span>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </section>
+
+            <section id="education" class="card">
+                <span class="section-kicker">Background</span>
+                <h2>Education</h2>
+                <ul class="edu-list">
                     <li>
-                        Organizer of the official
-                        <a href="https://luma.com/k4espqrm" target="_blank" rel="noopener noreferrer">Runway Local
-                            Meetup Tokyo</a>, Tokyo, Japan, Jul. 2026.
+                        <span class="exp-date">Sep. 2012&nbsp;–&nbsp;Jun. 2016</span><br />
+                        Bachelor in Automation,
+                        Wuhan University of Science and Technology, China.
                     </li>
                     <li>
-                        Visiting talks at
-                        <a href="https://www.micc.unifi.it" target="_blank" rel="noopener noreferrer">MICC Lab</a>
-                        (Prof. Andrew Bagdanov), University of Florence, and
-                        <a href="https://mhug.disi.unitn.it" target="_blank" rel="noopener noreferrer">MHUG Lab</a>
-                        (Prof. Nicu Sebe), University of Trento, Italy, Oct. 2024.
+                        <span class="exp-date">Sep. 2016&nbsp;–&nbsp;Jun. 2019</span><br />
+                        Master in Control Science and Technology,
+                        Huazhong University of Science and Technology, China.
                     </li>
                     <li>
-                        <a href="https://cerca.cat" target="_blank" rel="noopener noreferrer">Pioneer Awards 2023</a>,
-                        CERCA Research Center of Catalonia, Spain, Dec. 2023.
-                    </li>
-                    <li>
-                        Visiting talk with Prof.
-                        <a href="https://brbiclab.epfl.ch" target="_blank" rel="noopener noreferrer">Maria Brbic</a>'s
-                        group at EPFL, Switzerland, Jan. 2023.
-                    </li>
-                    <li>
-                        Invited talk at the
-                        <a href="https://trustmlresearch.github.io" target="_blank" rel="noopener noreferrer">TrustML
-                            Young Scientist Seminars</a>, RIKEN AIP, Japan, Dec. 2022.
-                    </li>
-                    <li>
-                        Participated in the
-                        <a href="https://iplab.dmi.unict.it" target="_blank" rel="noopener noreferrer">ICVSS Summer
-                            School</a>, Sicily, Italy, Jul. 2022.
-                    </li>
-                    <li>
-                        Invited talk at the AI Time Seminar on NeurIPS 2021 (virtual), China, Feb. 2022.
+                        <span class="exp-date">Oct. 2019&nbsp;–&nbsp;Jul. 2023</span><br />
+                        Ph.D. in Computer Science,
+                        <a href="https://www.cvc.uab.es" target="_blank" rel="noopener noreferrer">Computer Vision
+                            Center</a>, Autonomous University of Barcelona, Spain.
                     </li>
                 </ul>
             </section>
@@ -2434,25 +1593,43 @@
                 </ul>
             </section>
 
-            <section id="education" class="card">
-                <span class="section-kicker">Background</span>
-                <h2>Education</h2>
-                <ul class="edu-list">
+            <section id="talks" class="card">
+                <span class="section-kicker">Recognition</span>
+                <h2>Talks, Awards &amp; Activities</h2>
+                <ul class="talks-list">
                     <li>
-                        <span class="exp-date">Sep. 2012&nbsp;–&nbsp;Jun. 2016</span><br />
-                        Bachelor in Automation,
-                        Wuhan University of Science and Technology, China.
+                        Organizer of the official
+                        <a href="https://luma.com/k4espqrm" target="_blank" rel="noopener noreferrer">Runway Local
+                            Meetup Tokyo</a>, Tokyo, Japan, Jul. 2026.
                     </li>
                     <li>
-                        <span class="exp-date">Sep. 2016&nbsp;–&nbsp;Jun. 2019</span><br />
-                        Master in Control Science and Technology,
-                        Huazhong University of Science and Technology, China.
+                        Visiting talks at
+                        <a href="https://www.micc.unifi.it" target="_blank" rel="noopener noreferrer">MICC Lab</a>
+                        (Prof. Andrew Bagdanov), University of Florence, and
+                        <a href="https://mhug.disi.unitn.it" target="_blank" rel="noopener noreferrer">MHUG Lab</a>
+                        (Prof. Nicu Sebe), University of Trento, Italy, Oct. 2024.
                     </li>
                     <li>
-                        <span class="exp-date">Oct. 2019&nbsp;–&nbsp;Jul. 2023</span><br />
-                        Ph.D. in Computer Science,
-                        <a href="https://www.cvc.uab.es" target="_blank" rel="noopener noreferrer">Computer Vision
-                            Center</a>, Autonomous University of Barcelona, Spain.
+                        <a href="https://cerca.cat" target="_blank" rel="noopener noreferrer">Pioneer Awards 2023</a>,
+                        CERCA Research Center of Catalonia, Spain, Dec. 2023.
+                    </li>
+                    <li>
+                        Visiting talk with Prof.
+                        <a href="https://brbiclab.epfl.ch" target="_blank" rel="noopener noreferrer">Maria Brbic</a>'s
+                        group at EPFL, Switzerland, Jan. 2023.
+                    </li>
+                    <li>
+                        Invited talk at the
+                        <a href="https://trustmlresearch.github.io" target="_blank" rel="noopener noreferrer">TrustML
+                            Young Scientist Seminars</a>, RIKEN AIP, Japan, Dec. 2022.
+                    </li>
+                    <li>
+                        Participated in the
+                        <a href="https://iplab.dmi.unict.it" target="_blank" rel="noopener noreferrer">ICVSS Summer
+                            School</a>, Sicily, Italy, Jul. 2022.
+                    </li>
+                    <li>
+                        Invited talk at the AI Time Seminar on NeurIPS 2021 (virtual), China, Feb. 2022.
                     </li>
                 </ul>
             </section>
