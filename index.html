@@ -909,11 +909,12 @@
                         <p id="publication-count" class="publication-count" aria-live="polite"></p>
                     </div>
 
+                    <!-- data-scholar-order follows Google Scholar's newest-first list within each year. -->
                     <!-- International Conference -->
                     <div class="pub-group">
                         <h3>International Conference</h3>
                         <ul class="pub-list">
-                            <li class="pub-item">
+                            <li class="pub-item" data-scholar-order="7">
                                 <span class="pub-title">
                                     EchoDistill: Bidirectional Concept Distillation for One-Step Diffusion
                                     Personalization
@@ -1249,7 +1250,25 @@
                     <div class="pub-group">
                         <h3>Journal</h3>
                         <ul class="pub-list">
-                            <li class="pub-item">
+                            <li class="pub-item" data-scholar-order="3">
+                                <span class="pub-title">
+                                    Audio-Visual Generation
+                                </span>
+                                <span class="pub-authors">
+                                    Tae-Hyun Oh, Vicky Kalogeiton, Stavros Petridis, Sergey Tulyakov,
+                                    Zhixiang Wang, Ming-Hsuan Yang, <strong>Shiqi Yang</strong>
+                                </span>
+                                <span class="pub-venue">
+                                    International Journal of Computer Vision (IJCV), 134, article 302, 2026.
+                                    Guest Editorial.
+                                </span>
+                                <span class="pub-links">
+                                    <span><a href="https://link.springer.com/article/10.1007/s11263-026-02859-3"
+                                            target="_blank" rel="noopener noreferrer">[paper]</a></span>
+                                </span>
+                            </li>
+
+                            <li class="pub-item" data-scholar-order="4">
                                 <span class="pub-title">
                                     Training-free image inversion for one-step diffusion models
                                 </span>
@@ -1350,7 +1369,58 @@
                     <div class="pub-group">
                         <h3>Preprint and workshop paper</h3>
                         <ul class="pub-list">
-                            <li class="pub-item">
+                            <li class="pub-item" data-scholar-order="1">
+                                <span class="pub-title">
+                                    Beyond Plausibility: Verifiable Fine-Grained Image Editing on Structured Assets
+                                </span>
+                                <span class="pub-authors">
+                                    Muyao Wang, Chen Zhu, <strong>Shiqi Yang</strong>, DongHyun Hwan, Hideki Nakayama
+                                </span>
+                                <span class="pub-venue">
+                                    preprint, 2026.
+                                </span>
+                                <span class="pub-links">
+                                    <span><a href="https://arxiv.org/abs/2610.04381" target="_blank"
+                                            rel="noopener noreferrer">[arXiv]</a></span>
+                                </span>
+                            </li>
+
+                            <li class="pub-item" data-scholar-order="2">
+                                <span class="pub-title">
+                                    BTC3D: Blended Tile Conditioning for Detail-Enhancing Image-to-3D Generation
+                                </span>
+                                <span class="pub-authors">
+                                    Junyu Li, Qiuyu Chen, Pengcheng Wang, <strong>Shiqi Yang</strong>,
+                                    Alexandra Gomez-Villa, Joost van de Weijer, Ruilin Li, Kai Wang
+                                </span>
+                                <span class="pub-venue">
+                                    preprint, 2026.
+                                </span>
+                                <span class="pub-links">
+                                    <span><a href="https://arxiv.org/abs/2609.39709" target="_blank"
+                                            rel="noopener noreferrer">[arXiv]</a></span>
+                                </span>
+                            </li>
+
+                            <li class="pub-item" data-scholar-order="5">
+                                <span class="pub-title">
+                                    EDGE-Shield: Efficient Denoising-staGE Shield for Violative Content Filtering
+                                    via Scalable Reference-Based Matching
+                                </span>
+                                <span class="pub-authors">
+                                    Takara Taniguchi, Ryohei Shimizu, Duc Minh Vo, Kota Izumi,
+                                    <strong>Shiqi Yang</strong>, Teppei Suzuki
+                                </span>
+                                <span class="pub-venue">
+                                    preprint, 2026.
+                                </span>
+                                <span class="pub-links">
+                                    <span><a href="https://arxiv.org/abs/2604.06063" target="_blank"
+                                            rel="noopener noreferrer">[arXiv]</a></span>
+                                </span>
+                            </li>
+
+                            <li class="pub-item" data-scholar-order="6">
                                 <span class="pub-title">
                                     Probing the effectiveness of World Models for Spatial Reasoning through Test-time
                                     Scaling
@@ -1706,7 +1776,8 @@
 
                     archive.querySelectorAll('.pub-list').forEach((list) => {
                         [...list.children]
-                            .sort((a, b) => Number(b.dataset.year || 0) - Number(a.dataset.year || 0))
+                            .sort((a, b) => Number(b.dataset.year || 0) - Number(a.dataset.year || 0)
+                                || Number(a.dataset.scholarOrder || Infinity) - Number(b.dataset.scholarOrder || Infinity))
                             .forEach((item) => list.append(item));
                     });
 
@@ -1742,9 +1813,10 @@
                         .map((item, index) => ({
                             item,
                             index,
-                            year: Number(item.dataset.year || item.querySelector('.pub-venue')?.textContent.match(/20\d{2}/)?.[0] || 0)
+                            year: Number(item.dataset.year || item.querySelector('.pub-venue')?.textContent.match(/20\d{2}/)?.[0] || 0),
+                            scholarOrder: Number(item.dataset.scholarOrder || Infinity)
                         }))
-                        .sort((a, b) => b.year - a.year || a.index - b.index)
+                        .sort((a, b) => b.year - a.year || a.scholarOrder - b.scholarOrder || a.index - b.index)
                         .slice(0, LATEST_COUNT);
 
                     newest.forEach(({ item }) => {
